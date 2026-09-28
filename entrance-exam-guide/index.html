@@ -51,8 +51,10 @@
 <label>Child's Date of Birth<input id="dobCheck" type="date" required></label>
 <label>Current Class<select id="currentClass"><option value="5">Class V</option><option value="6">Class VI</option><option value="7">Class VII</option><option value="8">Class VIII</option><option value="9">Class IX</option><option value="other">Other</option></select></label>
 <label>Current School Name<input id="schoolName" type="text" placeholder="School name" required></label>
-<label>School District<input id="schoolDistrict" type="text" placeholder="District where school is located" required></label>
-<label>Residence District<input id="residenceDistrict" type="text" placeholder="District where family resides" required></label>
+<label>School District<select id="schoolDistrict" required><option value="">Select district</option><option>Adilabad</option><option>Bhadradri Kothagudem</option><option>Hanumakonda</option><option>Hyderabad</option><option>Jagtial</option><option>Jangaon</option><option>Jayashankar Bhupalpally</option><option>Jogulamba Gadwal</option><option>Kamareddy</option><option>Karimnagar</option><option>Khammam</option><option>Kumuram Bheem</option><option>Mahabubabad</option><option>Mahabubnagar</option><option>Mancherial</option><option>Medak</option><option>Medchal-Malkajgiri</option><option>Mulugu</option><option>Nagarkurnool</option><option>Nalgonda</option><option>Narayanpet</option><option>Nirmal</option><option>Nizamabad</option><option>Peddapalli</option><option>Rajanna Sircilla</option><option>Rangareddy</option><option>Sangareddy</option><option>Siddipet</option><option>Suryapet</option><option>Vikarabad</option><option>Wanaparthy</option><option>Warangal</option><option>Yadadri Bhuvanagiri</option></select></label>
+<label>School Mandal<select id="schoolMandal" required><option value="">Select district first</option></select></label>
+<label>Residence District<select id="residenceDistrict" required><option value="">Select district</option><option>Adilabad</option><option>Bhadradri Kothagudem</option><option>Hanumakonda</option><option>Hyderabad</option><option>Jagtial</option><option>Jangaon</option><option>Jayashankar Bhupalpally</option><option>Jogulamba Gadwal</option><option>Kamareddy</option><option>Karimnagar</option><option>Khammam</option><option>Kumuram Bheem</option><option>Mahabubabad</option><option>Mahabubnagar</option><option>Mancherial</option><option>Medak</option><option>Medchal-Malkajgiri</option><option>Mulugu</option><option>Nagarkurnool</option><option>Nalgonda</option><option>Narayanpet</option><option>Nirmal</option><option>Nizamabad</option><option>Peddapalli</option><option>Rajanna Sircilla</option><option>Rangareddy</option><option>Sangareddy</option><option>Siddipet</option><option>Suryapet</option><option>Vikarabad</option><option>Wanaparthy</option><option>Warangal</option><option>Yadadri Bhuvanagiri</option></select></label>
+<label>Residence Mandal<select id="residenceMandal" required><option value="">Select district first</option></select></label>
 <label>Domicile / Residence State<select id="domicileState"><option>Telangana</option><option>Andhra Pradesh</option><option>Karnataka</option><option>Maharashtra</option><option>Other</option></select></label>
 <label>School Area<select id="schoolArea"><option>Urban</option><option>Rural</option><option>Not sure</option></select></label>
 <label>Preferred School / JNV / Sainik School<input id="preferredSchool" type="text" placeholder="Optional"></label>
@@ -190,7 +192,7 @@
 function v(id){return (document.getElementById(id)?.value||'').trim();}
 function checkEligibility(){
  const exam=v('examCheck'), cls=v('classCheck'), dob=v('dobCheck'), current=v('currentClass'), schoolDistrict=v('schoolDistrict').toLowerCase(), residence=v('residenceDistrict').toLowerCase(), attempted=v('attempted'), classes345=v('classes345'), schoolType=v('schoolType'), out=document.getElementById('eligibilityResult');
- if(!v('studentName')||!v('parentName')||!v('parentPhone')||!dob||!v('schoolName')||!v('schoolDistrict')||!v('residenceDistrict')||!v('gender')||!v('category')){out.innerHTML='<b>Please complete the required parent, student, DOB, school and district details.</b>';out.style.display='block';return;}
+ if(!v('studentName')||!v('parentName')||!v('parentPhone')||!dob||!v('schoolName')||!v('schoolDistrict')||!v('schoolMandal')||!v('residenceDistrict')||!v('residenceMandal')||!v('gender')||!v('category')){out.innerHTML='<b>Please complete the required parent, student, DOB, school and district details.</b>';out.style.display='block';return;}
  let msg='', status='Preliminary screening';
  const phone=v('parentPhone').replace(/\D/g,'');
  if(phone.length<10){out.innerHTML='<b>Please enter a valid parent WhatsApp/mobile number.</b>';out.style.display='block';return;}
@@ -239,7 +241,9 @@ function sendEligibilityWhatsApp(){
  'Current Class: '+v('currentClass'),
  'School: '+v('schoolName'),
  'School District: '+v('schoolDistrict'),
+ 'School Mandal: '+v('schoolMandal'),
  'Residence District: '+v('residenceDistrict'),
+ 'Residence Mandal: '+v('residenceMandal'),
  'State: '+v('stateName'),
  'Domicile/Residence State: '+v('domicileState'),
  'Gender: '+v('gender'),
@@ -255,4 +259,28 @@ function sendEligibilityWhatsApp(){
  ].join('\n');
  window.open('https://wa.me/917842138739?text='+encodeURIComponent(fields),'_blank','noopener');
 }
+</script><script>
+const TS_TGRAC_MANDAL_API='https://tgrac.telangana.gov.in/arcgis/rest/services/Master_Administrative_Folder/Master_Administrative_Boundary/MapServer/4/query';
+async function loadMandals(district, selectId){
+ const select=document.getElementById(selectId);
+ select.innerHTML='<option value="">Loading mandals…</option>';
+ select.disabled=true;
+ if(!district){select.innerHTML='<option value="">Select district first</option>';return;}
+ try{
+   const url=TS_TGRAC_MANDAL_API+'?where='+encodeURIComponent("district='"+district.replace(/'/g,"''")+"'")+'&outFields='+encodeURIComponent('mandal_type,district')+'&returnGeometry=false&orderByFields='+encodeURIComponent('mandal_type')+'&f=json';
+   const res=await fetch(url,{headers:{Accept:'application/json'}});
+   if(!res.ok) throw new Error('Mandal service unavailable');
+   const data=await res.json();
+   const names=(data.features||[]).map(x=>x.attributes?.mandal_type).filter(Boolean);
+   const unique=[...new Set(names)].sort((a,b)=>a.localeCompare(b));
+   select.innerHTML='<option value="">Select mandal</option>'+unique.map(x=>'<option>'+String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</option>').join('');
+   select.disabled=false;
+   if(!unique.length) select.innerHTML='<option value="">Mandal list unavailable — please contact TASVIA</option>';
+ }catch(e){
+   select.innerHTML='<option value="">Mandal list unavailable — try again</option>';
+   select.disabled=false;
+ }
+}
+document.getElementById('schoolDistrict').addEventListener('change',e=>loadMandals(e.target.value,'schoolMandal'));
+document.getElementById('residenceDistrict').addEventListener('change',e=>loadMandals(e.target.value,'residenceMandal'));
 </script></body></html>
