@@ -178,6 +178,64 @@ body{overflow-x:hidden}
  .scroll-reveal{opacity:1!important;transform:none!important;transition:none!important}
 }
 </style>
+
+<style id="TASVIA_COMMERCIAL_MOTION_V2">
+/* TASVIA_COMMERCIAL_MOTION_V2 */\n/* Premium commercial motion system */
+:root{--premium-ease:cubic-bezier(.16,1,.3,1)}
+/* Header */
+.topbar{transition:box-shadow .35s ease,background-color .35s ease,backdrop-filter .35s ease}
+.topbar.is-scrolled{box-shadow:0 8px 30px rgba(10,33,71,.10);background:rgba(255,255,255,.98)}
+.brand img{transition:transform .45s var(--premium-ease),box-shadow .35s ease}
+.brand:hover img{transform:rotate(-4deg) scale(1.06);box-shadow:0 8px 20px rgba(10,33,71,.18)}
+/* Hero */
+.heroVisual{perspective:900px}
+.heroMain{transition:transform .8s var(--premium-ease),box-shadow .5s ease;will-change:transform}
+.heroVisual:hover .heroMain{transform:translateY(-7px) rotateY(-1deg);box-shadow:0 25px 55px rgba(10,33,71,.18)}
+.heroBadge{transition:transform .5s var(--premium-ease),box-shadow .4s ease}
+.heroVisual:hover .heroBadge{transform:translateY(-5px);box-shadow:0 18px 40px rgba(10,33,71,.15)}
+/* Premium button shine */
+.btn,.navcta,.footerCta{position:relative;overflow:hidden}
+.btn:before,.navcta:before,.footerCta:before{content:"";position:absolute;top:0;left:-120%;width:70%;height:100%;background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.38) 48%,transparent 100%);transform:skewX(-18deg);transition:left .65s var(--premium-ease)}
+.btn:hover:before,.navcta:hover:before,.footerCta:hover:before{left:140%}
+/* Programme / gallery cards */
+.program{position:relative;isolation:isolate;transition:transform .45s var(--premium-ease),box-shadow .45s var(--premium-ease),border-color .35s ease}
+.program:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 0 1px transparent;transition:box-shadow .4s ease}
+.program:hover{transform:translateY(-10px) scale(1.012);box-shadow:0 24px 50px rgba(10,33,71,.15);border-color:rgba(239,181,43,.55)}
+.program:hover:after{box-shadow:inset 0 0 0 1px rgba(239,181,43,.35)}
+.programBody h3{transition:transform .4s var(--premium-ease),color .3s ease}
+.program:hover .programBody h3{transform:translateX(4px);color:var(--navy)}
+/* Stats */
+.stat{transition:transform .4s var(--premium-ease),box-shadow .4s ease,border-color .3s ease}
+.stat:hover{transform:translateY(-8px);box-shadow:0 18px 35px rgba(10,33,71,.12);border-color:rgba(239,181,43,.45)}
+/* Why / portal / content cards */
+.valueCard,.contactCard{transition:transform .45s var(--premium-ease),box-shadow .45s ease,border-color .3s ease}
+.valueCard:hover,.contactCard:hover{transform:translateY(-7px);box-shadow:0 20px 42px rgba(10,33,71,.12);border-color:rgba(239,181,43,.4)}
+/* Images */
+.introImg,.whyImg{transition:transform .7s var(--premium-ease),box-shadow .5s ease}
+.introImg:hover,.whyImg:hover{transform:scale(1.018) translateY(-3px);box-shadow:0 24px 48px rgba(10,33,71,.16)}
+/* Section titles */
+.sectionTitle{transition:transform .5s var(--premium-ease)}
+/* Social / footer */
+.socials a{transition:transform .35s var(--premium-ease),background-color .3s ease,box-shadow .35s ease}
+.socials a:hover{transform:translateY(-5px) scale(1.08);box-shadow:0 10px 22px rgba(0,0,0,.16)}
+/* CTA band */
+.ctaBand{transition:transform .5s var(--premium-ease),box-shadow .5s ease}
+.ctaBand:hover{transform:translateY(-4px);box-shadow:0 20px 42px rgba(239,181,43,.28)}
+/* Mobile action bar */
+.mobileActionBar a{transition:transform .3s var(--premium-ease),filter .3s ease}
+.mobileActionBar a:active{transform:scale(.96)}
+/* Scroll progress accent */
+body:before{content:"";position:fixed;top:0;left:0;width:100%;height:3px;z-index:9999;pointer-events:none;background:linear-gradient(90deg,var(--gold),var(--gold2));transform:scaleX(0);transform-origin:left;animation:tasviaProgress linear both;animation-timeline:scroll(root block)}
+@keyframes tasviaProgress{to{transform:scaleX(1)}}
+/* Gentle ticker motion */
+.tickerTrack{will-change:transform}
+/* Respect accessibility */
+@media(prefers-reduced-motion:reduce){
+ .topbar,.brand img,.heroMain,.heroBadge,.btn,.navcta,.footerCta,.program,.programBody h3,.stat,.valueCard,.contactCard,.introImg,.whyImg,.sectionTitle,.socials a,.ctaBand,.mobileActionBar a{transition:none!important}
+ .heroVisual:hover .heroMain,.heroVisual:hover .heroBadge,.program:hover,.stat:hover,.valueCard:hover,.contactCard:hover,.introImg:hover,.whyImg:hover,.ctaBand:hover{transform:none!important}
+ .btn:before,.navcta:before,.footerCta:before,body:before{display:none!important}
+}
+</style>
 </head><body>
 <header class="topbar"><div class="wrap nav"><a class="brand" href="#home"><img alt="TASVIA Academy logo" decoding="async" loading="eager" src="assets/logo.png"/><span><strong>TASVIA</strong><em>ACADEMY</em><small>Learn Today • Lead Tomorrow</small></span></a><nav aria-label="Primary navigation" class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#programs">Programs</a><a href="#why">Why TASVIA</a><a href="#parent-portal">Parent Portal</a><a href="#gallery">Gallery</a><a href="#enquiry">Enquire</a><a href="#contact">Contact</a></nav><a class="navcta" href="tel:+917842138739">☎  Call 78421 38739</a></div></header>
 <main id="main">
