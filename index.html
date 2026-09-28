@@ -248,7 +248,7 @@ body{overflow-x:hidden}
   if(typeof p.rating==='number'){value.textContent=p.rating.toFixed(1);stars.textContent='★'.repeat(Math.round(p.rating))+'☆'.repeat(5-Math.round(p.rating));stars.setAttribute('aria-label',p.rating.toFixed(1)+' out of 5 stars');}
   else value.textContent='—';
   count.textContent=Number.isFinite(p.userRatingCount)?p.userRatingCount.toLocaleString()+' Google reviews':'Google rating';
- }catch(e){value.textContent='—';count.textContent='See current reviews on Google';}
+ }catch(e){value.textContent='—';stars.textContent='★★★★★';stars.setAttribute('aria-label','Google rating unavailable');count.textContent='See current reviews on Google';}
 })();
 </script>
 </body></html>
