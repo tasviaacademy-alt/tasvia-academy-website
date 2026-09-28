@@ -267,11 +267,11 @@ async function loadMandals(district, selectId){
  select.disabled=true;
  if(!district){select.innerHTML='<option value="">Select district first</option>';return;}
  try{
-   const url=TS_TGRAC_MANDAL_API+'?where='+encodeURIComponent("district='"+district.replace(/'/g,"''")+"'")+'&outFields='+encodeURIComponent('mandal_type,district')+'&returnGeometry=false&orderByFields='+encodeURIComponent('mandal_type')+'&f=json';
+   const url=TS_TGRAC_MANDAL_API+'?where='+encodeURIComponent("district='"+district.replace(/'/g,"''")+"'")+'&outFields='+encodeURIComponent('Mandal,District')+'&returnGeometry=false&orderByFields='+encodeURIComponent('Mandal')+'&f=json';
    const res=await fetch(url,{headers:{Accept:'application/json'}});
    if(!res.ok) throw new Error('Mandal service unavailable');
    const data=await res.json();
-   const names=(data.features||[]).map(x=>x.attributes?.mandal_type).filter(Boolean);
+   const names=(data.features||[]).map(x=>x.attributes?.Mandal).filter(Boolean);
    const unique=[...new Set(names)].sort((a,b)=>a.localeCompare(b));
    select.innerHTML='<option value="">Select mandal</option>'+unique.map(x=>'<option>'+String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</option>').join('');
    select.disabled=false;
