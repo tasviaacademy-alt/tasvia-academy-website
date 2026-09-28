@@ -45,17 +45,23 @@
 <label>Student Name<input id="studentName" type="text" placeholder="Child's full name" required></label>
 <label>Parent WhatsApp Number<input id="parentPhone" type="tel" inputmode="tel" placeholder="10-digit mobile number" required></label>
 <label>Target Exam<select id="examCheck"><option value="navodaya">Navodaya · JNVST</option><option value="sainik">Sainik School · AISSEE</option></select></label>
+<label>Child Gender<select id="gender"><option value="">Select</option><option>Boy</option><option>Girl</option><option>Other / Prefer not to say</option></select></label>
+<label>Category<select id="category"><option value="">Select</option><option>General</option><option>SC</option><option>ST</option><option>OBC</option><option>Other / As applicable</option></select></label>
 <label>Target Admission Class<select id="classCheck"><option value="6">Class VI</option><option value="9">Class IX</option></select></label>
 <label>Child's Date of Birth<input id="dobCheck" type="date" required></label>
 <label>Current Class<select id="currentClass"><option value="5">Class V</option><option value="6">Class VI</option><option value="7">Class VII</option><option value="8">Class VIII</option><option value="9">Class IX</option><option value="other">Other</option></select></label>
 <label>Current School Name<input id="schoolName" type="text" placeholder="School name" required></label>
 <label>School District<input id="schoolDistrict" type="text" placeholder="District where school is located" required></label>
 <label>Residence District<input id="residenceDistrict" type="text" placeholder="District where family resides" required></label>
+<label>Domicile / Residence State<select id="domicileState"><option>Telangana</option><option>Andhra Pradesh</option><option>Karnataka</option><option>Maharashtra</option><option>Other</option></select></label>
+<label>School Area<select id="schoolArea"><option>Urban</option><option>Rural</option><option>Not sure</option></select></label>
+<label>Preferred School / JNV / Sainik School<input id="preferredSchool" type="text" placeholder="Optional"></label>
 <label>State<select id="stateName"><option>Telangana</option><option>Andhra Pradesh</option><option>Karnataka</option><option>Maharashtra</option><option>Other</option></select></label>
 <label>School Type<select id="schoolType"><option>Government</option><option>Government Aided</option><option>Government Recognised / Private</option><option>NIOS</option><option>Other</option></select></label>
 <label>Classes III–V completed in recognised schools? (Navodaya)<select id="classes345"><option value="yes">Yes</option><option value="no">No / Not sure</option><option value="na">Not applicable</option></select></label>
 <label>Has the child appeared for JNVST before?<select id="attempted"><option value="no">No</option><option value="yes">Yes</option><option value="unknown">Not sure</option></select></label>
 <label>Interested Programme<select id="programme"><option>Navodaya Coaching</option><option>Sainik School Coaching</option><option>Both</option></select></label>
+<label>Defence / Special Eligibility (if applicable)<select id="specialEligibility"><option>Not applicable</option><option>Defence / Ex-serviceman</option><option>PwD / Disability</option><option>Other / Not sure</option></select></label>
 <label>Additional Question<input id="question" type="text" placeholder="Optional"></label>
 </div>
 <label style="display:flex;gap:10px;align-items:flex-start;margin-top:18px;font-size:.86rem;color:var(--muted)"><input id="consent" type="checkbox" style="margin-top:5px;width:auto"> I agree to send these enquiry details to TASVIA Academy through WhatsApp so the academy can respond to my enquiry.</label>
@@ -193,8 +199,10 @@ function checkEligibility(){
 function v(id){return (document.getElementById(id)?.value||'').trim();}
 function checkEligibility(){
  const exam=v('examCheck'), cls=v('classCheck'), dob=v('dobCheck'), current=v('currentClass'), schoolDistrict=v('schoolDistrict').toLowerCase(), residence=v('residenceDistrict').toLowerCase(), attempted=v('attempted'), classes345=v('classes345'), schoolType=v('schoolType'), out=document.getElementById('eligibilityResult');
- if(!v('studentName')||!v('parentName')||!v('parentPhone')||!dob||!v('schoolName')||!v('schoolDistrict')||!v('residenceDistrict')){out.innerHTML='<b>Please complete the required parent, student, DOB, school and district details.</b>';out.style.display='block';return;}
+ if(!v('studentName')||!v('parentName')||!v('parentPhone')||!dob||!v('schoolName')||!v('schoolDistrict')||!v('residenceDistrict')||!v('gender')||!v('category')){out.innerHTML='<b>Please complete the required parent, student, DOB, school and district details.</b>';out.style.display='block';return;}
  let msg='', status='Preliminary screening';
+ const phone=v('parentPhone').replace(/\D/g,'');
+ if(phone.length<10){out.innerHTML='<b>Please enter a valid parent WhatsApp/mobile number.</b>';out.style.display='block';return;}
  if(exam==='navodaya' && cls==='6'){
    const d=new Date(dob+'T00:00:00'), min=new Date('2015-05-01T00:00:00'), max=new Date('2017-07-31T00:00:00');
    const dobOk=d>=min&&d<=max, classOk=current==='5', attemptOk=attempted==='no', studyOk=classes345==='yes', districtSame=schoolDistrict===residence;
@@ -232,6 +240,12 @@ function sendEligibilityWhatsApp(){
  'School District: '+v('schoolDistrict'),
  'Residence District: '+v('residenceDistrict'),
  'State: '+v('stateName'),
+ 'Domicile/Residence State: '+v('domicileState'),
+ 'Gender: '+v('gender'),
+ 'Category: '+v('category'),
+ 'School Area: '+v('schoolArea'),
+ 'Preferred School/JNV: '+v('preferredSchool'),
+ 'Special Eligibility: '+v('specialEligibility'),
  'School Type: '+v('schoolType'),
  'Classes III–V completed: '+v('classes345'),
  'Previous JNVST attempt: '+v('attempted'),
