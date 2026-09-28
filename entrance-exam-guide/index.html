@@ -37,12 +37,32 @@
 </div></div></section>
 
 <section class="section" id="eligibility-checker"><div class="wrap">
-<h2>Parent Eligibility Pre-Check</h2><p class="lead">Use this as a planning tool. It does <b>not</b> replace the official admission notification, which is the final authority.</p>
-<div class="check" style="margin-top:24px"><div class="checkgrid">
-<label>Exam<select id="examCheck"><option value="navodaya">Navodaya · JNVST</option><option value="sainik">Sainik School · AISSEE</option></select></label>
-<label>Target class<select id="classCheck"><option value="6">Class VI</option><option value="9">Class IX</option></select></label>
-<label>Child's date of birth<input id="dobCheck" type="date"></label>
-</div><button class="btn" type="button" onclick="checkEligibility()">Check what to verify →</button><div class="result" id="eligibilityResult"></div></div>
+<h2>Parent Eligibility &amp; Admission Pre-Check</h2>
+<p class="lead">Parents can enter the child's details to receive a preliminary screening and send the same information to <b>TASVIA Academy WhatsApp</b> for guidance. This is a screening tool, not an official NVS/NTA eligibility decision.</p>
+<div class="check" style="margin-top:24px">
+<div class="checkgrid">
+<label>Parent / Guardian Name<input id="parentName" type="text" placeholder="Your full name" required></label>
+<label>Student Name<input id="studentName" type="text" placeholder="Child's full name" required></label>
+<label>Parent WhatsApp Number<input id="parentPhone" type="tel" inputmode="tel" placeholder="10-digit mobile number" required></label>
+<label>Target Exam<select id="examCheck"><option value="navodaya">Navodaya · JNVST</option><option value="sainik">Sainik School · AISSEE</option></select></label>
+<label>Target Admission Class<select id="classCheck"><option value="6">Class VI</option><option value="9">Class IX</option></select></label>
+<label>Child's Date of Birth<input id="dobCheck" type="date" required></label>
+<label>Current Class<select id="currentClass"><option value="5">Class V</option><option value="6">Class VI</option><option value="7">Class VII</option><option value="8">Class VIII</option><option value="9">Class IX</option><option value="other">Other</option></select></label>
+<label>Current School Name<input id="schoolName" type="text" placeholder="School name" required></label>
+<label>School District<input id="schoolDistrict" type="text" placeholder="District where school is located" required></label>
+<label>Residence District<input id="residenceDistrict" type="text" placeholder="District where family resides" required></label>
+<label>State<select id="stateName"><option>Telangana</option><option>Andhra Pradesh</option><option>Karnataka</option><option>Maharashtra</option><option>Other</option></select></label>
+<label>School Type<select id="schoolType"><option>Government</option><option>Government Aided</option><option>Government Recognised / Private</option><option>NIOS</option><option>Other</option></select></label>
+<label>Classes III–V completed in recognised schools? (Navodaya)<select id="classes345"><option value="yes">Yes</option><option value="no">No / Not sure</option><option value="na">Not applicable</option></select></label>
+<label>Has the child appeared for JNVST before?<select id="attempted"><option value="no">No</option><option value="yes">Yes</option><option value="unknown">Not sure</option></select></label>
+<label>Interested Programme<select id="programme"><option>Navodaya Coaching</option><option>Sainik School Coaching</option><option>Both</option></select></label>
+<label>Additional Question<input id="question" type="text" placeholder="Optional"></label>
+</div>
+<label style="display:flex;gap:10px;align-items:flex-start;margin-top:18px;font-size:.86rem;color:var(--muted)"><input id="consent" type="checkbox" style="margin-top:5px;width:auto"> I agree to send these enquiry details to TASVIA Academy through WhatsApp so the academy can respond to my enquiry.</label>
+<button class="btn" type="button" onclick="checkEligibility()">Check Preliminary Eligibility →</button>
+<button class="btn" type="button" onclick="sendEligibilityWhatsApp()" style="margin-left:8px;background:#198754">Send Details to TASVIA WhatsApp →</button>
+<div class="result" id="eligibilityResult"></div>
+<div class="source-note">Privacy note: the website uses these details to prepare the enquiry message. WhatsApp opens on the parent's device and the parent must press Send. TASVIA should not treat this tool as an official government eligibility decision.</div>
 </div></section><section class="section alt" id="navodaya-2027-eligibility"><div class="wrap">
 <h2>JNVST 2027: Important Eligibility Rules</h2>
 <p class="lead">These points are especially important for parents applying for Class VI in the 2027 admission cycle. Always cross-check the current NVS prospectus before submitting an application.</p>
@@ -168,5 +188,56 @@ function checkEligibility(){
  if(dob) msg+=' You entered a date of birth; TASVIA does not issue an eligibility verdict from this tool because official cutoff dates can change.';
  out.innerHTML='<b>Pre-check for '+(exam==='navodaya'?'Navodaya JNVST':'Sainik School AISSEE')+' · Class '+cls+':</b><br>'+msg+'<br><br><a href="'+(exam==='navodaya'?'https://admissions.navodaya.gov.in/':'https://exams.nta.nic.in/sainik-school-society/')+'" target="_blank" rel="noopener">Open official information →</a>';
  out.style.display='block';
+}
+</script><script>
+function v(id){return (document.getElementById(id)?.value||'').trim();}
+function checkEligibility(){
+ const exam=v('examCheck'), cls=v('classCheck'), dob=v('dobCheck'), current=v('currentClass'), schoolDistrict=v('schoolDistrict').toLowerCase(), residence=v('residenceDistrict').toLowerCase(), attempted=v('attempted'), classes345=v('classes345'), schoolType=v('schoolType'), out=document.getElementById('eligibilityResult');
+ if(!v('studentName')||!v('parentName')||!v('parentPhone')||!dob||!v('schoolName')||!v('schoolDistrict')||!v('residenceDistrict')){out.innerHTML='<b>Please complete the required parent, student, DOB, school and district details.</b>';out.style.display='block';return;}
+ let msg='', status='Preliminary screening';
+ if(exam==='navodaya' && cls==='6'){
+   const d=new Date(dob+'T00:00:00'), min=new Date('2015-05-01T00:00:00'), max=new Date('2017-07-31T00:00:00');
+   const dobOk=d>=min&&d<=max, classOk=current==='5', attemptOk=attempted==='no', studyOk=classes345==='yes', districtSame=schoolDistrict===residence;
+   const possibleBorder=!districtSame;
+   const issues=[];
+   if(!dobOk) issues.push('DOB is outside the published JNVST 2027 Class VI window (01-May-2015 to 31-Jul-2017).');
+   if(!classOk) issues.push('The child should be studying Class V during 2026–27.');
+   if(!attemptOk) issues.push('A previous JNVST attempt may make the child ineligible because only one attempt is permitted.');
+   if(!studyOk) issues.push('Classes III, IV and V full-session study requirements need verification.');
+   if(possibleBorder) issues.push('School district differs from residence district. The neighbouring-district school exception requires the school to be within 10 km radial distance of the residence and NVS verification.');
+   if(issues.length===0){status='Preliminary details appear consistent';msg='Based on the details entered, the basic JNVST 2027 Class VI screening points appear consistent. Final eligibility remains subject to NVS document verification.';}
+   else {status='Further verification required';msg=issues.map(x=>'• '+x).join('<br>');}
+ } else if(exam==='navodaya'){
+   status='Official verification required';msg='This checker does not issue a Class IX Navodaya eligibility verdict. The applicable NVS lateral-entry prospectus, current class, DOB, district and vacancy rules must be checked for the relevant admission year.';
+ } else {
+   status='Official verification required';msg='AISSEE eligibility depends on the applicable NTA admission-year bulletin, target class, DOB, school and other conditions. The current NTA bulletin should be checked before a final eligibility decision.';
+ }
+ out.innerHTML='<b>'+status+'</b><br>'+msg+'<br><br><a href="'+(exam==='navodaya'?'https://admissions.navodaya.gov.in/':'https://exams.nta.nic.in/sainik-school-society/')+'" target="_blank" rel="noopener">Open official information →</a>';
+ out.style.display='block';
+}
+function sendEligibilityWhatsApp(){
+ if(!document.getElementById('consent').checked){alert('Please tick the consent box before sending your enquiry to TASVIA Academy.');return;}
+ const phone=v('parentPhone').replace(/\D/g,'');
+ if(phone.length<10){alert('Please enter a valid parent WhatsApp/mobile number.');return;}
+ const fields=[
+ 'TASVIA ACADEMY — Entrance Eligibility Enquiry',
+ 'Parent/Guardian: '+v('parentName'),
+ 'Student: '+v('studentName'),
+ 'Parent WhatsApp: '+v('parentPhone'),
+ 'Target Exam: '+v('examCheck'),
+ 'Target Class: '+v('classCheck'),
+ 'Date of Birth: '+v('dobCheck'),
+ 'Current Class: '+v('currentClass'),
+ 'School: '+v('schoolName'),
+ 'School District: '+v('schoolDistrict'),
+ 'Residence District: '+v('residenceDistrict'),
+ 'State: '+v('stateName'),
+ 'School Type: '+v('schoolType'),
+ 'Classes III–V completed: '+v('classes345'),
+ 'Previous JNVST attempt: '+v('attempted'),
+ 'Interested Programme: '+v('programme'),
+ 'Question: '+v('question')
+ ].join('\n');
+ window.open('https://wa.me/917842138739?text='+encodeURIComponent(fields),'_blank','noopener');
 }
 </script></body></html>
