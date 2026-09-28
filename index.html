@@ -154,21 +154,27 @@ body{overflow-x:hidden}
 .btn:hover,.navcta:hover,.footerCta:hover{transform:translateY(-3px)}
 .program:hover,.stat:hover,.valueCard:hover,.contactCard:hover{transform:translateY(-6px)}
 .programImg{transition:transform .55s var(--motion),filter .35s ease}
-.program:hover .programImg{transform:scale(1.035)}
+.program:hover .programImg{transform:scale(1.055)}
+.program:hover h3{color:var(--navy)}
+.btn:hover,.navcta:hover{box-shadow:0 14px 30px rgba(10,33,71,.18)}
+.links a:after{transition:right .32s var(--motion),width .32s var(--motion)}
+.heroBtns .btn:first-child{animation:tasviaButtonIn .7s .34s var(--motion) both}
+.heroBtns .btn:last-child{animation:tasviaButtonIn .7s .42s var(--motion) both}
 .heroMain{animation:tasviaHeroIn .9s var(--motion) both}
 .heroBadge{animation:tasviaBadgeIn .7s .2s var(--motion) both}
 .hero .eyebrow,.hero h1,.heroLead,.heroBtns{animation:tasviaCopyIn .7s var(--motion) both}
 .hero h1{animation-delay:.08s}.heroLead{animation-delay:.16s}.heroBtns{animation-delay:.24s}
-.scroll-reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--motion),transform .7s var(--motion);transition-delay:var(--reveal-delay,0s)}
+.scroll-reveal{opacity:0;transform:translateY(28px);transition:opacity .85s var(--motion),transform .85s var(--motion);transition-delay:var(--reveal-delay,0s);will-change:opacity,transform}
 .scroll-reveal.is-visible{opacity:1;transform:none}
 .links a.is-active{color:var(--navy)}
 .socials a:hover{transform:translateY(-4px) rotate(-2deg)}
 @keyframes tasviaHeroIn{from{opacity:0;transform:translateX(24px) scale(.985)}to{opacity:1;transform:none}}
 @keyframes tasviaBadgeIn{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
 @keyframes tasviaCopyIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes tasviaButtonIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){
  .btn,.navcta,.program,.stat,.valueCard,.contactCard,.heroBadge,.socials a,.footerCta,.learn,.links a,.programImg{transition:none!important}
- .heroMain,.heroBadge,.hero .eyebrow,.hero h1,.heroLead,.heroBtns{animation:none!important}
+ .heroMain,.heroBadge,.hero .eyebrow,.hero h1,.heroLead,.heroBtns,.heroBtns .btn{animation:none!important}
  .scroll-reveal{opacity:1!important;transform:none!important;transition:none!important}
 }
 </style>
