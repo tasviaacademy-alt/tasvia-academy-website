@@ -187,15 +187,6 @@
 ]}
 </script>
 <script>
-function checkEligibility(){
- const exam=document.getElementById('examCheck').value, cls=document.getElementById('classCheck').value, dob=document.getElementById('dobCheck').value, out=document.getElementById('eligibilityResult');
- let msg=exam==='navodaya' ? 'For JNVST, verify the current NVS prospectus for Class VI eligibility, date-of-birth window, study/class requirements and the admission year.' : 'For AISSEE, verify the current NTA bulletin for Class VI or IX eligibility, date-of-birth window, school/category/vacancy conditions and the admission year.';
- if(exam==='navodaya' && cls==='9') msg='JNVST on this TASVIA guide is for the Class VI admission route. For any other Navodaya admission route, check the official NVS information for that route.';
- if(dob) msg+=' You entered a date of birth; TASVIA does not issue an eligibility verdict from this tool because official cutoff dates can change.';
- out.innerHTML='<b>Pre-check for '+(exam==='navodaya'?'Navodaya JNVST':'Sainik School AISSEE')+' · Class '+cls+':</b><br>'+msg+'<br><br><a href="'+(exam==='navodaya'?'https://admissions.navodaya.gov.in/':'https://exams.nta.nic.in/sainik-school-society/')+'" target="_blank" rel="noopener">Open official information →</a>';
- out.style.display='block';
-}
-</script><script>
 function v(id){return (document.getElementById(id)?.value||'').trim();}
 function checkEligibility(){
  const exam=v('examCheck'), cls=v('classCheck'), dob=v('dobCheck'), current=v('currentClass'), schoolDistrict=v('schoolDistrict').toLowerCase(), residence=v('residenceDistrict').toLowerCase(), attempted=v('attempted'), classes345=v('classes345'), schoolType=v('schoolType'), out=document.getElementById('eligibilityResult');
@@ -218,7 +209,17 @@ function checkEligibility(){
  } else if(exam==='navodaya'){
    status='Official verification required';msg='This checker does not issue a Class IX Navodaya eligibility verdict. The applicable NVS lateral-entry prospectus, current class, DOB, district and vacancy rules must be checked for the relevant admission year.';
  } else {
-   status='Official verification required';msg='AISSEE eligibility depends on the applicable NTA admission-year bulletin, target class, DOB, school and other conditions. The current NTA bulletin should be checked before a final eligibility decision.';
+   const d=new Date(dob+'T00:00:00'), ref=new Date('2027-03-31T00:00:00');
+   let age=ref.getFullYear()-d.getFullYear(); if(ref.getMonth()<d.getMonth() || (ref.getMonth()===d.getMonth() && ref.getDate()<d.getDate())) age--;
+   const ageOk=(cls==='6'&&age>=10&&age<=12)||(cls==='9'&&age>=13&&age<=15);
+   status='AISSEE preliminary screening';
+   const issues=[];
+   if(!ageOk) issues.push('The child’s age does not fall within the 10–12 years (Class VI) or 13–15 years (Class IX) range used in the latest published AISSEE rules; the 2027 bulletin must be checked when released.');
+   if(v('gender')==='Girl') msg='For girls, school-wise availability/vacancy and the admission-year rules must be verified for the selected Sainik School.';
+   else msg='The entered details will be checked against the applicable admission-year rules, school choice and vacancies.';
+   if(v('domicileState') && v('preferredSchool')) msg+=' Domicile state and selected school can affect Home State/Outside State treatment.';
+   if(issues.length) {status='Further verification required'; msg=issues.join('<br>')+'<br>'+msg;}
+   else msg+=' This is a preliminary screen only; final eligibility depends on the official NTA bulletin, selected school, vacancies, medical fitness and document verification.';
  }
  out.innerHTML='<b>'+status+'</b><br>'+msg+'<br><br><a href="'+(exam==='navodaya'?'https://admissions.navodaya.gov.in/':'https://exams.nta.nic.in/sainik-school-society/')+'" target="_blank" rel="noopener">Open official information →</a>';
  out.style.display='block';
