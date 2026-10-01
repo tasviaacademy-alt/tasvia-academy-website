@@ -1,0 +1,19 @@
+{
+  "date":"2026-10-01",
+  "title":"Daily Current Affairs",
+  "items":[
+    {"category":"Invention","icon":"🔬","title":"MIRA miniaturised space-imaging system receives an Indian patent","text":"Hyderabad-based EON Space Labs received an Indian patent for MIRA, a compact telescope-based imaging system designed for space applications. The system weighs about 502 g.","source":"Hyderabad Mail, 29 Sep 2026"},
+    {"category":"Discovery","icon":"🧪","title":"Scientists observe a predicted solar motion linked to solar flares","text":"Science News reports that scientists have observed a long-predicted motion on the Sun that may help explain how explosive solar flares are triggered.","source":"Science News, Oct 2026"},
+    {"category":"World Record","icon":"🌍","title":"India’s women’s compound archery team equals the world record","text":"Jyothi Surekha Vennam, Chikitha Taniparthi and Prithika Pradeep scored 238–234 against China at the 2026 Asian Games, equalling the world, Asian and Games records.","source":"Jagran Josh, 1 Oct 2026"},
+    {"category":"International Main News","icon":"🌐","title":"US forces complete withdrawal from Iraq","text":"Reports on 1 October 2026 said US forces completed their withdrawal from Iraq after more than two decades, ending the US-led anti-IS mission there.","source":"Jagran Josh, 1 Oct 2026"},
+    {"category":"Sports Record","icon":"🏆","title":"Shubman Gill scores 223 in India’s record ODI chase","text":"Shubman Gill scored an unbeaten 223 as India chased 406 against the West Indies. It was reported as India’s highest successful men’s ODI run chase.","source":"Reuters, 1 Oct 2026"},
+    {"category":"Sports","icon":"🥇","title":"India reaches 60 medals at the Asian Games","text":"India’s tally reached 60 medals at the 2026 Asian Games, including 10 gold, 21 silver and 29 bronze, according to reports on 1 October.","source":"Indian Express, 1 Oct 2026"}
+  ],
+  "quiz":[
+    {"q":"What is the name of EON Space Labs’ miniaturised space-imaging system?","a":"MIRA"},
+    {"q":"Which sport produced the world-record-equalling 238–234 score?","a":"Women’s compound archery"},
+    {"q":"Which country did India chase 406 against?","a":"West Indies"},
+    {"q":"How many medals had India won at the Asian Games according to the 1 October reports?","a":"60"},
+    {"q":"What is MIRA designed to provide?","a":"Compact space-based imaging"}
+  ]
+}
