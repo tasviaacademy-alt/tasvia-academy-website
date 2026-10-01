@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TASVIA Academy – Parent</title>
+<meta name="theme-color" content="#0B2455">
+<meta name="robots" content="noindex">
+<link rel="icon" href="https://apk.tasviaacademy.com/icon-512.png">
+<link rel="apple-touch-icon" href="https://apk.tasviaacademy.com/icon-512.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="TASVIA">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Hind:wght@400;500;600&family=Noto+Sans+Telugu:wght@400;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EDF1EE;--card:#fff;--ink:#15201C;--muted:#5B6A63;--line:#D3DCD7;--chip:#E2E9E5;--board:#0B2455;--chalk:#F3F6F1;--gold:#F2AC10;--p:#2B8A55;--a:#C4432A;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root{--bg:#0E1613;--card:#17221E;--ink:#E6EDE9;--muted:#98A9A1;--line:#29372F;--chip:#213029;--board:#081A3E}}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Hind,"Noto Sans Telugu","Noto Sans Devanagari",system-ui,sans-serif}
+h1,h2,h3{font-family:"Baloo 2",Hind,"Noto Sans Telugu","Noto Sans Devanagari",system-ui,sans-serif;margin:0;line-height:1.2}
+header{background:var(--board);color:var(--chalk);padding:16px 18px 22px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;max-width:640px;margin:0 auto}
+.hlogo{width:36px;height:36px;border-radius:50%;background:#fff;vertical-align:middle;margin:-4px 8px 0 0;box-shadow:0 0 0 2px var(--gold)}
+#banner{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 10px);transform:translate(-50%,-150%);z-index:50;display:flex;gap:10px;align-items:center;background:var(--card);color:var(--ink);border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:14px;padding:10px 14px;box-shadow:0 10px 30px rgba(0,0,0,.25);width:min(92%,420px);transition:transform .35s}#banner.show{transform:translate(-50%,0)}#banner img{width:36px;height:36px;border-radius:50%}#banner b{display:block}#banner span{color:var(--muted);font-size:.9rem}
+.brand{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:1.3rem;white-space:nowrap}.brand span{color:var(--gold)}
+.langs{display:flex;gap:4px}
+.langs button{border:0;border-radius:999px;padding:4px 10px;background:rgba(255,255,255,.12);color:var(--chalk);font:inherit;font-size:.85rem;cursor:pointer}
+.langs button.on{background:var(--gold);color:#1a1405;font-weight:600}
+.kid{max-width:640px;margin:14px auto 0}
+.kid{display:flex;gap:14px;align-items:center}.kid .ph{width:72px;height:96px;border-radius:12px;overflow:hidden;border:3px solid var(--gold);flex:0 0 auto}.kid .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.kid h1{font-size:1.9rem}.kid p{margin:2px 0 0;opacity:.85}
+main{max-width:640px;margin:-10px auto 0;padding:0 14px 40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:12px}
+.card h2{font-size:1.2rem;margin-bottom:8px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.stats b{display:block;font-family:"Baloo 2",sans-serif;font-size:1.9rem;line-height:1.1}
+.stats small{color:var(--muted)}
+.ok{color:var(--p)}.bad{color:var(--a)}.gold{color:#B8820A}
+.bar{height:10px;border-radius:5px;background:var(--chip);overflow:hidden;margin:10px 0 4px}.bar i{display:block;height:100%;background:var(--p)}
+.sub{color:var(--muted);font-size:.9rem}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+td,th{padding:7px 4px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:.85rem}
+td.r,th.r{text-align:right;white-space:nowrap}
+.tag{display:inline-block;font-size:.8rem;font-weight:600;border-radius:999px;padding:2px 10px}
+.tag.ok{background:color-mix(in srgb,var(--p) 16%,transparent)}.tag.bad{background:color-mix(in srgb,var(--a) 14%,transparent)}.tag.gold{background:color-mix(in srgb,var(--gold) 18%,transparent)}
+.hw{border-left:4px solid var(--gold);padding:4px 0 4px 12px;margin:10px 0}
+.hw b{font-size:.9rem;color:var(--muted);font-weight:600}
+.hw div{white-space:pre-wrap}
+.notice{border-left:5px solid var(--gold);background:color-mix(in srgb,var(--gold) 12%,var(--card));padding:10px 14px;border-radius:0 12px 12px 0}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{display:inline-block;text-decoration:none;border-radius:12px;padding:10px 16px;font-weight:600;background:var(--board);color:var(--chalk)}
+.btn.gold{background:var(--gold);color:#1a1405}.upi-apps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%;margin-top:10px}.upi-app{display:block;text-align:center;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:9px 5px;background:var(--card);color:var(--ink);font-weight:600;font-size:.86rem}.upi-app:active{transform:scale(.98)}
+.center{text-align:center;padding:60px 20px;color:var(--muted)}
+.foot{text-align:center;color:var(--muted);font-size:.8rem;margin-top:18px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips span{background:var(--chip);border-radius:999px;padding:3px 10px;font-size:.88rem}
+
+/* PARENT FEE DUE — premium attention cue */
+@keyframes feeGlow{0%,100%{box-shadow:0 4px 18px rgba(199,71,64,.08)}50%{box-shadow:0 8px 28px rgba(199,71,64,.22)}}
+@keyframes feeSweep{0%{transform:translateX(-120%);opacity:0}12%{opacity:.55}55%{opacity:.15}100%{transform:translateX(260%);opacity:0}}
+.fee-due{position:relative;overflow:hidden;border:1.5px solid rgba(199,71,64,.48);animation:feeGlow 2.4s ease-in-out infinite}
+.fee-due::after{content:"";position:absolute;top:0;bottom:0;left:0;width:38%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.34),transparent);transform:translateX(-120%);animation:feeSweep 3.6s ease-in-out infinite;pointer-events:none}
+.fee-due .fee-alert{display:flex;align-items:center;gap:8px;margin:-3px 0 11px;padding:8px 10px;border-radius:10px;background:rgba(199,71,64,.09);color:var(--a);font-weight:700;font-size:.88rem}
+.fee-due .fee-alert .dot{width:8px;height:8px;border-radius:50%;background:var(--a);box-shadow:0 0 0 5px rgba(199,71,64,.12);animation:feeDot 1.4s ease-in-out infinite}
+@keyframes feeDot{50%{transform:scale(1.35);opacity:.65}}
+@media(prefers-reduced-motion:reduce){
+ .fee-due,.fee-due::after,.fee-due .fee-alert .dot{animation:none!important}
+}
+
+/* PARENT FEE DUE POPUP */
+.fee-popup-backdrop{position:fixed;inset:0;z-index:100;background:rgba(7,18,14,.58);backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .28s ease,visibility .28s ease}
+.fee-popup-backdrop.show{opacity:1;visibility:visible}
+.fee-popup{width:min(94%,390px);background:var(--card);border:1px solid rgba(199,71,64,.28);border-top:5px solid var(--a);border-radius:20px;padding:24px 20px 18px;box-shadow:0 22px 60px rgba(0,0,0,.32);transform:translateY(18px) scale(.96);transition:transform .32s cubic-bezier(.22,1,.36,1);text-align:center}
+.fee-popup-backdrop.show .fee-popup{transform:translateY(0) scale(1)}
+.fee-popup-icon{width:54px;height:54px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;background:rgba(196,67,42,.1);font-size:27px;animation:feePopupPulse 1.5s ease-in-out infinite}
+.fee-popup h3{font-size:1.45rem;color:var(--ink);margin-bottom:5px}
+.fee-popup .due-label{color:var(--a);font-weight:700;font-size:.95rem}
+.fee-popup .due-amount{font-family:"Baloo 2",sans-serif;font-size:2rem;font-weight:800;color:var(--a);line-height:1.15;margin:7px 0 15px}
+.fee-popup .due-note{color:var(--muted);font-size:.9rem;margin:0 0 16px}
+.fee-popup .acts{justify-content:center;margin-top:0}
+.fee-popup .btn{min-width:125px;cursor:pointer;border:0;font:inherit}
+@keyframes feePopupPulse{50%{transform:scale(1.08);box-shadow:0 0 0 9px rgba(196,67,42,.06)}}
+@media(prefers-reduced-motion:reduce){.fee-popup-backdrop,.fee-popup{transition:none}.fee-popup-icon{animation:none}}
+
+.photo-upload{display:flex;align-items:center;gap:12px;padding:12px;border:1px dashed var(--line);border-radius:14px;background:var(--chip);margin-top:10px}.photo-upload .preview{width:58px;height:72px;border-radius:10px;overflow:hidden;border:2px solid var(--gold);background:var(--chip);display:grid;place-items:center;font-size:24px;flex:0 0 auto}.photo-upload .preview img{width:100%;height:100%;object-fit:cover}.photo-upload input{display:none}
+
+/* PARENT WELCOME EXPERIENCE */
+.welcome-backdrop{position:fixed;inset:0;z-index:999;background:linear-gradient(145deg,#071a3d 0%,#0B2455 58%,#102e68 100%);display:flex;align-items:center;justify-content:center;padding:24px;opacity:1;visibility:visible;transition:opacity .45s ease,visibility .45s ease}
+.welcome-backdrop.hide{opacity:0;visibility:hidden;pointer-events:none}
+.welcome-card{width:min(92%,390px);text-align:center;color:#F3F6F1}
+.welcome-logo-wrap{width:112px;height:112px;margin:0 auto 18px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 4px #F2AC10,0 14px 45px rgba(0,0,0,.28);animation:welcomeLogoIn .75s cubic-bezier(.22,1,.36,1) both}
+.welcome-logo{width:88px;height:88px;border-radius:50%;object-fit:contain}
+.welcome-card h2{font-family:"Baloo 2",sans-serif;font-size:2rem;line-height:1.05;margin:0 0 7px}
+.welcome-card h2 span{color:#F2AC10}
+.welcome-card p{margin:0 auto;color:rgba(243,246,241,.86);font-size:1rem;max-width:320px}
+.welcome-tag{margin-top:12px!important;font-size:.82rem!important;color:#F2AC10!important;font-weight:600;letter-spacing:.04em}
+.welcome-enter{margin-top:24px;border:1px solid rgba(242,172,16,.7);border-radius:999px;background:#F2AC10;color:#1a1405;padding:11px 24px;font:600 16px Hind,sans-serif;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.welcome-sound{margin-top:12px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.08);color:#F3F6F1;padding:7px 14px;font:500 13px Hind,sans-serif;cursor:pointer}
+.welcome-sound.off{opacity:.72}
+@keyframes welcomeLogoIn{from{opacity:0;transform:scale(.65) rotate(-8deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+@media(prefers-reduced-motion:reduce){.welcome-logo-wrap{animation:none}.welcome-backdrop{transition:none}}
+
+
+.brain-card{border:1px solid rgba(242,172,16,.35);background:linear-gradient(145deg,var(--card),color-mix(in srgb,var(--gold) 6%,var(--card)));overflow:hidden}.brain-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.brain-icon{width:46px;height:46px;border-radius:14px;background:var(--board);display:grid;place-items:center;font-size:25px;flex:0 0 auto}.brain-sub{margin:3px 0 0}.brain-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.brain-chips span{background:var(--chip);border-radius:999px;padding:3px 10px;font-size:.8rem}.brain-start{width:100%;margin-top:12px;border:0;cursor:pointer;font:600 16px Hind,sans-serif}.brain-game{margin-top:12px;padding:13px;border:1px solid var(--line);border-radius:14px;background:var(--chip)}.brain-bar{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:.82rem;color:var(--muted);margin-bottom:10px}.brain-bar b{color:var(--ink)}.memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:360px;margin:0 auto}.memory-card{aspect-ratio:1;border:0;border-radius:12px;background:var(--board);color:#fff;cursor:pointer;min-width:44px;min-height:44px;font:700 1.45rem/1 Hind,sans-serif;box-shadow:0 3px 7px rgba(0,0,0,.18)}.memory-card.revealed,.memory-card.matched{background:var(--card);color:var(--ink);border:2px solid var(--gold)}.memory-card.matched{opacity:.72}.memory-card:disabled{cursor:default}.memory-card:focus-visible{outline:3px solid var(--gold);outline-offset:2px}.memory-symbol{display:none}.memory-card.revealed .memory-symbol,.memory-card.matched .memory-symbol{display:block}.memory-card.revealed .memory-back,.memory-card.matched .memory-back{display:none}.brain-feedback{text-align:center;font-weight:700;min-height:25px;margin-top:9px}.brain-feedback.ok{color:var(--p)}.brain-feedback.bad{color:var(--a)}.brain-games{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}.brain-game-btn{border:1px solid var(--line);border-radius:12px;padding:11px 8px;background:var(--card);color:var(--ink);font:600 15px Hind,sans-serif;cursor:pointer}.brain-game-btn:active{transform:scale(.98)}.brain-question{font-size:1.35rem;font-weight:800;text-align:center;margin:8px 0 12px}.brain-options{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.brain-option{border:1px solid var(--line);border-radius:12px;padding:11px;background:var(--card);color:var(--ink);font:700 16px Hind,sans-serif;cursor:pointer}.brain-option.correct{border-color:var(--p);background:color-mix(in srgb,var(--p) 14%,var(--card))}.brain-option.wrong{border-color:var(--a);background:color-mix(in srgb,var(--a) 12%,var(--card))}.sequence-box{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:10px 0}.sequence-box span{min-width:42px;padding:8px 10px;border-radius:10px;background:var(--board);color:#fff;font-weight:800;text-align:center}.sequence-box .missing{background:var(--gold);color:#1a1405}
+
+/* BODMAS PRACTICE */
+.bodmas-card{border:1px solid rgba(43,138,85,.28);background:linear-gradient(145deg,var(--card),color-mix(in srgb,var(--p) 5%,var(--card)));overflow:hidden}
+.bodmas-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.bodmas-icon{width:46px;height:46px;border-radius:14px;background:var(--board);color:#fff;display:grid;place-items:center;font-size:24px;flex:0 0 auto}
+.bodmas-sub{margin:3px 0 0}
+.bodmas-levels{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:11px}
+.bodmas-level{border:1px solid var(--line);border-radius:10px;padding:8px 5px;background:var(--card);color:var(--ink);font:600 14px Hind,sans-serif;cursor:pointer}
+.bodmas-level.active{background:var(--board);color:#fff;border-color:var(--board)}
+.bodmas-panel{margin-top:11px;padding:13px;border:1px solid var(--line);border-radius:14px;background:var(--chip)}
+.bodmas-meta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:.84rem}
+.bodmas-question{text-align:center;font-family:"Baloo 2",sans-serif;font-size:1.65rem;font-weight:800;letter-spacing:.02em;margin:12px 0}
+.bodmas-input-row{display:flex;gap:8px;max-width:360px;margin:0 auto}
+.bodmas-input{flex:1;min-width:0;border:2px solid var(--line);border-radius:11px;padding:10px 12px;background:var(--card);color:var(--ink);font:700 18px Hind,sans-serif;text-align:center}
+.bodmas-input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(242,172,16,.15)}
+.bodmas-submit{border:0;border-radius:11px;padding:10px 16px;background:var(--board);color:#fff;font:700 15px Hind,sans-serif;cursor:pointer}
+.bodmas-submit:disabled{opacity:.55;cursor:default}
+.bodmas-feedback{text-align:center;min-height:26px;margin-top:9px;font-weight:700}
+.bodmas-feedback.ok{color:var(--p)}.bodmas-feedback.bad{color:var(--a)}
+.bodmas-next{width:100%;margin-top:9px;border:0;cursor:pointer;font:600 15px Hind,sans-serif}
+.bodmas-progress{height:8px;border-radius:5px;background:var(--card);overflow:hidden;margin:8px 0 2px}
+.bodmas-progress i{display:block;height:100%;background:var(--p);transition:width .25s ease}
+.bodmas-result{text-align:center;padding:9px 0 2px}
+.bodmas-result strong{font-family:"Baloo 2",sans-serif;font-size:1.8rem}
+@media(max-width:380px){.bodmas-input-row{flex-direction:column}.bodmas-submit{width:100%}}
+
+.gk-card{border:1px solid rgba(242,172,16,.3);background:linear-gradient(145deg,var(--card),color-mix(in srgb,var(--gold) 5%,var(--card)));overflow:hidden}.gk-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.gk-icon{width:46px;height:46px;border-radius:14px;background:var(--board);color:#fff;display:grid;place-items:center;font-size:24px}.gk-list{display:grid;gap:9px;margin-top:10px}.gk-q{padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--chip)}.gk-q b{display:block}.gk-answer{display:block;color:var(--p);font-weight:700;font-size:.9rem;margin-top:3px}\n
+/* TASVIA ACTION VISIBILITY / MOBILE SAFE LAYER */
+button,.btn,a.btn{visibility:visible;}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-width:40px;min-height:40px;white-space:normal;text-align:center;line-height:1.25;}
+.acts{display:flex;flex-wrap:wrap;align-items:center;gap:8px;width:100%;overflow:visible;}
+.acts > .btn,.acts > a.btn,.acts > button{flex:0 0 auto;max-width:100%;}
+.item{overflow:visible;}
+@media(max-width:520px){.acts > .btn,.acts > a.btn,.acts > button{min-height:42px}.acts > .btn.sm,.acts > a.btn.sm,.acts > button.btn.sm{min-height:38px}}
+
+/* DAILY CURRENT AFFAIRS */
+.ca-card{border:1px solid rgba(11,36,85,.22);background:linear-gradient(145deg,var(--card),color-mix(in srgb,var(--board) 4%,var(--card)));overflow:hidden}.ca-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.ca-icon{width:46px;height:46px;border-radius:14px;background:var(--board);color:#fff;display:grid;place-items:center;font-size:23px;flex:0 0 auto}.ca-list{display:grid;gap:9px;margin-top:10px}.ca-item{padding:11px;border:1px solid var(--line);border-radius:12px;background:var(--chip)}.ca-item .ca-cat{display:inline-block;font-size:.75rem;font-weight:700;color:var(--board);background:rgba(11,36,85,.08);border-radius:999px;padding:3px 8px;margin-bottom:5px}.ca-item b{display:block}.ca-item p{margin:4px 0 0;font-size:.92rem}.ca-source{display:block;color:var(--muted);font-size:.76rem;margin-top:6px}.ca-quiz{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}.ca-quiz-item{padding:8px 0;border-bottom:1px dashed var(--line)}.ca-quiz-item:last-child{border-bottom:0}.ca-quiz-item b{display:block}.ca-quiz-item span{display:block;color:var(--p);font-weight:700;font-size:.88rem}
+</style>
+</head>
+<body>
+<header><div class="top"><div class="brand"><img class="hlogo" src="https://apk.tasviaacademy.com/icon-512.png" alt="">TASVIA <span>Academy</span></div><div class="langs" id="langs"></div></div><div class="kid" id="kid"></div></header>
+<main id="main"><div class="center" id="msg">Loading…</div></main><div id="welcomeBackdrop" class="welcome-backdrop" role="dialog" aria-label="TASVIA Academy welcome">
+  <div class="welcome-card">
+    <div class="welcome-logo-wrap"><img class="welcome-logo" src="https://apk.tasviaacademy.com/icon-512.png" alt="TASVIA Academy"></div>
+    <h2>Welcome to <span>TASVIA</span></h2>
+    <p id="welcomeGreeting">Let’s inspire, learn, grow and succeed together.</p>
+    <p class="welcome-tag">INSPIRE • LEARN • GROW • SUCCEED</p>
+    <button id="welcomeEnter" class="welcome-enter" type="button" onclick="var w=document.getElementById('welcomeBackdrop');if(w){w.classList.add('hide');w.style.display='none';w.style.pointerEvents='none';}">Enter Parents Portal</button>
+  </div>
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script>
+</script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="/firebase-config.js"></script>
+<script>
+
+function closeWelcome(){const b=document.getElementById("welcomeBackdrop");if(b){b.classList.add("hide");b.setAttribute("aria-hidden","true");b.style.pointerEvents="none";}document.body.classList.remove("welcome-open");}
+function showWelcome(){const b=document.getElementById("welcomeBackdrop");if(b){b.style.display="flex";b.classList.remove("hide");b.setAttribute("aria-hidden","false");}}
+function interLabel(c,y1,y2){const m=/^Inter-(1|2)(?: (.+))?$/.exec(c);if(!m)return null;return (m[1]==="1"?y1:y2)+(m[2]?" · "+m[2]:"")}
+const T={
+ en:{loc:"en-IN",newHw:"New homework",newTest:"New test marks",absentToday:"Marked absent",feePaid:"Fee payment recorded",alertsOn:"🔔 Turn on alerts",alertsDone:"🔔 Alerts are on while this page is open",cls:c=>/^\d+$/.test(c)?"Class "+c:(interLabel(c,"Inter 1st Year","Inter 2nd Year")||c),att:"Attendance",thisMonth:"This month",present:"Present",absent:"Absent",pct:"Attendance",year:"This year",days:"days",abs:"Recent absences",none:"No absences",tests:"Test marks",test:"Test",marks:"Marks",grade:"Grade",noTests:"No test marks yet",fees:"Fees",month:"Month",status:"Status",paid:"Paid",due:"Due",part:"Part paid",pays:"Recent payments",hw:"Homework",noHw:"No homework added yet",note:"Note",notice:"Notice",timings:"Timings",contact:"Contact the academy",call:"Call",wa:"WhatsApp",payFee:"Pay Fee",sendScreenshot:"Send Payment Screenshot",updated:"Updated",left:"This student is no longer enrolled at the academy.",invalid:"This link is not valid. Please ask TASVIA Academy for a new link.",offline:"Couldn't load. Check your internet connection and try again.",retry:"Try again",save:"Tip: add this page to your home screen to open it quickly.",overall:"Overall"},
+ te:{loc:"te-IN",newHw:"కొత్త హోంవర్క్",newTest:"కొత్త పరీక్ష మార్కులు",absentToday:"గైర్హాజరు నమోదైంది",feePaid:"ఫీజు చెల్లింపు నమోదైంది",alertsOn:"🔔 అలర్ట్‌లు ఆన్ చేయండి",alertsDone:"🔔 ఈ పేజీ తెరిచి ఉన్నప్పుడు అలర్ట్‌లు వస్తాయి",cls:c=>/^\d+$/.test(c)?c+"వ తరగతి":(interLabel(c,"ఇంటర్ 1వ సంవత్సరం","ఇంటర్ 2వ సంవత్సరం")||({Nursery:"నర్సరీ"})[c]||c),att:"హాజరు",thisMonth:"ఈ నెల",present:"హాజరు",absent:"గైర్హాజరు",pct:"హాజరు శాతం",year:"ఈ సంవత్సరం",days:"రోజులు",abs:"ఇటీవలి గైర్హాజరు రోజులు",none:"గైర్హాజరు లేదు",tests:"పరీక్ష మార్కులు",test:"పరీక్ష",marks:"మార్కులు",grade:"గ్రేడ్",noTests:"ఇంకా పరీక్ష మార్కులు లేవు",fees:"ఫీజు",month:"నెల",status:"స్థితి",paid:"చెల్లించారు",due:"బాకీ",part:"కొంత చెల్లించారు",pays:"ఇటీవలి చెల్లింపులు",hw:"హోంవర్క్",noHw:"ఇంకా హోంవర్క్ లేదు",note:"గమనిక",notice:"ప్రకటన",timings:"సమయాలు",contact:"అకాడమీని సంప్రదించండి",call:"కాల్",wa:"వాట్సాప్",payFee:"ఫీజు చెల్లించండి",sendScreenshot:"చెల్లింపు స్క్రీన్‌షాట్ పంపండి",updated:"నవీకరించబడింది",left:"ఈ విద్యార్థి ఇప్పుడు అకాడమీలో నమోదై లేరు.",invalid:"ఈ లింక్ చెల్లదు. దయచేసి TASVIA అకాడమీని కొత్త లింక్ అడగండి.",offline:"లోడ్ కాలేదు. ఇంటర్నెట్ కనెక్షన్ చూసి మళ్లీ ప్రయత్నించండి.",retry:"మళ్లీ ప్రయత్నించండి",save:"సూచన: ఈ పేజీని త్వరగా తెరవడానికి హోమ్ స్క్రీన్‌కు జోడించండి.",overall:"మొత్తం"},
+ hi:{loc:"hi-IN",newHw:"नया गृहकार्य",newTest:"नए टेस्ट अंक",absentToday:"अनुपस्थिति दर्ज",feePaid:"फ़ीस भुगतान दर्ज",alertsOn:"🔔 अलर्ट चालू करें",alertsDone:"🔔 पेज खुला रहने पर अलर्ट मिलेंगे",cls:c=>/^\d+$/.test(c)?"कक्षा "+c:(interLabel(c,"इंटर प्रथम वर्ष","इंटर द्वितीय वर्ष")||({Nursery:"नर्सरी"})[c]||c),att:"उपस्थिति",thisMonth:"इस महीने",present:"उपस्थित",absent:"अनुपस्थित",pct:"उपस्थिति",year:"इस वर्ष",days:"दिन",abs:"हाल की अनुपस्थिति",none:"कोई अनुपस्थिति नहीं",tests:"टेस्ट के अंक",test:"टेस्ट",marks:"अंक",grade:"ग्रेड",noTests:"अभी कोई टेस्ट अंक नहीं",fees:"फ़ीस",month:"महीना",status:"स्थिति",paid:"जमा",due:"बाकी",part:"आंशिक जमा",pays:"हाल के भुगतान",hw:"गृहकार्य",noHw:"अभी कोई गृहकार्य नहीं",note:"सूचना",notice:"सूचना",timings:"समय",contact:"अकादमी से संपर्क करें",call:"कॉल",wa:"व्हाट्सऐप",payFee:"फ़ीस भुगतान",sendScreenshot:"भुगतान स्क्रीनशॉट भेजें",updated:"अपडेट",left:"यह छात्र अब अकादमी में नामांकित नहीं है।",invalid:"यह लिंक मान्य नहीं है। कृपया TASVIA अकादमी से नया लिंक माँगें।",offline:"लोड नहीं हुआ। इंटरनेट कनेक्शन देखकर फिर कोशिश करें।",retry:"फिर कोशिश करें",save:"सुझाव: जल्दी खोलने के लिए इस पेज को होम स्क्रीन पर जोड़ें।",overall:"कुल"}
+};
+const LN={en:"English",te:"తెలుగు",hi:"हिन्दी"};
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const rs=n=>"₹"+Number(n||0).toLocaleString("en-IN");
+const grade=p=>p>=90?"A+":p>=80?"A":p>=70?"B+":p>=60?"B":p>=50?"C":p>=35?"D":"E";
+let V=null,L="en",feeDueScrollDone=false,feeDuePopupShown=false;
+function store(k,v){try{v===undefined?localStorage.getItem(k):localStorage.setItem(k,v)}catch(e){}}
+function load(k){try{return localStorage.getItem(k)}catch(e){return null}}
+const mN=m=>{const [y,mo]=m.split("-");return new Date(+y,+mo-1,1).toLocaleDateString(T[L].loc,{month:"long",year:"numeric"})};
+const dN=d=>new Date(d+"T00:00").toLocaleDateString(T[L].loc,{day:"numeric",month:"short"});
+const dL=d=>new Date(d+"T00:00").toLocaleDateString(T[L].loc,{weekday:"long",day:"numeric",month:"long"});
+
+function langs(){document.getElementById("langs").innerHTML=Object.keys(LN).map(k=>`<button class="${k===L?"on":""}" data-l="${k}" aria-pressed="${k===L}">${LN[k]}</button>`).join("");document.documentElement.lang=k2(L)}
+const k2=l=>({en:"en",te:"te",hi:"hi"})[l];
+document.getElementById("langs").addEventListener("click",e=>{const b=e.target.closest("[data-l]");if(!b)return;L=b.dataset.l;store("tasvia-parent-lang",L);render()});
+
+function msg(text,retry){document.getElementById("kid").innerHTML="";document.getElementById("main").innerHTML=`<div class="center">${esc(text)}${retry?`<div class="acts" style="justify-content:center"><a class="btn gold" href="" onclick="location.reload();return false">${esc(T[L].retry)}</a></div>`:""}</div>`}
+
+function render(){
+  langs();const t=T[L],v=V;if(!v)return;
+  const c=v.centre||{},ph=String(c.phone||"").replace(/\D/g,""),ph91=ph.length===10?"91"+ph:ph;
+  if(v.left){msg(t.left);return}
+  document.title=v.name+" – TASVIA Academy";
+  document.getElementById("kid").innerHTML=`${v.photo&&/^data:image\/jpeg;base64,/.test(v.photo)?`<div class="ph"><img src="${v.photo}" alt=""></div>`:""}<div><h1>${esc(v.name)}</h1><p>${esc(t.cls(v.cls))}${v.board?" · "+esc(v.board):""} · ${esc(v.year||"")}</p></div>`;
+  const months=Object.keys(v.att||{}).sort().reverse(),cm=months[0],a=(v.att||{})[cm]||{p:0,a:0},tot=a.p+a.a,pc=tot?Math.round(a.p*100/tot):null;
+  const yt=(v.yr||{}).p+(v.yr||{}).a,ypc=yt?Math.round(v.yr.p*100/yt):null;
+  let h="";
+  if(c.notice)h+=`<div class="card"><h2>📢 ${esc(t.notice)}</h2><div class="notice">${esc(c.notice)}</div></div>`;
+  // homework — show only the latest 7 days; keep older entries as a local backup.
+  const hwNow=Date.now(),hwWeek=7*24*60*60*1000,allHw=Array.isArray(v.hw)?v.hw:[];
+  const activeHw=allHw.filter(x=>{const tm=Date.parse(String(x.d||""));return Number.isFinite(tm)&&hwNow-tm>=0&&hwNow-tm<hwWeek;});
+  const archivedHw=allHw.filter(x=>{const tm=Date.parse(String(x.d||""));return Number.isFinite(tm)&&hwNow-tm>=hwWeek;});
+  try{const bk=JSON.parse(localStorage.getItem("tasvia-homework-backup")||"[]");const key=String(location.hash||"").replace("#","").trim().toUpperCase()||"portal";localStorage.setItem("tasvia-homework-backup",JSON.stringify([...bk.filter(z=>z.key!==key),{key,backedUpAt:new Date().toISOString(),homework:archivedHw}].slice(-20)))}catch(_){}
+  h+=`<div class="card"><h2>${esc(t.hw)}</h2>`+(activeHw.length?activeHw.sort((a,b)=>String(b.d).localeCompare(String(a.d))).map(x=>`<div class="hw"><b>${esc(dL(x.d))}</b><div>${esc(x.hw)}</div>${x.note?`<div class="sub">${esc(t.note)}: ${esc(x.note)}</div>`:""}</div>`).join(""):`<p class="sub">${esc(t.noHw)}</p>`)+`</div>`;
+  // BODMAS practice
+  h+=buildBodmasCard();
+  h+=`<div class="card gk-card">${buildDailyGK()}</div>`;\n  h+=`<div class="card ca-card" id="currentAffairsCard">${buildCurrentAffairsCard()}</div>`;
+  // attendance
+  h+=`<div class="card"><h2>${esc(t.att)} · ${esc(cm?mN(cm):"")}</h2><div class="stats"><div><b class="ok">${a.p}</b><small>${esc(t.present)}</small></div><div><b class="bad">${a.a}</b><small>${esc(t.absent)}</small></div><div><b>${pc!=null?pc+"%":"–"}</b><small>${esc(t.pct)}</small></div></div>`;
+  if(pc!=null)h+=`<div class="bar"><i style="width:${pc}%"></i></div>`;
+  h+=`<p class="sub" style="margin:6px 0 0">${esc(t.year)}: ${ypc!=null?`${v.yr.p}/${yt} ${esc(t.days)} (${ypc}%)`:"–"}</p>`;
+  if(months.length>1)h+=`<div class="chips" style="margin-top:8px">${months.slice(1).map(m=>{const x=v.att[m],tt=x.p+x.a;return `<span>${esc(mN(m))}: ${tt?Math.round(x.p*100/tt)+"%":"–"}</span>`}).join("")}</div>`;
+  h+=`<p class="sub" style="margin:10px 0 4px"><b>${esc(t.abs)}</b></p>`+((v.abs||[]).length?`<div class="chips">${v.abs.map(d=>`<span class="bad">${esc(dN(d))}</span>`).join("")}</div>`:`<p class="sub" style="margin:0">${esc(t.none)} ✓</p>`)+`</div>`;
+  // tests
+  h+=`<div class="card"><h2>${esc(t.tests)}</h2>`;
+  if((v.tests||[]).length){
+    const got=v.tests.reduce((s,x)=>s+x.m,0),mx=v.tests.reduce((s,x)=>s+x.x,0),op=mx?Math.round(got*100/mx):0;
+    h+=`<p class="sub" style="margin:0 0 6px">${esc(t.overall)}: <b style="color:var(--ink)">${op}%</b> · ${esc(t.grade)} <b class="gold">${grade(op)}</b></p><table><tr><th>${esc(t.test)}</th><th class="r">${esc(t.marks)}</th><th class="r">${esc(t.grade)}</th></tr>`+
+      v.tests.map(x=>{const p=x.x?Math.round(x.m*100/x.x):0;return `<tr><td>${esc(x.s)} – ${esc(x.n)}<br><span class="sub">${esc(dN(x.d))}</span></td><td class="r">${x.m}/${x.x}</td><td class="r"><b class="gold">${grade(p)}</b></td></tr>`}).join("")+`</table>`;
+  }else h+=`<p class="sub">${esc(t.noTests)}</p>`;
+  h+=`</div>`;
+  // fees
+  const feeDue=(v.fees||[]).some(f=>Number(f.paid||0)<Number(f.fee||0)); const feeDueAmount=(v.fees||[]).reduce((s,f)=>s+Math.max(0,Number(f.fee||0)-Number(f.paid||0)),0);
+  if((v.fees||[]).length||(v.pays||[]).length){
+    h+=`<div id="feeCard" class="card${feeDue?" fee-due":""}"><h2>${esc(t.fees)}</h2>${feeDue?`<div class="fee-alert"><span class="dot"></span><span>${esc(t.due)} · ${esc(L==="te"?"ఫీజు చెల్లింపు పెండింగ్‌లో ఉంది":L==="hi"?"फ़ीस भुगतान बाकी है":"Fee payment pending")}</span></div>`:""}`;
+    if((v.fees||[]).length)h+=`<table><tr><th>${esc(t.month)}</th><th class="r">${esc(t.status)}</th></tr>`+v.fees.map(f=>{const st=f.paid>=f.fee?`<span class="tag ok">${esc(t.paid)}</span>`:f.paid>0?`<span class="tag gold">${esc(t.part)} · ${esc(t.due)} ${rs(f.fee-f.paid)}</span>`:`<span class="tag bad">${esc(t.due)} ${rs(f.fee)}</span>`;return `<tr><td>${esc(mN(f.m))}</td><td class="r">${st}</td></tr>`}).join("")+`</table>`;
+    if((v.pays||[]).length)h+=`<p class="sub" style="margin:12px 0 4px"><b>${esc(t.pays)}</b></p><table>`+v.pays.map(p=>`<tr><td>${esc(dN(p.d))}<br><span class="sub">${esc(mN(p.m))}</span></td><td class="r">${rs(p.a)}<br><span class="sub">${esc(p.mode||"")}</span></td></tr>`).join("")+`</table>`;
+    h+=`</div>`;
+    if(feeDue&&feeDueAmount>0){const q="pa=badavathpremdas2@ybl&pn=TASVIA%20Academy&am="+encodeURIComponent(feeDueAmount.toFixed(2))+"&cu=INR&tn="+encodeURIComponent("Fee payment - "+(v.name||"Student"));const upi="upi://pay?"+q;h+=`<div class="acts" style="justify-content:center;margin-top:14px"><div style="width:100%;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--chip);text-align:center"><b>UPI Payment</b><div class="sub">Scan the QR code with any UPI app</div><img alt="UPI QR Code" style="width:220px;height:220px;display:block;margin:12px auto;background:#fff;padding:8px;border-radius:12px" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(upi)}"><div class="upi-id">UPI ID: <b>badavathpremdas2@ybl</b></div><button class="btn" type="button" style="border:0;cursor:pointer;margin-top:8px" onclick="navigator.clipboard&&navigator.clipboard.writeText('badavathpremdas2@ybl').then(()=>this.textContent='✓ UPI ID Copied').catch(()=>alert('UPI ID: badavathpremdas2@ybl'))">📋 Copy UPI ID</button><p class="sub" style="margin:10px 0 0">Amount: <b>${rs(feeDueAmount)}</b></p><p class="sub" style="margin:8px 0 0">If this page is open on your phone, use another phone to scan the QR, or copy the UPI ID and pay manually in your UPI app.</p><div class="acts" style="justify-content:center;margin-top:10px"><a class="btn gold" target="_blank" rel="noopener" href="https://wa.me/${esc(ph91)}?text=${encodeURIComponent("I have completed the TASVIA Academy fee payment for "+(v.name||"my child")+". I am sending the payment screenshot for verification. Please update the fee status after verification.")}">📸 ${esc(t.sendScreenshot)}</a></div></div></div>`;}
+  }
+  // contact
+  h+=`<div class="card"><h2>${esc(t.contact)}</h2><p style="margin:0">${esc(c.name||"TASVIA Academy")}</p>${c.timings?`<p class="sub" style="margin:4px 0 0">${esc(t.timings)}: ${esc(c.timings)}</p>`:""}${c.address?`<p class="sub" style="margin:4px 0 0">${esc(c.address)}</p>`:""}
+    <div class="acts">${ph?`<a class="btn gold" href="tel:${esc(ph)}">📞 ${esc(t.call)}</a><a class="btn" target="_blank" rel="noopener" href="https://wa.me/${esc(ph91)}">💬 ${esc(t.wa)}</a>`:""}</div></div>`;
+  const alertsOn=("Notification" in window&&Notification.permission==="granted")||(function(){try{return localStorage.getItem("tasvia-parent-alerts")==="1"}catch(e){return false}})();
+  h+=`<div class="acts" style="justify-content:center">${alertsOn?`<span class="sub">${esc(t.alertsDone)}</span>`:`<button id="alertBtn" class="btn gold" style="border:0;font:inherit;font-weight:600;cursor:pointer">${esc(t.alertsOn)}</button>`}</div>`;
+  h+=`<p class="foot">${esc(t.updated)}: ${v.updated?new Date(v.updated).toLocaleString(T[L].loc,{day:"numeric",month:"short",hour:"numeric",minute:"2-digit"}):"–"}<br>${esc(t.save)}</p>`;
+  document.getElementById("main").innerHTML=h;
+  renderBodmas();
+  if(feeDue){
+    const dueAmount=(v.fees||[]).reduce((s,f)=>s+Math.max(0,Number(f.fee||0)-Number(f.paid||0)),0);
+    showFeeDuePopup(dueAmount);
+  }
+  if(feeDue&&!feeDueScrollDone){
+    feeDueScrollDone=true;
+    setTimeout(()=>{const el=document.getElementById("feeCard");if(el)el.scrollIntoView({behavior:"smooth",block:"center"})},850);
+  }
+}
+
+let actx=null;
+
+function showFeeDuePopup(amount){
+  if(feeDuePopupShown)return;
+  feeDuePopupShown=true;
+  let el=document.getElementById("feePopup");
+  if(!el){el=document.createElement("div");el.id="feePopup";document.body.appendChild(el)}
+  const title=L==="te"?"ఫీజు చెల్లింపు పెండింగ్‌లో ఉంది":L==="hi"?"फ़ीस भुगतान बाकी है":"Fee Payment Pending";
+  const note=L==="te"?"దయచేసి బాకీ ఉన్న ఫీజును చెల్లించండి.":L==="hi"?"कृपया बकाया फ़ीस का भुगतान करें।":"Please clear the pending fee payment.";
+  const view=L==="te"?"ఫీజు చూడండి":L==="hi"?"फ़ीस देखें":"View Fees";
+  const close=L==="te"?"తర్వాత":L==="hi"?"बाद में":"Later";
+  el.innerHTML=`<div class="fee-popup-backdrop show" role="dialog" aria-modal="true" aria-labelledby="feePopupTitle"><div class="fee-popup"><div class="fee-popup-icon">🔔</div><h3 id="feePopupTitle">${esc(title)}</h3><div class="due-label">${esc(T[L].due)}</div><div class="due-amount">${rs(amount)}</div><p class="due-note">${esc(note)}</p><div class="acts"><button class="btn" data-fee-close>${esc(close)}</button><button class="btn gold" data-fee-view>${esc(view)}</button></div></div></div>`;
+  const backdrop=el.querySelector(".fee-popup-backdrop");
+  const closePopup=()=>{backdrop.classList.remove("show");setTimeout(()=>el.remove(),300)};
+  el.querySelector("[data-fee-close]").onclick=closePopup;
+  el.querySelector("[data-fee-view]").onclick=()=>{closePopup();setTimeout(()=>document.getElementById("feeCard")?.scrollIntoView({behavior:"smooth",block:"center"}),80)};
+  backdrop.onclick=e=>{if(e.target===backdrop)closePopup()};
+}
+
+
+
+/* BODMAS PRACTICE ENGINE */
+let bodmas={level:"easy",questions:[],index:0,score:0,answered:false};
+const BODMAS_LEVELS={
+  easy:[
+    ["8 + 6 × 2",20],["18 − 4 × 3",6],["24 ÷ 6 + 7",11],["15 − 9 ÷ 3",12],["5 × 3 + 4",19],
+    ["20 ÷ 5 × 2",8],["7 + 12 ÷ 4",10],["9 × 2 − 5",13],["16 ÷ 4 + 9",13],["6 + 5 × 3",21],
+    ["30 − 6 × 4",6],["4 × 7 − 8",20],["36 ÷ 6 + 5",11],["11 + 3 × 4",23],["28 ÷ 7 + 8",12]
+  ],
+  medium:[
+    ["(12 + 8) ÷ 4",5],["18 − (3 × 4)",6],["(7 + 5) × 2",24],["30 ÷ (2 + 3)",6],["8 + 4 × (6 − 2)",24],
+    ["(15 − 3) ÷ 4",3],["6 × (5 + 2) − 8",34],["42 ÷ 6 + 3 × 2",13],["(9 + 3) × 2 − 5",19],["50 − 6 × (4 + 2)",14],
+    ["(18 ÷ 3) + (5 × 2)",16],["7 × (8 − 3) + 4",39],["64 ÷ (4 + 4) + 6",14],["(20 + 4) ÷ 6 + 3",7],["9 + (12 ÷ 3) × 2",17]
+  ],
+  hard:[
+    ["18 + 6 ÷ (3 × 2)",19],["(24 − 8) ÷ 4 + 7",11],["5 × (12 − 4) ÷ 2",20],["72 ÷ (6 + 3) × 2",16],["(15 + 9) ÷ 3 − 2",6],
+    ["7 + 4 × (9 − 5) ÷ 2",15],["(36 ÷ 6) × (8 − 3)",30],["48 ÷ (2 × 4) + 9",15],["6 × (7 + 3) − 18 ÷ 3",54],["(40 − 16) ÷ 3 + 5",13],
+    ["8 + (24 ÷ 6) × (5 − 2)",20],["(9 + 7) × 3 − 20",28],["60 ÷ (5 + 5) + 4 × 3",18],["(32 − 8) ÷ 4 × 3 + 2",20],["54 ÷ (3 × 3) + 7 × 2",20]
+  ]
+};
+const BODMAS_LABELS={
+  en:{title:"BODMAS Practice",sub:"Basic Mathematics · Practice the correct order of operations",easy:"Easy",medium:"Medium",hard:"Hard",start:"Start Practice",question:"Question",score:"Score",check:"Check Answer",next:"Next Question",correct:"Correct! 🎉",wrong:"Not quite. Try again.",answer:"Correct answer",finished:"Practice complete!",again:"Practice Again",tip:"Remember: Brackets → Orders → Division/Multiplication → Addition/Subtraction."},
+  te:{title:"BODMAS ప్రాక్టీస్",sub:"ప్రాథమిక గణితం · గణిత క్రమాన్ని సరిగ్గా అభ్యసించండి",easy:"సులభం",medium:"మధ్యస్థం",hard:"కష్టం",start:"ప్రాక్టీస్ ప్రారంభించండి",question:"ప్రశ్న",score:"స్కోర్",check:"జవాబు తనిఖీ",next:"తదుపరి ప్రశ్న",correct:"సరైన జవాబు! 🎉",wrong:"ఇంకా సరైనది కాదు. మళ్లీ ప్రయత్నించండి.",answer:"సరైన జవాబు",finished:"ప్రాక్టీస్ పూర్తైంది!",again:"మళ్లీ ప్రాక్టీస్",tip:"గుర్తుంచుకోండి: Brackets → Orders → Division/Multiplication → Addition/Subtraction."},
+  hi:{title:"BODMAS अभ्यास",sub:"बुनियादी गणित · गणना का सही क्रम अभ्यास करें",easy:"आसान",medium:"मध्यम",hard:"कठिन",start:"अभ्यास शुरू करें",question:"प्रश्न",score:"स्कोर",check:"उत्तर जाँचें",next:"अगला प्रश्न",correct:"सही उत्तर! 🎉",wrong:"अभी सही नहीं। फिर कोशिश करें।",answer:"सही उत्तर",finished:"अभ्यास पूरा!",again:"फिर अभ्यास करें",tip:"याद रखें: Brackets → Orders → Division/Multiplication → Addition/Subtraction."}
+};
+function bodmasShuffle(a){
+  const x=a.slice();
+  for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]]}
+  return x;
+}
+function bodmasStart(level=bodmas.level){
+  bodmas={level,questions:bodmasShuffle(BODMAS_LEVELS[level]).slice(0,10),index:0,score:0,answered:false};
+  renderBodmas();
+}
+function buildBodmasCard(){
+  const t=BODMAS_LABELS[L]||BODMAS_LABELS.en;
+  return `<div class="card bodmas-card"><div class="bodmas-head"><div><h2>🧠 ${esc(t.title)}</h2><p class="sub bodmas-sub">${esc(t.sub)}</p></div><div class="bodmas-icon">÷</div></div><div class="bodmas-levels">
+    <button class="bodmas-level ${bodmas.level==="easy"?"active":""}" type="button" onclick="bodmasStart('easy')">${esc(t.easy)}</button>
+    <button class="bodmas-level ${bodmas.level==="medium"?"active":""}" type="button" onclick="bodmasStart('medium')">${esc(t.medium)}</button>
+    <button class="bodmas-level ${bodmas.level==="hard"?"active":""}" type="button" onclick="bodmasStart('hard')">${esc(t.hard)}</button>
+  </div><div id="bodmasPanel"></div></div>`;
+}
+function renderBodmas(){
+  const p=document.getElementById("bodmasPanel");if(!p)return;
+  const t=BODMAS_LABELS[L]||BODMAS_LABELS.en;
+  if(!bodmas.questions.length){
+    p.innerHTML=`<div class="center" style="padding:20px 8px"><p class="sub">${esc(t.tip)}</p><button class="btn gold bodmas-next" type="button" onclick="bodmasStart()">${esc(t.start)}</button></div>`;
+    return;
+  }
+  if(bodmas.index>=bodmas.questions.length){
+    const pct=Math.round(bodmas.score*100/bodmas.questions.length);
+    p.innerHTML=`<div class="bodmas-result"><p class="sub">${esc(t.finished)}</p><strong>${bodmas.score}/${bodmas.questions.length}</strong><div class="bar"><i style="width:${pct}%"></i></div><p class="sub">${pct}%</p><button class="btn gold bodmas-next" type="button" onclick="bodmasStart()">${esc(t.again)}</button></div>`;
+    return;
+  }
+  const q=bodmas.questions[bodmas.index];
+  p.innerHTML=`<div class="bodmas-meta"><span>${esc(t.question)} ${bodmas.index+1}/${bodmas.questions.length}</span><span>${esc(t.score)}: <b>${bodmas.score}</b></span></div><div class="bodmas-progress"><i style="width:${Math.round(bodmas.index*100/bodmas.questions.length)}%"></i></div><div class="bodmas-question">${esc(q[0])} = ?</div><div class="bodmas-input-row"><input id="bodmasAnswer" class="bodmas-input" type="number" inputmode="numeric" autocomplete="off" aria-label="${esc(t.answer)}"><button id="bodmasCheck" class="bodmas-submit" type="button" onclick="bodmasCheck()">${esc(t.check)}</button></div><div id="bodmasFeedback" class="bodmas-feedback" aria-live="polite"></div>`;
+  const inp=document.getElementById("bodmasAnswer");if(inp)inp.addEventListener("keydown",e=>{if(e.key==="Enter")bodmasCheck()});setTimeout(()=>inp&&inp.focus(),0);
+}
+function bodmasCheck(){
+  if(bodmas.answered)return;
+  const inp=document.getElementById("bodmasAnswer"),fb=document.getElementById("bodmasFeedback"),btn=document.getElementById("bodmasCheck");
+  if(!inp||!fb)return;
+  const value=Number(inp.value);if(inp.value.trim()===""){inp.focus();return}
+  const answer=bodmas.questions[bodmas.index][1];
+  bodmas.answered=true;inp.disabled=true;if(btn)btn.disabled=true;
+  if(value===answer){bodmas.score++;fb.className="bodmas-feedback ok";fb.innerHTML=esc((BODMAS_LABELS[L]||BODMAS_LABELS.en).correct)}
+  else{fb.className="bodmas-feedback bad";fb.innerHTML=esc((BODMAS_LABELS[L]||BODMAS_LABELS.en).wrong)+"<br>"+esc((BODMAS_LABELS[L]||BODMAS_LABELS.en).answer)+": <b>"+answer+"</b>"}
+  const t=BODMAS_LABELS[L]||BODMAS_LABELS.en;
+  const next=document.createElement("button");next.className="btn gold bodmas-next";next.type="button";next.textContent=bodmas.index+1>=bodmas.questions.length?t.finished:t.next;
+  next.onclick=()=>{bodmas.index++;bodmas.answered=false;renderBodmas()};
+  document.getElementById("bodmasPanel").appendChild(next);
+}
+
+
+/* DAILY GENERAL KNOWLEDGE */
+const GK_DAILY=[["Which planet is known as the Red Planet?","Mars"],["What is the largest ocean on Earth?","Pacific Ocean"],["How many days are there in a leap year?","366 days"],["What is the capital of India?","New Delhi"],["Which gas do plants absorb for photosynthesis?","Carbon dioxide"],["How many continents are there?","7"],["Which is the largest mammal?","Blue whale"],["What is H2O commonly called?","Water"],["How many sides does a hexagon have?","6"],["Which is the nearest star to Earth?","The Sun"],["Which organ pumps blood?","Heart"],["What is the fastest land animal?","Cheetah"],["What is the smallest prime number?","2"],["What is the currency of Japan?","Yen"],["Which is the largest planet?","Jupiter"],["What is India's national bird?","Peacock"],["How many colors are traditionally in a rainbow?","7"],["Which festival is called the Festival of Lights?","Diwali"],["What is the largest continent?","Asia"],["Which ocean is between Africa and Australia?","Indian Ocean"]];
+const GK_LABELS={en:{title:"Daily General Knowledge",sub:"5 questions every day · Learn something new",today:"Today's Questions",answer:"Answer"},te:{title:"రోజువారీ జనరల్ నాలెడ్జ్",sub:"ప్రతి రోజు 5 ప్రశ్నలు",today:"ఈ రోజు ప్రశ్నలు",answer:"జవాబు"},hi:{title:"दैनिक सामान्य ज्ञान",sub:"हर दिन 5 प्रश्न",today:"आज के प्रश्न",answer:"उत्तर"}};
+function localDateKey(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+function gkDayIndex(){const d=new Date();return Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/86400000)}
+function buildDailyGK(){const t=GK_LABELS[L]||GK_LABELS.en,day=gkDayIndex(),now=Date.now(),week=7*24*60*60*1000;
+  const key=String(location.hash||"").replace("#","").trim().toUpperCase()||"portal",dateKey=localDateKey(),bkKey="tasvia-gk-backup";
+  const makeItems=()=>{const out=[];for(let i=0;i<5;i++){const x=GK_DAILY[(day*5+i)%GK_DAILY.length];out.push({q:x[0],a:x[1]});}return out;};
+  let items=makeItems(),backupStatus="";
+  try{
+    const raw=localStorage.getItem(bkKey);
+    const bk=raw?JSON.parse(raw):{};
+    const byKey=(bk&&typeof bk==="object"&&!Array.isArray(bk))?bk:{};
+    const studentBackups=Array.isArray(byKey[key])?byKey[key]:[];
+    const valid=studentBackups.filter(z=>{
+      const ts=z&&z.date?Date.parse(z.date+"T00:00:00"):NaN;
+      return z&&z.date&&Array.isArray(z.questions)&&z.questions.length>=5&&Number.isFinite(ts)&&now-ts<week;
+    }).sort((a,b)=>String(a.date).localeCompare(String(b.date)));
+    const existing=valid.find(z=>z.date===dateKey);
+    if(existing)items=existing.questions.slice(0,5);
+    const updated=[...valid.filter(z=>z.date!==dateKey),{key,date:dateKey,backedUpAt:new Date().toISOString(),questions:items}]
+      .sort((a,b)=>String(a.date).localeCompare(String(b.date))).slice(-7);
+    byKey[key]=updated;
+    localStorage.setItem(bkKey,JSON.stringify(byKey));
+  }catch(e){backupStatus="";try{localStorage.removeItem(bkKey);localStorage.setItem(bkKey,JSON.stringify({[key]:[{key,date:dateKey,backedUpAt:new Date().toISOString(),questions:items}]}))}catch(_){backupStatus="";}}
+  try{if(window.firebase&&window.FIREBASE_CONFIG&&key!=="portal"){firebase.firestore().collection("gkBackup").doc(key+"_"+dateKey).set({code:key,date:dateKey,updated:now,name:(V&&V.name)||"",cls:(V&&V.cls)||"",questions:items},{merge:true}).catch(()=>{});}}catch(_){ }
+  let h='<div class="gk-head"><div><h2>🌍 '+esc(t.title)+'</h2><p class="sub" style="margin:3px 0 0">'+esc(t.sub)+'</p></div><div class="gk-icon">?</div></div><p class="sub" style="margin:10px 0 0"><b>'+esc(t.today)+'</b></p><div class="gk-list>';for(let i=0;i<items.length;i++){const x=items[i];h+='<div class="gk-q"><b>'+(i+1)+'. '+esc(x.q)+'</b><span class="gk-answer">'+esc(t.answer)+': '+esc(x.a)+'</span></div>'}return h+'</div>'}
+/* DAILY CURRENT AFFAIRS */
+let CURRENT_AFFAIRS=null;
+const CA_LABELS={en:{title:"Daily Current Affairs",sub:"Recent events · Learn what is happening around the world",today:"Today",quiz:"Quick Quiz"},te:{title:"రోజువారీ కరెంట్ అఫైర్స్",sub:"ఇటీవలి ముఖ్యమైన సంఘటనలు",today:"ఈ రోజు",quiz:"త్వరిత క్విజ్"},hi:{title:"दैनिक करेंट अफेयर्स",sub:"हाल की महत्वपूर्ण घटनाएँ",today:"आज",quiz:"त्वरित क्विज़"}};
+function buildCurrentAffairsCard(){
+  const t=CA_LABELS[L]||CA_LABELS.en;
+  if(!CURRENT_AFFAIRS)return '<div class="ca-head"><div><h2>📰 '+esc(t.title)+'</h2><p class="sub" style="margin:3px 0 0">'+esc(t.sub)+'</p></div><div class="ca-icon">📰</div></div><p class="sub" style="margin:10px 0 0">Loading today\'s current affairs…</p>';
+  let h='<div class="ca-head"><div><h2>📰 '+esc(t.title)+'</h2><p class="sub" style="margin:3px 0 0">'+esc(t.sub)+'</p></div><div class="ca-icon">📰</div></div><p class="sub" style="margin:10px 0 0"><b>'+esc(t.today)+' · '+esc(CURRENT_AFFAIRS.date||"")+'</b></p><div class="ca-list">';
+  (CURRENT_AFFAIRS.items||[]).forEach(x=>{h+='<div class="ca-item"><span class="ca-cat">'+esc(x.icon||"•")+' '+esc(x.category||"Current Affairs")+'</span><b>'+esc(x.title||"")+'</b><p>'+esc(x.text||"")+'</p>'+(x.source?'<span class="ca-source">Source: '+esc(x.source)+'</span>':"")+'</div>';});
+  if((CURRENT_AFFAIRS.quiz||[]).length){h+='<div class="ca-quiz"><b>'+esc(t.quiz)+'</b>'+(CURRENT_AFFAIRS.quiz||[]).map((q,i)=>'<div class="ca-quiz-item"><b>'+String(i+1)+'. '+esc(q.q)+'</b><span>Answer: '+esc(q.a)+'</span></div>').join("")+'</div>';}
+  return h+'</div>';
+}
+async function loadCurrentAffairs(){try{const r=await fetch('/current-affairs.json',{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);CURRENT_AFFAIRS=await r.json();}catch(e){console.warn('Current affairs unavailable',e);CURRENT_AFFAIRS={date:new Date().toISOString().slice(0,10),items:[],quiz:[]};}}
+
+showWelcome();
+(function start(){
+  const saved=load("tasvia-parent-lang");if(saved&&T[saved])L=saved;langs();
+  const qs=new URLSearchParams(location.search);
+  let code=qs.get("code")||((location.hash||"").replace(/^#/,""));
+  code=String(code||"").trim().toUpperCase();
+  if(!/^[A-Z0-9]{8,20}$/.test(code)){msg(T[L].invalid,true);return}
+  if(!window.firebase||!window.FIREBASE_CONFIG||!window.FIREBASE_CONFIG.apiKey){msg(T[L].offline,true);return}
+  try{
+    if(!firebase.apps.length) firebase.initializeApp(window.FIREBASE_CONFIG);
+    const db=firebase.firestore();
+    const ref=db.doc("parentView/"+code);
+    let done=false;
+    const fail=setTimeout(()=>{if(!done){done=true;msg("Unable to connect to TASVIA Parent Portal. Please check internet and tap Try again.",true)}},8000);
+    ref.get({source:"server"}).then(snap=>{
+      if(done)return; done=true; clearTimeout(fail);
+      if(!snap.exists){msg(T[L].invalid,true);return}
+      V=snap.data();if(!saved&&V.lang&&T[V.lang])L=V.lang;render();
+      if(CURRENT_AFFAIRS===null)loadCurrentAffairs().then(()=>{const el=document.getElementById("currentAffairsCard");if(el)el.innerHTML=buildCurrentAffairsCard()}).catch(()=>{});
+      ref.onSnapshot(d=>{if(d.exists){const prev=V;V=d.data();render();changes(prev,V).forEach(([a,b],i)=>setTimeout(()=>alertParent(a,b),i*1800));}},()=>{});
+    }).catch(e=>{if(!done){done=true;clearTimeout(fail);console.error(e);msg(T[L].offline,true)}})
+  }catch(e){console.error(e);msg(T[L].offline,true)}
+})();
+if("serviceWorker" in navigator&&location.protocol==="https:"){navigator.serviceWorker.register("/sw.js",{scope:"/"}).then(r=>r.update()).catch(e=>console.warn("TASVIA service worker unavailable:",e))}
+</script>
+</body>
+</html>
