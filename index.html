@@ -364,6 +364,25 @@ button,a{touch-action:manipulation}
   .parentPortal .parentCommercialCopy .sectionTitle span{white-space:normal}
 }
 </style>
+
+<style id="TASVIA_PARENT_BADGE_OVERLAP_FIX">
+/* Keep the TASVIA brand badge outside the dashboard card so it never covers progress content. */
+.parentCommercialVisual{display:flex;flex-direction:column;align-items:center}
+.parentCommercialVisual .parentGlass{flex:0 0 auto}
+.parentCommercialVisual .parentBadge{
+  position:static;
+  right:auto;
+  bottom:auto;
+  margin:12px 0 0;
+  width:max-content;
+  max-width:100%;
+  box-sizing:border-box;
+  z-index:1;
+}
+@media(max-width:400px){
+  .parentCommercialVisual .parentBadge{margin:10px auto 0}
+}
+</style>
 </head><body>
 <header class="topbar"><div class="wrap nav"><a class="brand" href="#home"><img alt="TASVIA Academy logo" decoding="async" loading="eager" src="assets/logo.png"/><span><strong>TASVIA</strong><em>ACADEMY</em><small>Learn Today • Lead Tomorrow</small></span></a><nav aria-label="Primary navigation" class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#programs">Programs</a><a href="#why">Why TASVIA</a><a href="#parent-portal">Parent Portal</a><a href="#enquiry">Enquire</a><a href="#contact">Contact</a><a href="https://apk.tasviaacademy.com/index.html" class="staffNav" onclick="window.location.assign('https://apk.tasviaacademy.com/index.html');return false;" aria-label="Open TASVIA Staff Login">Staff Login</a></nav><a class="navcta" href="tel:+917842138739">☎  Call 78421 38739</a></div></header>
 <main id="main">
