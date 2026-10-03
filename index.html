@@ -288,6 +288,10 @@ body:before{content:"";position:fixed;top:0;left:0;width:100%;height:3px;z-index
 @media(max-width:620px){.parentCommercial{padding:34px 0}.parentFeatureGrid{grid-template-columns:1fr}.parentCommercialLead{font-size:.94rem}.parentCommercialVisual{min-height:330px}.parentGlass{width:100%;max-width:390px;padding:18px}.parentBadge{right:4px;bottom:8px}.parentCommercialActions{align-items:flex-start;flex-direction:column}.parentSecure{margin-left:2px}}
 @media(max-width:400px){.parentCommercialVisual{min-height:315px}.parentGlass{padding:15px;border-radius:20px}.parentStudentMini{margin:18px 0 14px}.parentAvatar{width:46px;height:46px;border-radius:13px}.parentMiniStats{gap:7px}.parentMiniStats>div{padding:10px}.parentMiniStats span{font-size:.72rem}.parentMiniStats b{font-size:.63rem}.parentProgress{padding:10px}.parentBadge{position:relative;right:auto;bottom:auto;margin:10px auto 0;width:max-content;max-width:100%;box-sizing:border-box}.parentCommercialVisual:before{width:250px;height:250px}}
 .parentCommercialCopy{max-width:680px}.parentCommercialCopy .sectionTitle{max-width:650px}.parentCommercialCopy .sectionTitle span{color:#B17C08}
+.parentPortalTitle{font-size:clamp(2rem,3.7vw,3.15rem);line-height:1.08;letter-spacing:-.02em;margin-bottom:0}
+.parentPortalTitle span{display:inline}
+@media(max-width:900px){.parentPortalTitle{font-size:clamp(2rem,7vw,2.75rem)}}
+@media(max-width:560px){.parentPortalTitle{font-size:2rem;line-height:1.12}}
 .parentCommercialLead{max-width:620px;color:#65748A;font-size:1.03rem;line-height:1.75;margin:18px 0 0}
 .parentFeatureGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:28px}
 .parentFeature{display:flex;gap:12px;align-items:flex-start;padding:15px 14px;border:1px solid #E6EAF0;border-radius:15px;background:#fff;box-shadow:0 7px 22px rgba(8,38,83,.045)}
@@ -317,7 +321,7 @@ body:before{content:"";position:fixed;top:0;left:0;width:100%;height:3px;z-index
     <div class="parentCommercial">
       <div class="parentCommercialCopy">
         <div class="eyebrow">TASVIA PARENT PORTAL</div>
-        <h2 class="sectionTitle">Everything Your Child's Learning Journey, <span>In One Place.</span></h2>
+        <h2 class="sectionTitle parentPortalTitle">Your Child's Learning, <span>All in One Place.</span></h2>
         <div class="underline" style="margin-left:0"></div>
         <p class="parentCommercialLead">A secure, simple parent experience to follow attendance, academic progress, fees and daily learning updates — wherever you are.</p>
         <div class="parentFeatureGrid">
