@@ -4,11 +4,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#0B2455">
 <title>TASVIA Parents Portal</title>
-<style>body{margin:0;background:#0B2455;color:#fff;font-family:system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;text-align:center}main{padding:24px}a{display:inline-block;margin-top:16px;padding:12px 22px;border-radius:999px;background:#F2AC10;color:#171205;text-decoration:none;font-weight:700}</style>
+<style>
+:root{--navy:#0B2455;--navy2:#132F68;--gold:#D7B64A;--ink:#172033;--muted:#6B7280}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:22px;background:linear-gradient(145deg,#071A3D,#0B2455 58%,#132F68);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#fff}
+.card{width:min(92vw,410px);padding:34px 25px 28px;text-align:center;border:1px solid rgba(255,255,255,.15);border-radius:26px;background:rgba(255,255,255,.08);backdrop-filter:blur(18px);box-shadow:0 25px 70px rgba(0,0,0,.28)}
+.logo{width:82px;height:82px;border-radius:50%;background:#fff;border:3px solid var(--gold);display:grid;place-items:center;margin:0 auto 18px;box-shadow:0 10px 30px rgba(0,0,0,.2)}
+.logo img{width:66px;height:66px;border-radius:50%;object-fit:contain}
+h1{margin:0;font-size:1.65rem;letter-spacing:-.03em}h1 span{color:var(--gold)}p{margin:8px 0 0;color:rgba(255,255,255,.78);font-size:.94rem}
+.line{width:54px;height:2px;background:var(--gold);margin:20px auto;border-radius:9px}
+.status{display:flex;align-items:center;justify-content:center;gap:8px;color:rgba(255,255,255,.72);font-size:.82rem}.dot{width:7px;height:7px;border-radius:50%;background:#61C995;box-shadow:0 0 0 5px rgba(97,201,149,.12)}
+a{display:inline-flex;margin-top:22px;align-items:center;justify-content:center;min-height:46px;padding:11px 22px;border-radius:13px;background:var(--gold);color:#172033;text-decoration:none;font-weight:800;box-shadow:0 8px 22px rgba(0,0,0,.18)}
+.small{margin-top:18px;font-size:.74rem;color:rgba(255,255,255,.5)}
+</style>
 </head>
 <body>
-<main><div>Opening TASVIA Parents Portal…</div><a id="go" href="https://apk.tasviaacademy.com/parent/index.html">Continue</a></main>
+<main class="card">
+  <div class="logo"><img src="/icon-192.png" alt="TASVIA Academy"></div>
+  <h1>TASVIA <span>Parents Portal</span></h1>
+  <p>Secure access to your child’s attendance, fees, tests and learning updates.</p>
+  <div class="line"></div>
+  <div class="status"><i class="dot"></i><span>Opening your secure portal…</span></div>
+  <a id="go" href="https://apk.tasviaacademy.com/parent/index.html">Continue to Parent Portal&nbsp; →</a>
+  <div class="small">TASVIA ACADEMY · Inspire • Learn • Grow • Succeed</div>
+</main>
 <script>
 (function(){
   var q=window.location.search||"",h=window.location.hash||"",code=new URLSearchParams(q).get("code");
@@ -16,7 +36,7 @@
   var u="https://apk.tasviaacademy.com/parent/index.html";
   if(code)u+="?code="+encodeURIComponent(code);
   document.getElementById("go").href=u;
-  setTimeout(function(){location.replace(u)},150);
+  setTimeout(function(){location.replace(u)},700);
 })();
 </script>
 </body>
