@@ -268,7 +268,25 @@ body:before{content:"";position:fixed;top:0;left:0;width:100%;height:3px;z-index
 }
 </style>
 <style id="TASVIA_PARENT_COMMERCIAL_SECTION">
-.parentCommercial{display:grid;grid-template-columns:1.08fr .92fr;gap:52px;align-items:center;padding:58px 0}
+.parentCommercial{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);gap:52px;align-items:center;padding:58px 0}
+.parentCommercialCopy,.parentCommercialVisual{min-width:0}
+.parentCommercialCopy .sectionTitle{line-height:1.14}
+.parentFeatureGrid{grid-template-columns:repeat(2,minmax(0,1fr));}
+.parentFeature{min-width:0;overflow:hidden}
+.parentFeature>div{min-width:0}
+.parentFeature b,.parentFeature small{overflow-wrap:anywhere}
+.parentCommercialVisual{width:100%;box-sizing:border-box}
+.parentGlass{box-sizing:border-box;overflow:hidden}
+.parentGlassTop{min-width:0}
+.parentGlassTop span:nth-child(2){white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.parentMiniStats{min-width:0}
+.parentMiniStats>div{min-width:0;overflow:hidden}
+.parentMiniStats span,.parentMiniStats b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.parentProgress>div{min-width:0;align-items:center}
+.parentProgress>div span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:900px){.parentCommercial{grid-template-columns:1fr;gap:32px;padding:42px 0}.parentCommercialCopy{max-width:none}.parentCommercialVisual{min-height:350px}.parentCommercialVisual:before{width:290px;height:290px}}
+@media(max-width:620px){.parentCommercial{padding:34px 0}.parentFeatureGrid{grid-template-columns:1fr}.parentCommercialLead{font-size:.94rem}.parentCommercialVisual{min-height:330px}.parentGlass{width:100%;max-width:390px;padding:18px}.parentBadge{right:4px;bottom:8px}.parentCommercialActions{align-items:flex-start;flex-direction:column}.parentSecure{margin-left:2px}}
+@media(max-width:400px){.parentCommercialVisual{min-height:315px}.parentGlass{padding:15px;border-radius:20px}.parentStudentMini{margin:18px 0 14px}.parentAvatar{width:46px;height:46px;border-radius:13px}.parentMiniStats{gap:7px}.parentMiniStats>div{padding:10px}.parentMiniStats span{font-size:.72rem}.parentMiniStats b{font-size:.63rem}.parentProgress{padding:10px}.parentBadge{position:relative;right:auto;bottom:auto;margin:10px auto 0;width:max-content;max-width:100%;box-sizing:border-box}.parentCommercialVisual:before{width:250px;height:250px}}
 .parentCommercialCopy{max-width:680px}.parentCommercialCopy .sectionTitle{max-width:650px}.parentCommercialCopy .sectionTitle span{color:#B17C08}
 .parentCommercialLead{max-width:620px;color:#65748A;font-size:1.03rem;line-height:1.75;margin:18px 0 0}
 .parentFeatureGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:28px}
