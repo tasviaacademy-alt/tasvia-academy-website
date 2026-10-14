@@ -464,7 +464,7 @@ button,a{touch-action:manipulation}
 .whatsapp-float-cta:hover,.whatsapp-float-cta:focus-visible{transform:translateY(-2px);box-shadow:0 12px 30px rgba(10,33,71,.3)}
 .whatsapp-float-cta:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .whatsapp-float-cta .wa-icon{font-size:1.25rem;line-height:1}
-@media(max-width:600px){.whatsapp-float-cta{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));min-height:46px;padding:11px 14px;font-size:.82rem}}
+@media(max-width:650px){.whatsapp-float-cta{display:none!important}} /* The mobileActionBar already provides WhatsApp and Call buttons; hide the duplicate floating CTA to prevent overlap. */
 @media(prefers-reduced-motion:reduce){.whatsapp-float-cta{transition:none}}
 </style>
 <script id="TASVIA_FINAL_INTERACTIONS">
