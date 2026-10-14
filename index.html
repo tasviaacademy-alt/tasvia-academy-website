@@ -458,6 +458,14 @@ button,a{touch-action:manipulation}
  .commercialActions{justify-content:flex-start;margin-top:10px}
  .commercialActions a{font-size:.72rem;padding:9px 12px}
 }
+
+/* Accessibility and mobile conversion improvements */
+.whatsapp-float-cta{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:1000;display:inline-flex;align-items:center;gap:9px;min-height:50px;padding:13px 17px;border:2px solid #fff;border-radius:999px;background:#0b7a43;color:#fff;text-decoration:none;font:800 .9rem/1.2 "DM Sans",Arial,sans-serif;box-shadow:0 8px 24px rgba(10,33,71,.24);transition:transform .2s ease,box-shadow .2s ease}
+.whatsapp-float-cta:hover,.whatsapp-float-cta:focus-visible{transform:translateY(-2px);box-shadow:0 12px 30px rgba(10,33,71,.3)}
+.whatsapp-float-cta:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.whatsapp-float-cta .wa-icon{font-size:1.25rem;line-height:1}
+@media(max-width:600px){.whatsapp-float-cta{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));min-height:46px;padding:11px 14px;font-size:.82rem}}
+@media(prefers-reduced-motion:reduce){.whatsapp-float-cta{transition:none}}
 </style>
 <script id="TASVIA_FINAL_INTERACTIONS">
 (function(){
@@ -512,3 +520,8 @@ button,a{touch-action:manipulation}
   ]
 }
 </script><!-- TASVIA FINAL AUDIT: external government mandal data is loaded dynamically -->
+<a class="whatsapp-float-cta" href="https://wa.me/917842138739?text=Hello%20TASVIA%20Academy%2C%20I%20would%20like%20to%20enquire%20about%20admissions." target="_blank" rel="noopener noreferrer" aria-label="Enquire with TASVIA Academy on WhatsApp">
+  <span class="wa-icon" aria-hidden="true">◉</span><span>WhatsApp Enquiry</span>
+</a>
+</body>
+</html>
