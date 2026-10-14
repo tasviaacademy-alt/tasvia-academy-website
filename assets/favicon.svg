@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="TASVIA Academy">
+  <circle cx="32" cy="32" r="29.5" fill="#082653" stroke="#EFB52B" stroke-width="3"/>
+  <path d="M10 25.5 31.5 18 54 25.5 32 33Z" fill="#EFB52B"/>
+  <path d="M17 28.5v7.2c0 2.7 6.5 5.5 15 5.5s15-2.8 15-5.5v-7.2L32 34Z" fill="#fff"/>
+  <path d="M14 36.5v8.2c6.3-2.8 12.2-2.1 18 2.2 5.8-4.3 11.7-5 18-2.2v-8.2c-6.3-2.8-12.2-2.1-18 2.2-5.8-4.3-11.7-5-18-2.2Z" fill="#fff" stroke="#EFB52B" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M32 38.7v8.2" fill="none" stroke="#EFB52B" stroke-width="1.5"/>
+</svg>
