@@ -523,5 +523,34 @@ button,a{touch-action:manipulation}
 <a class="whatsapp-float-cta" href="https://wa.me/917842138739?text=Hello%20TASVIA%20Academy%2C%20I%20would%20like%20to%20enquire%20about%20admissions." target="_blank" rel="noopener noreferrer" aria-label="Enquire with TASVIA Academy on WhatsApp">
   <span class="wa-icon" aria-hidden="true">◉</span><span>WhatsApp Enquiry</span>
 </a>
+
+<style id="TASVIA_MOBILE_AUDIT_FIXES">
+/* Mobile audit fixes: compact first screen, readable copy, safe-area-aware actions. */
+@media(max-width:650px){
+  .heroVisual{min-height:clamp(300px,95vw,390px)!important}
+  .heroMain{height:100%!important;width:100%!important;right:auto!important;inset:0!important;object-fit:cover;object-position:center 25%}
+  .heroMiniCards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px}
+  .heroMiniCards>div{padding:10px!important;min-width:0}
+  .heroMiniCards>div:nth-child(3){grid-column:1/-1}
+  .programImg{aspect-ratio:16/10!important;height:auto!important;max-height:190px;object-fit:cover}
+  .program p,.intro p,.checks li,.valueCard p,.contactItem,.portalIntro p,.portalFeature,.parentCommercialLead,.footerCol p,.footerLinks a{font-size:15px}
+  .program p,.intro p,.checks li,.contactItem,.portalIntro p,.parentCommercialLead,.footerCol p{line-height:1.65}
+  .mobileActionBar{bottom:calc(10px + env(safe-area-inset-bottom,0px))!important;left:12px;right:12px;min-height:64px;align-items:center}
+  .mobileActionBar a{min-height:44px;display:flex;align-items:center;justify-content:center;font-size:14px;padding:12px 8px}
+  .inquireBar,footer{padding-bottom:112px!important}
+  .navcta{min-height:42px;display:inline-flex;align-items:center;justify-content:center}
+  .links{scrollbar-width:thin}
+}
+@media(max-width:360px){
+  .heroVisual{min-height:300px!important}
+  .heroMiniCards strong{font-size:.75rem}
+  .heroMiniCards span{font-size:.66rem}
+  .mobileActionBar a{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){
+  .scroll-reveal{opacity:1!important;transform:none!important}
+}
+</style>
+
 </body>
 </html>
