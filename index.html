@@ -881,5 +881,59 @@ img{max-width:100%}
 }
 </style>
 
+
+<style id="TASVIA_ADMISSION_ALIGNMENT_FINAL_OCT2026">
+/* Admission enquiry alignment refinement */
+.admissionSection,.admissionIntro,.admissionGrid{box-sizing:border-box}
+.admissionSection .wrap{width:min(1180px,calc(100% - 48px));margin-inline:auto}
+.admissionIntro{max-width:780px;margin:0 auto 28px;text-align:center}
+.admissionIntro .sectionTitle{margin-inline:auto;text-wrap:balance}
+.admissionIntro>p{margin-inline:auto}
+.admissionGrid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(285px,.8fr);align-items:stretch;gap:28px}
+.admissionForm,.admissionAside{box-sizing:border-box;width:100%;min-width:0;height:100%}
+.admissionForm{padding:clamp(22px,2.8vw,36px)}
+.formIntro{margin-bottom:24px}
+.formFields{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:20px;row-gap:18px}
+.formField,.formField label,.formField input,.formField select,.formField textarea{min-width:0;max-width:100%;box-sizing:border-box}
+.formField input,.formField select,.formField textarea{width:100%}
+.formFieldFull{grid-column:1/-1}
+.admissionAside{position:relative;top:auto;align-self:stretch;padding:clamp(24px,2.6vw,34px);display:flex;flex-direction:column}
+.admissionAside ol{gap:22px}
+.admissionAside li{min-width:0}
+.admissionAside li>div{min-width:0}
+.admissionAside li small{line-height:1.55;overflow-wrap:anywhere}
+.admissionAside .directCall{margin-top:auto;padding-top:24px}
+.admissionForm .formSubmit{max-width:100%;white-space:normal}
+@media(min-width:851px){
+ .admissionGrid{grid-template-columns:minmax(0,1.7fr) minmax(285px,.8fr)}
+ .admissionAside{min-height:100%}
+}
+@media(max-width:850px){
+ .admissionSection .wrap{width:calc(100% - 40px)}
+ .admissionGrid{grid-template-columns:minmax(0,1fr);gap:22px;align-items:start}
+ .admissionForm,.admissionAside{height:auto}
+ .admissionAside{position:static}
+ .admissionAside ol{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+ .admissionAside li:last-child{grid-column:auto}
+ .admissionAside .directCall{margin-top:24px}
+}
+@media(max-width:560px){
+ .admissionSection .wrap{width:calc(100% - 32px)}
+ .admissionIntro{margin-bottom:22px;text-align:left}
+ .admissionIntro .sectionTitle{font-size:clamp(1.8rem,7vw,2.15rem)}
+ .admissionGrid{gap:16px}
+ .admissionForm{padding:22px 18px}
+ .formFields{grid-template-columns:minmax(0,1fr);gap:15px}
+ .formFieldFull{grid-column:auto}
+ .admissionAside{padding:22px 20px}
+ .admissionAside ol{grid-template-columns:minmax(0,1fr);gap:17px}
+ .admissionAside li:last-child{grid-column:auto}
+}
+@media(max-width:360px){
+ .admissionSection .wrap{width:calc(100% - 24px)}
+ .admissionForm{padding:18px 14px}
+}
+</style>
+
 </body>
 </html>
