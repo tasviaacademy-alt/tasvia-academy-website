@@ -759,7 +759,8 @@ button,a,.cta,.navcta{ -webkit-tap-highlight-color:transparent }
    if(value('message'))lines.push('Additional Details: '+value('message'));
    lines.push('','I would appreciate information about the programme and next steps. Thank you.');
    const url='https://wa.me/917842138739?text='+encodeURIComponent(lines.join('\n'));
-   const opened=window.open(url,'_blank','noopener,noreferrer');
+   const opened=window.open(url,'_blank');
+   if(opened)opened.opener=null;
    if(!opened){
      status.textContent='Your enquiry message is ready. If WhatsApp did not open, use the WhatsApp link in this section and try again.';
      return;
