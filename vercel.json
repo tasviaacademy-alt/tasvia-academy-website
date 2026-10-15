@@ -34,5 +34,22 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/TASVIA_ACADEMY_FINAL_BOLD",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/TASVIA_ACADEMY_FINAL_BOLD/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/TASVIA_ACADEMY_FINAL_BOLD/:path*",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }
