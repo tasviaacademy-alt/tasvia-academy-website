@@ -190,7 +190,7 @@ button,a,.cta,.navcta{ -webkit-tap-highlight-color:transparent }
 function v(id){return (document.getElementById(id)?.value||'').trim();}
 function checkEligibility(){
  const out=document.getElementById('eligibilityResult');
- const phone=v('parentPhone').replace(/\\D/g,'');
+ const phone=v('parentPhone').replace(/\D/g,'');
  if(!v('parentName')||!v('studentName')||phone.length<10||!v('dobCheck')||!v('schoolName')||!v('schoolDistrict')){
   out.innerHTML='<b>Please complete all 8 fields and enter a valid 10-digit WhatsApp number.</b>';out.style.display='block';return;
  }
@@ -208,7 +208,7 @@ function checkEligibility(){
 }
 function sendEligibilityWhatsApp(){
  if(!document.getElementById('consent').checked){alert('Please tick the consent box before sending your enquiry to TASVIA Academy.');return;}
- const phone=v('parentPhone').replace(/\\D/g,'');
+ const phone=v('parentPhone').replace(/\D/g,'');
  if(phone.length<10){alert('Please enter a valid 10-digit parent WhatsApp/mobile number.');return;}
  const fields=[
  'TASVIA ACADEMY — Entrance Eligibility Enquiry',
@@ -220,7 +220,7 @@ function sendEligibilityWhatsApp(){
  'Current Class: '+v('currentClass'),
  'Current School: '+v('schoolName'),
  'District: '+v('schoolDistrict')
- ].join('\\n');
+ ].join('\n');
  window.open('https://wa.me/917842138739?text='+encodeURIComponent(fields),'_blank','noopener');
 }</script><script>
 const TS_TGRAC_MANDAL_API='https://tgrac.telangana.gov.in/arcgis/rest/services/Master_Administrative_Folder/Master_Administrative_Boundary/MapServer/4/query';
