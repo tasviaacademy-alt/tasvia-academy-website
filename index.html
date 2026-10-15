@@ -814,5 +814,72 @@ button,a,.cta,.navcta{ -webkit-tap-highlight-color:transparent }
 }
 </style>
 
+
+<style id="TASVIA_ALIGNMENT_AUDIT_FIX_OCT2026">
+/* Alignment audit pass: consistent container edges, grid sizing, image behavior and mobile overflow protection. */
+:root{--tasvia-container:min(1240px,calc(100% - 48px))}
+img{max-width:100%}
+.wrap,.heroShell,.nav,.footerMain,.footerBottom{min-width:0}
+.wrap{width:var(--tasvia-container)}
+.heroShell{width:var(--tasvia-container);grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr)}
+.heroCopy,.heroVisual,.introGrid>*,.why>*,.parentGrid>*,.contact>*,.admissionGrid>*{min-width:0}
+.heroCopy>*{max-width:100%}
+.hero h1,.sectionTitle,.intro h2,.ctaBand h2{overflow-wrap:anywhere}
+.programs{align-items:stretch}
+.program{display:flex;flex-direction:column;min-width:0;height:100%}
+.programImg{display:block;width:100%;object-fit:cover}
+.programBody{display:flex;flex:1;flex-direction:column;align-items:flex-start}
+.programBody .learn{margin-top:auto;padding-top:12px}
+.stats{align-items:stretch}
+.stat{min-width:0}
+.stat strong,.stat span{overflow-wrap:anywhere}
+.valueGrid{align-items:stretch}
+.valueCard{height:100%;min-width:0}
+.contactCard,.googleCard,.admissionForm,.admissionAside{min-width:0}
+.contactItem,.footerCol,.footerLinks,.footerContact{overflow-wrap:anywhere}
+.map{display:block;max-width:100%}
+.footerMain{grid-template-columns:minmax(0,1.05fr) minmax(0,.82fr) minmax(0,1.28fr) minmax(0,1.02fr)}
+.footerCol{min-width:0}
+.heroBtns,.socials{align-items:center}
+.heroBtns .btn{justify-content:center}
+@media(min-width:651px) and (max-width:950px){
+ .nav{width:calc(100% - 40px)}
+ .links{justify-content:flex-start;flex-wrap:wrap}
+ .heroShell{grid-template-columns:minmax(0,1fr);width:calc(100% - 40px)}
+ .heroCopy{padding-right:0}
+ .heroVisual{width:100%;min-height:clamp(390px,65vw,600px)}
+ .introGrid,.why,.parentGrid,.contact{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+ .programs{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .footerMain{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+ .footerCol:nth-child(3){border-left:0;padding-left:0}
+}
+@media(max-width:650px){
+ :root{--tasvia-container:calc(100% - 32px)}
+ .wrap,.heroShell{width:var(--tasvia-container)}
+ .heroShell{grid-template-columns:minmax(0,1fr)}
+ .heroCopy{padding-left:0;padding-right:0}
+ .heroVisual{width:100%;min-width:0}
+ .introGrid,.why,.parentGrid,.contact{grid-template-columns:minmax(0,1fr);gap:24px}
+ .programs{grid-template-columns:minmax(0,1fr);gap:16px}
+ .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .programImg{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
+ .ctaBand{align-items:flex-start}
+ .ctaBand .btn{max-width:100%;white-space:normal}
+ .footerMain{grid-template-columns:minmax(0,1fr);gap:0}
+ .footerCol,.footerCol:first-child,.footerCol:last-child{padding-left:0;padding-right:0}
+ .footerBottom{width:100%;overflow-wrap:anywhere}
+ .formFields{grid-template-columns:minmax(0,1fr)}
+ .formFieldFull{grid-column:auto}
+}
+@media(max-width:360px){
+ .stats{grid-template-columns:minmax(0,1fr)}
+ .heroBtns .btn{width:100%}
+ .heroFeatures{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:reduce){
+ .program,.valueCard,.googleCard,.contactCard,.stat{transition:none!important}
+}
+</style>
+
 </body>
 </html>
