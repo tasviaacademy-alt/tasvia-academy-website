@@ -596,5 +596,71 @@ button,a{touch-action:manipulation}
 }
 </style>
 
+
+<style id="TASVIA_EXTRA_GRAPHICS_MOTION">
+/* Extra premium motion + decorative graphics. Keeps the official logo and all page content untouched. */
+.heroVisual{isolation:isolate}
+.heroVisual::before{
+ content:"";position:absolute;z-index:0;pointer-events:none;width:210px;height:210px;left:-34px;top:9%;
+ border:1px solid rgba(177,124,8,.38);border-radius:50%;
+ box-shadow:0 0 0 18px rgba(239,181,43,.045),0 0 0 38px rgba(239,181,43,.035);
+ animation:tasviaOrbitFloat 11s ease-in-out infinite
+}
+.heroVisual::after{
+ content:"";position:absolute;z-index:2;pointer-events:none;right:8%;top:12%;width:86px;height:86px;
+ background-image:radial-gradient(rgba(177,124,8,.7) 1.4px,transparent 1.6px);
+ background-size:13px 13px;opacity:.65;animation:tasviaDotDrift 9s ease-in-out infinite alternate
+}
+.heroPhotoFrame{isolation:isolate}
+.heroPhotoFrame::after{
+ content:"";position:absolute;inset:-20% auto -20% -65%;width:36%;z-index:2;pointer-events:none;
+ transform:skewX(-18deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.24),transparent);
+ animation:tasviaPhotoGlint 9s ease-in-out infinite
+}
+.heroBadge{transition:box-shadow .35s ease,border-color .35s ease}
+.heroBadge:hover{box-shadow:0 22px 48px rgba(10,33,71,.24),0 0 0 4px rgba(239,181,43,.12);border-color:#efb52b}
+.program,.stat,.valueCard,.googleCard,.contactCard{
+ position:relative;isolation:isolate;
+ transition:transform .35s cubic-bezier(.2,.7,.25,1),box-shadow .35s ease,border-color .35s ease
+}
+.program::after,.stat::after,.valueCard::after,.googleCard::after,.contactCard::after{
+ content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;
+ background:linear-gradient(135deg,rgba(239,181,43,.08),transparent 42%,rgba(91,157,211,.08));
+ opacity:0;transition:opacity .35s ease
+}
+.program:hover::after,.stat:hover::after,.valueCard:hover::after,.googleCard:hover::after,.contactCard:hover::after{opacity:1}
+.program:hover,.stat:hover,.valueCard:hover,.googleCard:hover,.contactCard:hover{
+ transform:translateY(-5px);border-color:rgba(177,124,8,.42);
+ box-shadow:0 18px 38px rgba(10,33,71,.12),0 0 0 1px rgba(239,181,43,.07)
+}
+.program:nth-child(2),.valueCard:nth-child(2){transition-delay:.035s}
+.program:nth-child(3),.valueCard:nth-child(3){transition-delay:.07s}
+.program:nth-child(4),.valueCard:nth-child(4){transition-delay:.105s}
+.sectionTitle{position:relative}
+.sectionTitle::selection{background:rgba(239,181,43,.3)}
+.checks li{transition:transform .25s ease,color .25s ease}
+.checks li:hover{transform:translateX(5px);color:var(--navy)}
+.checks li::before{transition:transform .25s ease,box-shadow .25s ease}
+.checks li:hover::before{transform:scale(1.12);box-shadow:0 0 0 5px rgba(239,181,43,.15)}
+.socials a{position:relative;overflow:hidden}
+.socials a::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent,rgba(239,181,43,.42),transparent);transform:translateX(-120%);transition:transform .45s ease}
+.socials a:hover::after{transform:translateX(120%)}
+@keyframes tasviaOrbitFloat{0%,100%{transform:translate3d(0,0,0) rotate(0deg)}50%{transform:translate3d(12px,-16px,0) rotate(14deg)}}
+@keyframes tasviaDotDrift{from{transform:translate3d(0,0,0);opacity:.35}to{transform:translate3d(-10px,16px,0);opacity:.8}}
+@keyframes tasviaPhotoGlint{0%,55%{left:-65%;opacity:0}65%{opacity:1}90%,100%{left:135%;opacity:0}}
+@media(max-width:650px){
+ .heroVisual::before{width:130px;height:130px;left:-20px;top:3%}
+ .heroVisual::after{width:60px;height:60px;right:3%;top:10%;background-size:10px 10px}
+ .heroPhotoFrame::after{animation-duration:12s}
+}
+@media(hover:none){
+ .program:hover,.stat:hover,.valueCard:hover,.googleCard:hover,.contactCard:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .heroVisual::before,.heroVisual::after,.heroPhotoFrame::after{animation:none!important}
+ .program,.stat,.valueCard,.googleCard,.contactCard,.checks li,.checks li::before,.socials a::after{transition:none!important}
+}
+</style>
+
 </body>
 </html>
