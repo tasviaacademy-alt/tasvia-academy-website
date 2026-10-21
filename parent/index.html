@@ -49,12 +49,14 @@ button,a,.cta,.navcta{ -webkit-tap-highlight-color:transparent }
 </main>
 <script>
 (function(){
-  var q=window.location.search||"",h=window.location.hash||"",code=new URLSearchParams(q).get("code");
-  if(!code&&h)code=h.replace(/^#/,"");
-  var u="https://apk.tasviaacademy.com/parent/index.html";
+  "use strict";
+  // Magic links must open the actual student dashboard, not an intermediate login/splash page.
+  var q=new URLSearchParams(window.location.search||"");
+  var code=q.get("code")||q.get("pcode")||q.get("parentCode")||q.get("student")||q.get("studentCode")||q.get("studentId")||q.get("id")||"";
+  if(!code&&window.location.hash)code=String(window.location.hash).replace(/^#/,"");
+  var u="https://apk.tasviaacademy.com/parent.html";
   if(code)u+="?code="+encodeURIComponent(code);
-  document.getElementById("go").href=u;
-  setTimeout(function(){location.replace(u)},700);
+  location.replace(u);
 })();
 </script>
 </body>
