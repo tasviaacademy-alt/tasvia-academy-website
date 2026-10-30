@@ -77,7 +77,7 @@ quizSets.gk.questions.push(
 {q:"Which Indian state is famous for the Kaziranga National Park?",o:["Assam","Kerala","Gujarat","Punjab"],a:0,e:"Kaziranga National Park is in Assam and is known for the one-horned rhinoceros."},
 {q:"Which instrument is used to measure temperature?",o:["Barometer","Thermometer","Anemometer","Compass"],a:1,e:"A thermometer measures temperature."},
 {q:"What is the currency of Japan?",o:["Yuan","Won","Yen","Ringgit"],a:2,e:"The Japanese currency is the yen."},
-{q:"Which is the longest river in India by length within the country?",o:["Godavari","Ganga","Narmada","Krishna"],a:1,e:"The Ganga is generally identified as India's longest river."},
+{q:"Which river is popularly called the Dakshin Ganga?",o:["Ganga","Godavari","Krishna","Kaveri"],a:1,e:"The Godavari is popularly known as the Dakshin Ganga, or Ganga of the South."},
 {q:"Who wrote the Indian national anthem?",o:["Bankim Chandra Chatterjee","Rabindranath Tagore","Sarojini Naidu","Subramania Bharati"],a:1,e:"Rabindranath Tagore wrote Jana Gana Mana."},
 {q:"Which day is celebrated as India's Independence Day?",o:["26 January","15 August","2 October","14 November"],a:1,e:"India celebrates Independence Day on 15 August."},
 {q:"Which organ pumps blood throughout the human body?",o:["Lungs","Brain","Heart","Kidneys"],a:2,e:"The heart pumps blood through the circulatory system."},
@@ -138,6 +138,14 @@ quizSets.maths.questions.push(
 {q:"What is the perimeter of a rectangle of length 9 cm and width 4 cm?",o:["13 cm","26 cm","36 cm","40 cm"],a:1,e:"Perimeter = 2 × (9 + 4) = 26 cm."}
 );
 
+// Explicitly reviewed difficulty labels; do not infer difficulty from question position.
+const reviewedLevels={
+ gk:["easy","easy","easy","easy","easy","easy","medium","medium","easy","medium","easy","medium","medium","medium","easy","easy","easy","easy","easy","easy"],
+ evs:["easy","easy","easy","medium","easy","medium","easy","medium","medium","easy","easy","easy","easy","easy","medium","easy","hard","medium","easy","medium"],
+ mat:["easy","easy","medium","easy","easy","easy","medium","medium","easy","medium","medium","easy","hard","hard","medium","easy","medium","hard","medium","hard"],
+ maths:["easy","easy","easy","easy","medium","easy","medium","medium","medium","medium","medium","medium","easy","medium","medium","medium","easy","medium","easy","medium"]
+};
+Object.entries(reviewedLevels).forEach(([subject,levels])=>quizSets[subject].questions.forEach((q,i)=>q.level=levels[i]||"medium"));
 // Daily GK + EVS questions rotate by calendar date. Weekly mock combines all four subjects.
 const dailyPool=[...quizSets.gk.questions,...quizSets.evs.questions];
 const dayNumber=Math.floor(Date.now()/86400000);
@@ -192,7 +200,7 @@ function saveProgress(entry){try{const key="tasviaPracticeHistoryV1";const old=J
 function renderProgress(){try{const list=JSON.parse(localStorage.getItem("tasviaPracticeHistoryV1")||"[]");const recent=list.slice(-3).reverse();$("progressHistory").textContent=recent.length?"Recent scores on this device: "+recent.map(x=>x.subject.toUpperCase()+" "+x.score+"/"+x.total+" ("+x.accuracy+"%)").join(" · "):"Your scores on this device will appear here.";}catch(e){$("progressHistory").textContent="Progress history is unavailable in this browser.";}}
 function buildReview(){const box=$("reviewBox");box.innerHTML="<h3>Answer review</h3>";activeQuestions.forEach((q,i)=>{const a=attempts[i],item=document.createElement("div");item.className="reviewItem";const title=document.createElement("strong");title.textContent=(i+1)+". "+q.q;const status=document.createElement("div");status.className=a&&a.correct?"right":"wrong";status.textContent=a?(a.correct?"Correct":"Your answer: "+q.o[a.selected]):"Not answered";const answer=document.createElement("div");answer.textContent="Correct answer: "+q.o[q.a]+". "+q.e;item.append(title,status,answer);box.appendChild(item);});}
 function shuffleArray(arr){const out=[...arr];for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}return out;}
-function getDifficulty(q,i){if(q.level)return q.level;return i<7?"easy":i<14?"medium":"hard";}
+function getDifficulty(q,i){return q.level||"medium";}
 function getSourceQuestions(){let source=quizSets[current].questions.map((q,i)=>({...q,level:getDifficulty(q,i)}));if(activeDifficulty!=="all")source=source.filter(q=>q.level===activeDifficulty);return source;}
 function makeNewSet(){const source=getSourceQuestions();const count=current==="mistakes"?source.length:current==="weekly"?20:5;return shuffleArray(source).slice(0,Math.min(count,source.length)).map(q=>{const order=shuffleArray(q.o.map((text,i)=>({text,correct:i===q.a})));return {...q,o:order.map(x=>x.text),a:order.findIndex(x=>x.correct)};});}
 function restart(useNewSet=false){if(timerHandle)clearInterval(timerHandle);activeDifficulty=$("difficulty")?$("difficulty").value:"all";index=0;score=0;selected=null;answered=false;attempts=[];startedAt=0;finished=false;timeLeft=timedModes[current]||0;activeQuestions=makeNewSet();$("timerBadge").style.background="";$("reviewBox").classList.remove("show");$("reviewToggleBtn").textContent="Review answers";render();}
