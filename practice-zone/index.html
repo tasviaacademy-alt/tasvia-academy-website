@@ -149,8 +149,9 @@ const timedModes={weekly:1200};
 const $=id=>document.getElementById(id);
 function render(){
  const set=quizSets[current],q=activeQuestions[index];selected=null;answered=false;
+ if(!q){$("questionText").textContent="No questions are available for this selection. Please choose another level."; $("options").innerHTML=""; $("questionCount").textContent="NO QUESTIONS"; $("nextBtn").disabled=true; return;}
  if(index===0&&!startedAt){startedAt=Date.now();timeLeft=timedModes[current]||0;if(timerHandle)clearInterval(timerHandle);if(timeLeft){$("timerBadge").classList.add("active");updateTimer();timerHandle=setInterval(()=>{timeLeft--;updateTimer();if(timeLeft<=0){clearInterval(timerHandle);finish(true);}},1000);}else $("timerBadge").classList.remove("active");}
- $("quizTitle").textContent=set.title;$("quizDescription").textContent=set.description;$("questionCount").textContent="QUESTION "+(index+1)+" OF "+activeQuestions.length;$("scoreCount").textContent="SCORE: "+score;$("questionTopic").textContent=set.topic;$("questionText").textContent=q.q;$("progressBar").style.width=(index/set.questions.length*100)+"%";$("feedback").className="feedback";$("feedback").textContent="";$("nextBtn").disabled=true;$("nextBtn").textContent="Check answer";
+ $("quizTitle").textContent=set.title;$("quizDescription").textContent=set.description;$("questionCount").textContent="QUESTION "+(index+1)+" OF "+activeQuestions.length;$("scoreCount").textContent="SCORE: "+score;$("questionTopic").textContent=set.topic;$("questionText").textContent=q.q;$("progressBar").style.width=(activeQuestions.length?index/activeQuestions.length*100:0)+"%";$("feedback").className="feedback";$("feedback").textContent="";$("nextBtn").disabled=true;$("nextBtn").textContent="Check answer";
  $("options").innerHTML="";q.o.forEach((label,i)=>{const b=document.createElement("button");b.type="button";b.className="option";b.innerHTML='<span class="letter">'+String.fromCharCode(65+i)+'</span><span></span>';b.querySelector("span:last-child").textContent=label;b.addEventListener("click",()=>choose(i));$("options").appendChild(b);});
  $("quizBody").style.display="block";$("resultPanel").classList.remove("show");
 }
@@ -172,13 +173,7 @@ $("difficulty").addEventListener("change",()=>restart());
 $("nextBtn").addEventListener("click",check);$("restartBtn").addEventListener("click",restart);$("tryAgainBtn").addEventListener("click",restart);$("newSetBtn").addEventListener("click",()=>{restart(true);document.querySelector(".quizPanel").scrollIntoView({behavior:"smooth",block:"start"});});
 $("nextSubjectBtn").addEventListener("click",()=>{const keys=Object.keys(quizSets),next=keys[(keys.indexOf(current)+1)%keys.length];chooseSubject(next);document.querySelector(".quizPanel").scrollIntoView({behavior:"smooth",block:"start"});});
 $("reviewToggleBtn").addEventListener("click",()=>{const box=$("reviewBox");box.classList.toggle("show");$("reviewToggleBtn").textContent=box.classList.contains("show")?"Hide review":"Review answers";});
-$("shareResultBtn").addEventListener("click",()=>{const name=$("studentName").value.trim()||"Student",klass=$("studentClass").value.trim(),total=activeQuestions.length,accuracy=Math.round(score/total*100),message="TASVIA Academy Practice Result
-Student: "+name+(klass?"
-Class: "+klass:"")+"
-Test: "+quizSets[current].title+"
-Score: "+score+"/"+total+"
-Accuracy: "+accuracy+"%
-https://www.tasviaacademy.com/practice-zone/";window.open("https://wa.me/?text="+encodeURIComponent(message),"_blank","noopener");});
+$("shareResultBtn").addEventListener("click",()=>{const name=$("studentName").value.trim()||"Student",klass=$("studentClass").value.trim(),total=activeQuestions.length,accuracy=total?Math.round(score/total*100):0,message=["TASVIA Academy Practice Result","Student: "+name,klass?"Class: "+klass:"","Test: "+quizSets[current].title,"Score: "+score+"/"+total,"Accuracy: "+accuracy+"%","https://www.tasviaacademy.com/practice-zone/"].filter(Boolean).join(String.fromCharCode(10));window.open("https://wa.me/?text="+encodeURIComponent(message),"_blank","noopener");});
 activeQuestions=makeNewSet();
 render();
 </script>
