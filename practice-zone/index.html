@@ -28,6 +28,8 @@
 <button class="subjectBtn" data-subject="evs" aria-pressed="false"><span class="subjectIcon">EV</span><span>Environmental Studies<small>Nature and daily life</small></span></button>
 <button class="subjectBtn" data-subject="mat" aria-pressed="false"><span class="subjectIcon">MA</span><span>Mental Ability<small>Reasoning and patterns</small></span></button>
 <button class="subjectBtn" data-subject="maths" aria-pressed="false"><span class="subjectIcon">∑</span><span>Mathematics<small>Numbers and problem-solving</small></span></button>
+<button class="subjectBtn" data-subject="daily" aria-pressed="false"><span class="subjectIcon">DAY</span><span>Daily GK + EVS<small>Daily mixed practice</small></span></button>
+<button class="subjectBtn" data-subject="weekly" aria-pressed="false"><span class="subjectIcon">MOCK</span><span>Weekly Mock Test<small>All four subjects · 20 Q</small></span></button>
 </div></aside>
 <section class="quizPanel" aria-label="Interactive practice quiz">
 <div class="quizHead"><h2 id="quizTitle">General Knowledge Practice</h2><p id="quizDescription">Build awareness with short, student-friendly questions.</p><div class="quizMeta"><span id="questionCount">QUESTION 1 OF 5</span><span id="scoreCount">SCORE: 0</span></div></div>
@@ -66,6 +68,12 @@ maths:{title:"Mathematics Practice",description:"Strengthen number sense, arithm
 {q:"What is the perimeter of a square with side 7 cm?",o:["14 cm","21 cm","28 cm","49 cm"],a:2,e:"Perimeter of a square = 4 × side = 4 × 7 = 28 cm."},
 {q:"A class has 24 students. If 1/3 are absent, how many are present?",o:["8","12","16","18"],a:2,e:"One-third of 24 is 8 absent; 24 − 8 = 16 present."}]}
 };
+// Daily GK + EVS questions rotate by calendar date. Weekly mock combines all four subjects.
+const dailyPool=[...quizSets.gk.questions,...quizSets.evs.questions];
+const dayNumber=Math.floor(Date.now()/86400000);
+const dailyQuestions=Array.from({length:5},(_,i)=>dailyPool[(dayNumber*5+i)%dailyPool.length]);
+quizSets.daily={title:"Daily GK + EVS Challenge",description:"A fresh mixed set of five GK and EVS questions each day.",topic:"DAILY GK + EVS",questions:dailyQuestions};
+quizSets.weekly={title:"TASVIA Weekly Mock Test",description:"A 20-question mixed practice test covering GK, EVS, Mental Ability and Mathematics.",topic:"WEEKLY MOCK · ALL SUBJECTS",questions:Object.keys(quizSets).filter(k=>["gk","evs","mat","maths"].includes(k)).flatMap(k=>quizSets[k].questions)};
 let current="gk",index=0,score=0,selected=null,answered=false;
 const $=id=>document.getElementById(id);
 function render(){
