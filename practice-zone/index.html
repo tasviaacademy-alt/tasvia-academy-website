@@ -194,9 +194,9 @@ function buildReview(){const box=$("reviewBox");box.innerHTML="<h3>Answer review
 function shuffleArray(arr){const out=[...arr];for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}return out;}
 function getDifficulty(q,i){if(q.level)return q.level;return i<7?"easy":i<14?"medium":"hard";}
 function getSourceQuestions(){let source=quizSets[current].questions.map((q,i)=>({...q,level:getDifficulty(q,i)}));if(activeDifficulty!=="all")source=source.filter(q=>q.level===activeDifficulty);return source;}
-function makeNewSet(){const source=getSourceQuestions();const count=current==="weekly"?20:5;return shuffleArray(source).slice(0,Math.min(count,source.length)).map(q=>{const order=shuffleArray(q.o.map((text,i)=>({text,correct:i===q.a})));return {...q,o:order.map(x=>x.text),a:order.findIndex(x=>x.correct)};});}
+function makeNewSet(){const source=getSourceQuestions();const count=current==="mistakes"?source.length:current==="weekly"?20:5;return shuffleArray(source).slice(0,Math.min(count,source.length)).map(q=>{const order=shuffleArray(q.o.map((text,i)=>({text,correct:i===q.a})));return {...q,o:order.map(x=>x.text),a:order.findIndex(x=>x.correct)};});}
 function restart(useNewSet=false){if(timerHandle)clearInterval(timerHandle);activeDifficulty=$("difficulty")?$("difficulty").value:"all";index=0;score=0;selected=null;answered=false;attempts=[];startedAt=0;finished=false;timeLeft=timedModes[current]||0;activeQuestions=makeNewSet();$("timerBadge").style.background="";$("reviewBox").classList.remove("show");$("reviewToggleBtn").textContent="Review answers";render();}
-function chooseSubject(key){if(timerHandle)clearInterval(timerHandle);current=key;document.querySelectorAll(".subjectBtn").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.subject===key)));restart();}
+function chooseSubject(key){if(timerHandle)clearInterval(timerHandle);current=key;const mixed=["daily","weekly","mistakes"].includes(key);$("difficulty").disabled=mixed;if(mixed)$("difficulty").value="all";document.querySelectorAll(".subjectBtn").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.subject===key)));restart();}
 document.querySelectorAll(".subjectBtn").forEach(b=>b.addEventListener("click",()=>chooseSubject(b.dataset.subject)));
 $("difficulty").addEventListener("change",()=>restart());
 $("mistakeToggleBtn").addEventListener("click",()=>{$("mistakeNotebook").hidden=!$("mistakeNotebook").hidden;renderMistakes();});
@@ -204,7 +204,7 @@ $("clearMistakesBtn").addEventListener("click",()=>{if(confirm("Clear all saved 
 $("practiceMistakesBtn").addEventListener("click",()=>{
  const items=readMistakes();if(!items.length){$("mistakeNotebook").hidden=false;renderMistakes();return;}
  quizSets.mistakes={title:"Mistake Notebook Revision",description:"Retry questions you previously answered incorrectly.",topic:"PERSONAL REVISION",questions:shuffleArray(items).map(x=>({...x,id:x.id}))};
- current="mistakes";document.querySelectorAll(".subjectBtn").forEach(b=>b.setAttribute("aria-pressed","false"));
+ current="mistakes";$("difficulty").disabled=true;$("difficulty").value="all";document.querySelectorAll(".subjectBtn").forEach(b=>b.setAttribute("aria-pressed","false"));
  $("difficulty").value="all";$("mistakeNotebook").hidden=true;restart();document.querySelector(".quizPanel").scrollIntoView({behavior:"smooth",block:"start"});
 });
 renderMistakes();
