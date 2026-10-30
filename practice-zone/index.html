@@ -34,7 +34,7 @@
 <section class="quizPanel" aria-label="Interactive practice quiz">
 <div class="quizHead"><h2 id="quizTitle">General Knowledge Practice</h2><p id="quizDescription">Build awareness with short, student-friendly questions.</p><div class="quizMeta"><span id="questionCount">QUESTION 1 OF 5</span><span id="scoreCount">SCORE: 0</span><span id="timerBadge" class="timerBadge">20:00</span></div></div>
 <div class="progress"><span id="progressBar"></span></div>
-<div class="quizBody" id="quizBody"><div class="studentDetails"><input id="studentName" type="text" maxlength="40" placeholder="Student name (optional)" aria-label="Student name"><input id="studentClass" type="text" maxlength="24" placeholder="Class (optional)" aria-label="Class"><select id="difficulty" aria-label="Choose difficulty" style="width:100%;padding:11px;border:1px solid #DDE4EE;border-radius:9px;font:500 .88rem DM Sans,Arial,sans-serif;background:#fff;color:#172B4D"><option value="all">All difficulty levels</option><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></div><div id="progressHistory" style="margin:0 0 18px;padding:10px 12px;border-radius:9px;background:#F6F8FC;color:#63728A;font-size:.78rem">Your scores on this device will appear here.</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:0 0 12px"><button class="secondaryBtn" id="mistakeToggleBtn" type="button">📒 Mistake Notebook (<span id="mistakeCount">0</span>)</button><button class="secondaryBtn" id="practiceMistakesBtn" type="button">Revise saved mistakes</button></div><section id="mistakeNotebook" hidden style="margin:0 0 18px;padding:14px;border:1px solid #E5EAF1;border-radius:12px;background:#FAFBFD"><strong style="color:#0A2147">Questions to revise</strong><div id="mistakeList" style="margin-top:9px;font-size:.82rem;color:#63728A">No saved mistakes yet.</div><div id="mistakeStorageStatus" role="status" style="margin-top:7px;color:#9B3A30;font-size:.78rem"></div><button class="secondaryBtn" id="clearMistakesBtn" type="button" style="margin-top:10px">Clear notebook</button></section><div class="questionTop"><span id="questionTopic">GENERAL AWARENESS</span><span>SELECT ONE ANSWER</span></div><div class="question" id="questionText"></div><div class="options" id="options"></div><div class="feedback" id="feedback" role="status" aria-live="polite"></div><div class="quizActions"><button class="secondaryBtn" id="restartBtn" type="button">Restart quiz</button><button class="primaryBtn" id="nextBtn" type="button" disabled>Check answer</button></div></div>
+<div class="quizBody" id="quizBody"><div class="studentDetails"><input id="studentName" type="text" maxlength="40" placeholder="Student name (optional)" aria-label="Student name"><input id="studentClass" type="text" maxlength="24" placeholder="Class (optional)" aria-label="Class"><select id="difficulty" aria-label="Choose difficulty" style="width:100%;padding:11px;border:1px solid #DDE4EE;border-radius:9px;font:500 .88rem DM Sans,Arial,sans-serif;background:#fff;color:#172B4D"><option value="all">All difficulty levels</option><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select></div><div id="progressHistory" style="margin:0 0 18px;padding:10px 12px;border-radius:9px;background:#F6F8FC;color:#63728A;font-size:.78rem">Your scores on this device will appear here.</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:0 0 12px"><button class="secondaryBtn" id="mistakeToggleBtn" type="button">📒 Mistake Notebook (<span id="mistakeCount">0</span>)</button><button class="secondaryBtn" id="practiceMistakesBtn" type="button">Revise saved mistakes</button></div><section id="mistakeNotebook" hidden style="margin:0 0 18px;padding:14px;border:1px solid #E5EAF1;border-radius:12px;background:#FAFBFD"><strong style="color:#0A2147">Questions to revise</strong><div id="mistakeList" style="margin-top:9px;font-size:.82rem;color:#63728A">Enter the student name and class to view this notebook.</div><div id="mistakeStorageStatus" role="status" style="margin-top:7px;color:#9B3A30;font-size:.78rem"></div><button class="secondaryBtn" id="clearMistakesBtn" type="button" style="margin-top:10px">Clear notebook</button></section><div class="questionTop"><span id="questionTopic">GENERAL AWARENESS</span><span>SELECT ONE ANSWER</span></div><div class="question" id="questionText"></div><div class="options" id="options"></div><div class="feedback" id="feedback" role="status" aria-live="polite"></div><div class="quizActions"><button class="secondaryBtn" id="restartBtn" type="button">Restart quiz</button><button class="primaryBtn" id="nextBtn" type="button" disabled>Check answer</button></div></div>
 <div class="result" id="resultPanel" aria-live="polite"><div class="scoreRing"><strong id="finalScore">0/5</strong></div><div class="eyebrow">PRACTICE COMPLETE</div><h3 id="resultTitle">Well done!</h3><p id="resultText"></p><div id="resultStats" class="resultStats"></div><section id="performanceAnalysis" class="performanceAnalysis" aria-live="polite"></section><div class="resultActions"><button class="primaryBtn" id="tryAgainBtn" type="button">Try this subject again</button><button class="secondaryBtn" id="nextSubjectBtn" type="button">Explore another subject</button><button class="secondaryBtn" id="shareResultBtn" type="button">Share result</button><button class="secondaryBtn" id="reviewToggleBtn" type="button">Review answers</button><button class="primaryBtn" id="newSetBtn" type="button">Start New Set ↻</button></div><div id="reviewBox" class="reviewBox"></div></div>
 </section></div>
 <div class="wrap note"><b>For students and parents:</b> These are original practice questions prepared as a learning aid. They are not official Navodaya or Sainik School examination questions, and completing a quiz does not predict an examination result. Always follow the latest official admission notification and syllabus.</div>
@@ -336,17 +336,24 @@ quizSets.daily={title:"Daily GK + EVS Challenge",description:"A fresh mixed set 
 quizSets.weekly={title:"TASVIA Weekly Mock Test",description:"A 20-question mixed practice test covering GK, EVS, Mental Ability and Mathematics.",topic:"WEEKLY MOCK · ALL SUBJECTS",questions:Object.keys(quizSets).filter(k=>["gk","evs","mat","maths"].includes(k)).flatMap(k=>quizSets[k].questions)};
 let current="gk",index=0,score=0,selected=null,answered=false,attempts=[],startedAt=0,timerHandle=null,timeLeft=1200,finished=false,activeQuestions=[],activeDifficulty="all";
 const timedModes={weekly:1200};
-const MISTAKE_KEY="tasviaMistakeNotebookV1";
+function getMistakeStorageKey(){
+ const name=$("studentName")?.value.trim().toLocaleLowerCase()||"";
+ const klass=$("studentClass")?.value.trim().toLocaleLowerCase()||"";
+ if(!name||!klass)return null;
+ return "tasviaMistakeNotebookV2:"+encodeURIComponent(name+"|"+klass);
+}
 function readMistakes(){
+ const key=getMistakeStorageKey();if(!key)return [];
  try{
-  const raw=JSON.parse(localStorage.getItem(MISTAKE_KEY)||"[]");
+  const raw=JSON.parse(localStorage.getItem(key)||"[]");
   return Array.isArray(raw)?raw.filter(x=>x&&typeof x.q==="string"&&Array.isArray(x.o)&&Number.isInteger(x.a)&&x.a>=0&&x.a<x.o.length):[];
  }catch(e){return [];}
 }
 function writeMistakes(items){
- const status=$("mistakeStorageStatus");
+ const status=$("mistakeStorageStatus"),key=getMistakeStorageKey();
+ if(!key){if(status)status.textContent="Enter the student's name and class above to keep this notebook separate.";renderMistakes();return;}
  try{
-  localStorage.setItem(MISTAKE_KEY,JSON.stringify(items.slice(-200)));
+  localStorage.setItem(key,JSON.stringify(items.slice(-200)));
   if(status)status.textContent="";
  }catch(e){
   if(status)status.textContent="Browser storage is unavailable. Allow site data/storage in your browser to save mistakes.";
@@ -354,14 +361,12 @@ function writeMistakes(items){
  renderMistakes();
 }
 function renderMistakes(){
- const items=readMistakes(),count=$("mistakeCount"),list=$("mistakeList");
+ const key=getMistakeStorageKey(),items=readMistakes(),count=$("mistakeCount"),list=$("mistakeList");
  if(count)count.textContent=items.length;
  if(!list)return;
  list.innerHTML="";
- if(!items.length){
-  list.textContent="No saved mistakes yet. Incorrect answers will be stored here automatically.";
-  return;
- }
+ if(!key){list.textContent="Enter the student's name and class above to view their private notebook on this device.";return;}
+ if(!items.length){list.textContent="No saved mistakes for this student yet. Incorrect answers will appear here automatically.";return;}
  items.slice().reverse().forEach((item,i)=>{
   const row=document.createElement("div");row.className="mistakeEntry";
   const title=document.createElement("b");title.textContent=(items.length-i)+". "+item.q;
@@ -374,13 +379,15 @@ function renderMistakes(){
  });
 }
 function saveMistake(q){
- const items=readMistakes(),id=current+"|"+q.q;
- const existing=items.findIndex(x=>x.id===id);
+ const key=getMistakeStorageKey(),status=$("mistakeStorageStatus");
+ if(!key){if(status)status.textContent="Enter the student's name and class before answering so mistakes are saved only in that student's notebook.";return;}
+ const items=readMistakes(),id=current+"|"+q.q,existing=items.findIndex(x=>x.id===id);
  const record={id,subject:current,subjectLabel:quizSets[current].title,q:q.q,o:q.o,a:q.a,e:q.e,userAnswer:q.userAnswer,level:q.level||"all",savedAt:new Date().toISOString()};
  if(existing>=0)items[existing]=record;else items.push(record);
  writeMistakes(items);
 }
 function removeMistake(q){
+ const key=getMistakeStorageKey();if(!key)return;
  const id=q.id||((q.subject||current)+"|"+q.q);
  writeMistakes(readMistakes().filter(x=>x.id!==id));
 }
@@ -428,6 +435,8 @@ $("practiceMistakesBtn").addEventListener("click",()=>{
  $("difficulty").value="all";$("mistakeNotebook").hidden=true;restart();document.querySelector(".quizPanel").scrollIntoView({behavior:"smooth",block:"start"});
 });
 renderMistakes();
+$("studentName").addEventListener("input",renderMistakes);
+$("studentClass").addEventListener("input",renderMistakes);
 
 $("nextBtn").addEventListener("click",check);$("restartBtn").addEventListener("click",restart);$("tryAgainBtn").addEventListener("click",restart);$("newSetBtn").addEventListener("click",()=>{restart(true);document.querySelector(".quizPanel").scrollIntoView({behavior:"smooth",block:"start"});});
 $("nextSubjectBtn").addEventListener("click",()=>{const keys=["gk","evs","mat","maths","daily","weekly"],at=keys.indexOf(current),next=keys[(Math.max(0,at)+1)%keys.length];chooseSubject(next);document.querySelector(".quizPanel").scrollIntoView({behavior:"smooth",block:"start"});});
