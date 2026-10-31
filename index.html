@@ -441,7 +441,28 @@ button,a,.cta,.navcta{ -webkit-tap-highlight-color:transparent }
 @media(max-width:650px){.tasvia-particle-layer{opacity:.35}.tasvia-orb{display:none}.tasvia-scroll-line{display:none}.heroPhotoFrame::after{animation:none}}
 @media(prefers-reduced-motion:reduce){.tasvia-particle-layer,.tasvia-orb,.tasvia-scroll-line,.heroPhotoFrame::after{animation:none!important}.heroMiniCards>div,.heroPhotoFrame{transition:none!important}}
 </style><style id="TASVIA_EFFECTIVE_SCROLL_STYLES">.tasvia-motion-item{opacity:.01;transform:translateY(18px);transition:opacity .65s cubic-bezier(.16,1,.3,1) var(--tasvia-delay),transform .65s cubic-bezier(.16,1,.3,1) var(--tasvia-delay)}.tasvia-motion-item.tasvia-in-view{opacity:1;transform:none}</style>
-</head><body>
+<style id="TASVIA_CAMPUS_MAP_UPGRADE">
+.locationHud{grid-template-columns:.82fr 1.18fr;gap:46px}
+.locationHud>div:first-child .eyebrow{color:#f3c34d}
+.locationAddressLink{display:inline-flex;align-items:flex-start;gap:9px;color:#e6edf8;text-decoration:none;line-height:1.65;margin:4px 0 22px;max-width:46ch}
+.locationAddressLink:hover{color:#ffd66a}
+.locationMapCard{position:relative;min-height:365px;border:1px solid rgba(239,181,43,.38);border-radius:22px;overflow:hidden;background:#0b254a;box-shadow:0 22px 55px rgba(0,0,0,.26);isolation:isolate}
+.locationMapCard iframe{display:block;width:100%;height:365px;border:0;filter:saturate(.82) contrast(1.02)}
+.locationMapTop{position:absolute;z-index:2;left:14px;right:14px;top:14px;display:flex;align-items:center;gap:8px;padding:10px 13px;border:1px solid rgba(255,255,255,.24);border-radius:12px;background:rgba(6,26,58,.88);backdrop-filter:blur(12px);color:#fff;font-size:.68rem;font-weight:900;letter-spacing:.1em;pointer-events:none}
+.liveDot{width:8px;height:8px;border-radius:50%;background:#f4c34b;box-shadow:0 0 0 0 rgba(244,195,75,.6);animation:campusLivePulse 2s infinite}
+@keyframes campusLivePulse{70%{box-shadow:0 0 0 8px rgba(244,195,75,0)}100%{box-shadow:0 0 0 0 rgba(244,195,75,0)}}
+.mapTopTag{margin-left:auto;color:#f7d77d;font-size:.59rem}
+.locationMapOverlay{position:absolute;z-index:2;left:14px;right:14px;bottom:14px;display:flex;align-items:center;gap:12px;padding:13px 15px;border:1px solid rgba(255,255,255,.22);border-radius:14px;background:rgba(6,26,58,.92);backdrop-filter:blur(12px);color:#fff;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.22);transition:transform .25s,border-color .25s}
+.locationMapOverlay:hover{transform:translateY(-3px);border-color:#efb52b}
+.mapOverlayPin{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#efb52b;color:#09234b;box-shadow:0 0 0 6px rgba(239,181,43,.13)}
+.locationMapOverlay b,.locationMapOverlay small{display:block}
+.locationMapOverlay b{font-size:.8rem;letter-spacing:.05em}
+.locationMapOverlay small{margin-top:3px;color:#d7e1f0;font-size:.68rem}
+.mapOverlayArrow{margin-left:auto;color:#ffd15b;font-size:1.2rem}
+.footerContact a[href^="mailto"] span:last-child{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:800px){.locationHud{grid-template-columns:1fr;gap:28px}.locationMapCard,.locationMapCard iframe{min-height:300px;height:300px}}
+@media(prefers-reduced-motion:reduce){.liveDot{animation:none}}
+</style></head><body>
 <header class="topbar"><div class="wrap nav"><a class="brand" href="#home"><img alt="TASVIA Academy logo" decoding="async" loading="eager" src="/assets/logo.png"/><span><strong>TASVIA</strong><em>ACADEMY</em><small>Learn Today • Lead Tomorrow</small></span></a><nav aria-label="Primary navigation" class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#programs">Programs</a><a href="#why">Why TASVIA</a><a href="/blog/">Blog</a><a href="#parent-portal">Parent Portal</a><a href="#enquiry">Enquire</a><a href="#contact">Contact</a><a href="https://apk.tasviaacademy.com/index.html" class="staffNav" aria-label="Open TASVIA Staff Login">Staff Login</a></nav><a class="navcta" href="tel:+917842138739">☎  Call 78421 38739</a></div></header>
 <main id="main">
 <section class="hero" id="home"><div class="heroShell"><div class="heroCopy"><div class="admissionPill">● ADMISSIONS OPEN · 2026–27</div><div class="eyebrow heroReveal">TASVIA ACADEMY · NIZAMABAD</div><h1 class="heroReveal d1">Learn Today.<br/><span>Lead Tomorrow.</span></h1><h2 class="heroSub heroReveal d2">Focused coaching. Strong foundations. Confident students.</h2><p class="heroLead heroReveal d2">Entrance coaching for <b>Navodaya &amp; Sainik School</b>, with regular tuition from <b>LKG to Intermediate</b>.</p><div class="heroMiniCards heroReveal d2"><div><strong>Navodaya</strong><span>Entrance Coaching</span></div><div><strong>Sainik School</strong><span>Entrance Coaching</span></div><div><strong>LKG–Intermediate</strong><span>Regular Tuition</span></div></div><div class="heroBtns heroReveal d3"><a class="btn btnGold" href="#enquiry">Enquire Now →</a><a class="btn btnNavy" href="https://wa.me/917842138739?text=Hello%20TASVIA%20Academy%2C%20I%20would%20like%20to%20enquire." rel="noopener" target="_blank">◉ WhatsApp TASVIA</a></div><div class="heroTrust heroReveal d3">✓ Regular tests &nbsp; ✓ Individual attention &nbsp; ✓ Parent updates</div></div><div class="heroVisual heroReveal d2"><div class="heroPhotoFrame"><img alt="Students preparing for admission at TASVIA Academy" class="heroMain" decoding="async" fetchpriority="high" loading="eager" src="assets/hero.jpg"/></div></div></div><div class="ticker"><span>ADMISSIONS OPEN <i>★</i></span><span>NAVODAYA COACHING <i>★</i><small>Entrance</small></span><span>SAINIK SCHOOL COACHING <i>★</i><small>Entrance</small></span><span>TUITION <small>LKG – Intermediate</small></span></div></section>
@@ -546,9 +567,10 @@ button,a,.cta,.navcta{ -webkit-tap-highlight-color:transparent }
         <p>Srinivasa Nilayam, Road No. 1, Gangasthan Phase 2, Nizamabad.</p>
         <a class="btn btnGold" href="https://maps.app.goo.gl/5K4BYNccQEcCR27E9" target="_blank" rel="noopener">Open in Google Maps →</a>
       </div>
-      <div class="isoMap" aria-label="Decorative isometric map showing TASVIA Academy">
-        <div class="mapGrid"></div><div class="radar"></div><div class="mapPin">●<span>TASVIA</span></div>
-        <div class="isoBuilding"><div class="buildingRoof"></div><div class="buildingFace"></div><div class="buildingSide"></div><div class="buildingSign">TASVIA ACADEMY</div></div>
+      <div class="locationMapCard">
+        <div class="locationMapTop"><span class="liveDot"></span><span>FIND OUR CAMPUS</span><span class="mapTopTag">NIZAMABAD · TELANGANA</span></div>
+        <iframe title="TASVIA Academy campus location on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Srinivasa+Nilayam,+Road+No.+1,+Gangasthan+Phase+2,+Nizamabad,+Telangana&output=embed" allowfullscreen></iframe>
+        <a class="locationMapOverlay" href="https://maps.app.goo.gl/5K4BYNccQEcCR27E9" target="_blank" rel="noopener"><span class="mapOverlayPin">●</span><span><b>TASVIA ACADEMY</b><small>Open directions in Google Maps</small></span><span class="mapOverlayArrow">↗</span></a>
       </div>
     </div>
   </div>
