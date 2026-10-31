@@ -41,23 +41,58 @@
   "quiz": [
     {
       "q": "Which satellite was launched aboard GSLV-F18?",
-      "a": "NVS-03"
+      "a": 0,
+      "o": [
+        "NVS-03",
+        "GSAT-7A",
+        "Cartosat-3",
+        "INSAT-3DS"
+      ],
+      "e": "NVS-03 is part of India's NavIC navigation satellite system."
     },
     {
       "q": "Which navigation system is NVS-03 part of?",
-      "a": "NavIC"
+      "a": 0,
+      "o": [
+        "NavIC",
+        "GAGAN",
+        "GPS",
+        "GLONASS"
+      ],
+      "e": "NavIC is India's regional satellite navigation system."
     },
     {
       "q": "Who took charge as the 29th Chief of the Air Staff?",
-      "a": "Air Chief Marshal Ashutosh Dixit"
+      "a": 0,
+      "o": [
+        "Air Chief Marshal Ashutosh Dixit",
+        "Air Chief Marshal A. P. Singh",
+        "General Upendra Dwivedi",
+        "Admiral Dinesh K. Tripathi"
+      ],
+      "e": "Air Chief Marshal Ashutosh Dixit took charge as the 29th Chief of the Air Staff."
     },
     {
       "q": "Which organisation announced the High Level Committee on Banking for Viksit Bharat?",
-      "a": "Government of India"
+      "a": 0,
+      "o": [
+        "Government of India",
+        "Reserve Bank of India",
+        "NITI Aayog",
+        "SEBI"
+      ],
+      "e": "The Government of India constituted the High Level Committee on Banking for Viksit Bharat."
     },
     {
       "q": "Which Indian wrestler won a historic Senior World Wrestling Championships gold?",
-      "a": "Manisha Bhanwala"
+      "a": 0,
+      "o": [
+        "Manisha Bhanwala",
+        "Vinesh Phogat",
+        "Antim Panghal",
+        "Sakshi Malik"
+      ],
+      "e": "Manisha Bhanwala won the historic Senior World Wrestling Championships gold."
     }
   ]
 }
