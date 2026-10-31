@@ -524,6 +524,16 @@ button,a,.cta,.navcta{ -webkit-tap-highlight-color:transparent }
 .locationMapTop{z-index:7!important;pointer-events:none}
 .mapRoute{z-index:1!important;pointer-events:none!important}
 .campusActions a,.locationAddressLink,#contact .contactCard a{touch-action:manipulation}
+</style><style id="TASVIA_MAP_DIRECTIONS_NATIVE_LINK_FIX">
+/* A real, visible link below the embedded map avoids Safari iframe tap interception. */
+.locationMapCard{display:flex;flex-direction:column;height:auto;min-height:0}
+.locationMapCard iframe{display:block;position:relative;z-index:0;width:100%;height:330px;flex:0 0 330px}
+.locationMapDirections{position:relative!important;z-index:10!important;display:flex!important;align-items:center;justify-content:space-between;gap:12px;margin:0;padding:17px 20px;min-height:58px;background:#efb52b;color:#09234b!important;font-size:.82rem;font-weight:900;text-decoration:none!important;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:rgba(9,35,75,.15)}
+.locationMapDirections:hover{background:#ffd36a}
+.locationMapDirections span{font-size:1.2rem}
+.locationMapOverlay{display:none!important}
+.mapRoute{display:none!important}
+@media(max-width:800px){.locationMapCard iframe{height:270px;flex-basis:270px}}
 </style></head><body>
 <header class="topbar"><div class="wrap nav"><a class="brand" href="#home"><img alt="TASVIA Academy logo" decoding="async" loading="eager" src="/assets/logo.png"/><span><strong>TASVIA</strong><em>ACADEMY</em><small>Learn Today • Lead Tomorrow</small></span></a><nav aria-label="Primary navigation" class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#programs">Programs</a><a href="#why">Why TASVIA</a><a href="/blog/">Blog</a><a href="#parent-portal">Parent Portal</a><a href="#enquiry">Enquire</a><a href="#contact">Contact</a><a href="https://apk.tasviaacademy.com/index.html" class="staffNav" aria-label="Open TASVIA Staff Login">Staff Login</a></nav><a class="navcta" href="tel:+917842138739">☎  Call 78421 38739</a></div></header>
 <main id="main">
@@ -648,7 +658,7 @@ button,a,.cta,.navcta{ -webkit-tap-highlight-color:transparent }
         <div class="locationMapTop"><span class="liveDot"></span><span>CAMPUS MAP</span><span class="mapTopTag">NIZAMABAD · TELANGANA</span></div>
         <iframe title="TASVIA Academy campus location on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=TASVIA+Academy,+Srinivasa+Nilayam,+Road+No.+1,+Gangasthan+Phase+2,+Nizamabad,+Telangana&output=embed" allowfullscreen></iframe>
         <div class="mapRoute" aria-hidden="true"><span></span></div>
-        <a class="locationMapOverlay" href="https://www.google.com/maps/dir/?api=1&destination=TASVIA%20Academy%2C%202nd%20Floor%2C%20Srinivasa%20Nilayam%2C%20Road%20No.%201%2C%20Gangasthan%20Phase%202%2C%20Nizamabad%2C%20Telangana%20503003" target="_blank" rel="noopener"><span class="mapOverlayPin">●</span><span><b>TASVIA ACADEMY</b><small>Tap to open full directions</small></span><span class="mapOverlayArrow">↗</span></a>
+        <a class="locationMapDirections" href="https://www.google.com/maps/dir/?api=1&amp;destination=TASVIA%20Academy%2C%202nd%20Floor%2C%20Srinivasa%20Nilayam%2C%20Road%20No.%201%2C%20Gangasthan%20Phase%202%2C%20Nizamabad%2C%20Telangana%20503003&amp;travelmode=driving" aria-label="Open driving directions to TASVIA Academy in Google Maps">📍 Open full directions in Google Maps <span>↗</span></a>
       </div>
     </div>
   </div>
