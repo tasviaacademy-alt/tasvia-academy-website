@@ -971,10 +971,10 @@ img{max-width:100%}
 /* TASVIA VFX MOTION SYSTEM — lightweight CSS/Canvas implementation */
 :root{--vfx-navy:#0A2147;--vfx-gold:#EFB52B;--vfx-gold-soft:rgba(239,181,43,.15);--vfx-ease:cubic-bezier(.16,1,.3,1)}
 .hero{isolation:isolate}
-.heroParticleCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.9}
-.heroCursorGlow{position:absolute;z-index:0;width:320px;height:320px;border-radius:50%;pointer-events:none;opacity:0;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(239,181,43,.15) 0%,rgba(239,181,43,.07) 32%,rgba(239,181,43,0) 70%);filter:blur(4px);transition:opacity .35s ease}
+.heroParticleCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none;opacity:.9}
+.heroCursorGlow{position:absolute;z-index:4;width:320px;height:320px;border-radius:50%;pointer-events:none;opacity:0;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(239,181,43,.15) 0%,rgba(239,181,43,.07) 32%,rgba(239,181,43,0) 70%);filter:blur(4px);transition:opacity .35s ease}
 .heroShell{position:relative;z-index:1}
-.heroCopy,.heroVisual{position:relative;z-index:2}
+.heroGrid{position:relative;z-index:2}.heroCopy,.heroVisual{position:relative;z-index:2}
 .hero h1 .hero-letter{display:inline-block;opacity:0;filter:blur(9px);transform:translate3d(0,28px,0);transition:opacity .85s var(--vfx-ease),transform .85s var(--vfx-ease),filter .85s var(--vfx-ease)}
 .hero h1 .hero-letter.is-in{opacity:1;filter:blur(0);transform:none}
 .hero h1 .hero-space{display:inline-block;width:.28em}
