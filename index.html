@@ -552,6 +552,57 @@ button,a,.cta,.navcta{ -webkit-tap-highlight-color:transparent }
 .parentReviewsCard a:hover{color:#082653}
 @media(max-width:700px){.parentReviews{padding:54px 0}.parentReviewsGrid{grid-template-columns:1fr;gap:22px}.parentReviewsCard{padding:22px}}
 </style>
+<style id="TASVIA_PARENT_REVIEWS_CAROUSEL">
+.parentReviews{background:linear-gradient(135deg,#f7f9fc 0%,#fffaf0 100%);padding:76px 0}
+.parentReviewsHeading{text-align:center;max-width:760px;margin:0 auto 30px}
+.parentReviewsHeading .sectionTitle span{color:#b17c08}
+.parentReviewsHeading>p{color:#5d6d86;margin:14px auto 0}
+.parentReviewViewer{max-width:850px;margin:0 auto;padding:clamp(22px,4vw,38px);background:#fff;border:1px solid #e6eaf0;border-radius:22px;box-shadow:0 18px 48px rgba(10,33,71,.1)}
+.parentReviewTop{display:flex;align-items:center;gap:12px;border-bottom:1px solid #e9edf3;padding-bottom:18px}
+.googleReviewMark{width:42px;height:42px;flex:0 0 42px;border-radius:12px;display:grid;place-items:center;background:#f4f7fb;color:#4285f4;font:800 1.65rem Arial,sans-serif}
+.parentReviewSource{font-weight:800;color:#082653;font-size:.88rem}
+.parentReviewStars{margin-left:auto;color:#e3a008;letter-spacing:.12em;font-size:1.05rem}
+.parentReviewSlides{min-height:205px;display:grid;align-items:center}
+.parentReviewSlide{position:relative;padding:28px 10px 18px;text-align:center}
+.parentReviewSlide[hidden]{display:none}
+.parentReviewQuote{font:700 4rem/.7 Georgia,serif;color:#e3b847;opacity:.8}
+.parentReviewSlide blockquote{margin:16px auto 18px;max-width:680px;color:#102b50;font:600 clamp(1.25rem,3vw,1.8rem)/1.45 "Playfair Display",Georgia,serif}
+.parentReviewAuthor{margin:0;color:#718096;font-size:.86rem;font-weight:700}
+.parentReviewControls{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:6px}
+.parentReviewArrow{width:44px;height:44px;border:1px solid #d9e1eb;border-radius:50%;background:#fff;color:#082653;font-size:1.35rem;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+.parentReviewArrow:hover{background:#082653;color:#fff;transform:translateY(-2px)}
+.parentReviewPosition{min-width:48px;text-align:center;color:#64748b;font-weight:800;font-variant-numeric:tabular-nums}
+.parentReviewDots{display:flex;justify-content:center;gap:9px;margin:18px 0 22px}
+.parentReviewDots button{width:9px;height:9px;padding:0;border:0;border-radius:99px;background:#cbd5e1;cursor:pointer;transition:width .2s,background .2s}
+.parentReviewDots button.is-active{width:25px;background:#b17c08}
+.parentReviewFooter{display:flex;justify-content:space-between;align-items:center;gap:14px;border-top:1px solid #e9edf3;padding-top:18px;color:#64748b;font-size:.82rem}
+.parentReviewFooter a{color:#8a640c;font-weight:800;text-decoration:none}
+.parentReviewFooter a:hover{text-decoration:underline}
+.parentReviewDisclaimer{max-width:850px;margin:14px auto 0;text-align:center;color:#7b8798;font-size:.76rem}
+@media(max-width:600px){.parentReviews{padding:54px 0}.parentReviewViewer{padding:20px 16px;border-radius:17px}.parentReviewSlides{min-height:245px}.parentReviewSlide{padding:24px 2px 14px}.parentReviewFooter{flex-direction:column;text-align:center}.parentReviewTop{gap:8px}.parentReviewSource{font-size:.78rem}.parentReviewStars{font-size:.9rem}}
+@media(prefers-reduced-motion:reduce){.parentReviewArrow,.parentReviewDots button{transition:none}}
+</style>
+<script id="TASVIA_PARENT_REVIEW_CAROUSEL_SCRIPT">
+(function(){
+ const root=document.getElementById('parent-reviews-live');
+ if(!root||root.dataset.carouselReady==='true')return;
+ root.dataset.carouselReady='true';
+ const slides=Array.from(root.querySelectorAll('.parentReviewSlide'));
+ const dots=Array.from(root.querySelectorAll('[data-review-dot]'));
+ const position=root.querySelector('#parentReviewPosition');
+ let current=0;
+ function show(index){
+  current=(index+slides.length)%slides.length;
+  slides.forEach((slide,i)=>{const active=i===current;slide.hidden=!active;slide.classList.toggle('is-active',active);});
+  dots.forEach((dot,i)=>{const active=i===current;dot.classList.toggle('is-active',active);if(active)dot.setAttribute('aria-current','true');else dot.removeAttribute('aria-current');});
+  if(position)position.textContent=(current+1)+' / '+slides.length;
+ }
+ root.querySelector('#parentReviewPrev')?.addEventListener('click',()=>show(current-1));
+ root.querySelector('#parentReviewNext')?.addEventListener('click',()=>show(current+1));
+ dots.forEach((dot,i)=>dot.addEventListener('click',()=>show(i)));
+ show(0);
+})();
+</script>
 </head><body>
 <header class="topbar"><div class="wrap nav"><a class="brand" href="#home"><img alt="TASVIA Academy logo" decoding="async" loading="eager" src="/assets/logo.png"/><span><strong>TASVIA</strong><em>ACADEMY</em><small>Learn Today • Lead Tomorrow</small></span></a><nav aria-label="Primary navigation" class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#programs">Programs</a><a href="#why">Why TASVIA</a><a href="/blog/">Blog</a><a href="#parent-portal">Parent Portal</a><a href="#enquiry">Enquire</a><a href="#contact">Contact</a><a href="https://apk.tasviaacademy.com/index.html" class="staffNav" aria-label="Open TASVIA Staff Login">Staff Login</a></nav><a class="navcta" href="tel:+917842138739">☎  Call 78421 38739</a></div></header>
 <main id="main">
@@ -646,18 +697,35 @@ button,a,.cta,.navcta{ -webkit-tap-highlight-color:transparent }
 </section>
 <section class="section parentReviews" id="parent-reviews-live" aria-labelledby="parent-reviews-title">
   <div class="wrap">
-    <div class="parentReviewsGrid">
-      <div class="parentReviewsIntro">
-        <div class="eyebrow">REAL EXPERIENCES · GOOGLE</div>
-        <h2 class="sectionTitle" id="parent-reviews-title">Hear From Our <span>Parent Community.</span></h2>
-        <p>Read feedback shared by parents and visitors on our official Google listing. Reviews remain on Google, where you can open each review and see its original author and date.</p>
-        <a class="btn btnGold parentReviewsButton" href="https://www.google.com/maps/place/Tasvia+Academy/@18.6959084,78.1267215,1017m/data=!3m1!1e3!4m8!3m7!1s0x3bcdc5abca560989:0x4acc4d58ec6334df!8m2!3d18.6959084!4d78.1267215!9m1!1b1!16s%2Fg%2F11zf5ng75q?entry=ttu&g_ep=EgoyMDI2MTAyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="Read TASVIA Academy Google reviews">Read Google Reviews <span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="parentReviewsCard">
-        <div class="googleReviewMark" aria-hidden="true">G</div>
-        <div><strong>Official TASVIA Academy listing</strong><p>Browse the latest parent feedback directly on Google. Use the review list there to open and read reviews individually.</p><a href="https://www.google.com/maps/place/Tasvia+Academy/@18.6959084,78.1267215,1017m/data=!3m1!1e3!4m8!3m7!1s0x3bcdc5abca560989:0x4acc4d58ec6334df!8m2!3d18.6959084!4d78.1267215!9m1!1b1!16s%2Fg%2F11zf5ng75q?entry=ttu&g_ep=EgoyMDI2MTAyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Open reviews on Google Maps →</a></div>
-      </div>
+    <div class="parentReviewsHeading">
+      <div class="eyebrow">PARENT VOICES · GOOGLE REVIEWS</div>
+      <h2 class="sectionTitle" id="parent-reviews-title">Experiences Shared by <span>Our Parents.</span></h2>
+      <p>Selected excerpts from feedback on the TASVIA Academy Google listing. Browse one review at a time.</p>
     </div>
+    <div class="parentReviewViewer" aria-live="polite">
+      <div class="parentReviewTop"><span class="googleReviewMark" aria-hidden="true">G</span><span class="parentReviewSource">Google review excerpt</span><span class="parentReviewStars" aria-label="5 out of 5 stars">★★★★★</span></div>
+      <div class="parentReviewSlides">
+        <article class="parentReviewSlide is-active" data-review="0"><div class="parentReviewQuote" aria-hidden="true">“</div><blockquote>Very knowledgeable, patient and explain concepts very clearly.</blockquote><p class="parentReviewAuthor">— Google reviewer</p></article>
+        <article class="parentReviewSlide" data-review="1" hidden><div class="parentReviewQuote" aria-hidden="true">“</div><blockquote>Improvement in marks is very clearly visible.</blockquote><p class="parentReviewAuthor">— Google reviewer</p></article>
+        <article class="parentReviewSlide" data-review="2" hidden><div class="parentReviewQuote" aria-hidden="true">“</div><blockquote>After joining tuition at Tasvia Academy, my daughter has improved a lot in her studies… becoming more confident day by day.</blockquote><p class="parentReviewAuthor">— Google reviewer</p></article>
+        <article class="parentReviewSlide" data-review="3" hidden><div class="parentReviewQuote" aria-hidden="true">“</div><blockquote>Dedicated faculty and well-structured curriculum.</blockquote><p class="parentReviewAuthor">— Google reviewer</p></article>
+        <article class="parentReviewSlide" data-review="4" hidden><div class="parentReviewQuote" aria-hidden="true">“</div><blockquote>Good and peaceful environment.</blockquote><p class="parentReviewAuthor">— Google reviewer</p></article>
+      </div>
+      <div class="parentReviewControls">
+        <button class="parentReviewArrow" type="button" id="parentReviewPrev" aria-label="Previous Google review">←</button>
+        <div class="parentReviewPosition" id="parentReviewPosition" aria-live="polite">1 / 5</div>
+        <button class="parentReviewArrow" type="button" id="parentReviewNext" aria-label="Next Google review">→</button>
+      </div>
+      <div class="parentReviewDots" role="group" aria-label="Choose a review">
+        <button type="button" class="is-active" data-review-dot="0" aria-label="Show review 1" aria-current="true"></button>
+        <button type="button" data-review-dot="1" aria-label="Show review 2"></button>
+        <button type="button" data-review-dot="2" aria-label="Show review 3"></button>
+        <button type="button" data-review-dot="3" aria-label="Show review 4"></button>
+        <button type="button" data-review-dot="4" aria-label="Show review 5"></button>
+      </div>
+      <div class="parentReviewFooter"><span>Google listing · 5.0 rating · 20 reviews</span><a href="https://www.google.com/maps/place/Tasvia+Academy/@18.6959084,78.1267215,1017m/data=!3m1!1e3!4m8!3m7!1s0x3bcdc5abca560989:0x4acc4d58ec6334df!8m2!3d18.6959084!4d78.1267215!9m1!1b1!16s%2Fg%2F11zf5ng75q?entry=ttu&amp;g_ep=EgoyMDI2MTAyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Read all reviews on Google ↗</a></div>
+    </div>
+    <p class="parentReviewDisclaimer">Short excerpts are shown for convenience. Reviewer names and dates are not displayed here; open Google to view the original reviews and full context.</p>
   </div>
 </section>
 <section class="section" id="contact"><div class="wrap contact"><div class="contactCard"><h2 class="sectionTitle" style="font-size:2.2rem">Contact TASVIA Academy</h2><div class="contactItem"><b>Phone</b><a href="tel:+917842138739">+91 78421 38739</a></div><div class="contactItem"><b>Email</b><a href="mailto:tasviaacademy@gmail.com">tasviaacademy@gmail.com</a></div><div class="contactItem"><b>Address</b><span>2nd floor, Srinivasa Nilayam, Road No. 1, Gangasthan Phase 2, Nizamabad, Telangana 503003</span></div><a class="btn btnGold" href="https://www.google.com/maps/dir/?api=1&destination=TASVIA%20Academy%2C%202nd%20Floor%2C%20Srinivasa%20Nilayam%2C%20Road%20No.%201%2C%20Gangasthan%20Phase%202%2C%20Nizamabad%2C%20Telangana%20503003" rel="noopener" target="_blank">Get Directions to TASVIA →</a></div><iframe class="map" loading="lazy" src="https://www.google.com/maps?q=TASVIA+Academy,+2nd+Floor,+Srinivasa+Nilayam,+Road+No.+1,+Gangasthan+Phase+2,+Nizamabad,+Telangana+503003&output=embed" title="TASVIA Academy location"></iframe></div></section>
