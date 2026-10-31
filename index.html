@@ -943,14 +943,9 @@ button,a,.cta,.navcta{ -webkit-tap-highlight-color:transparent }
    ];
    if(value('message'))lines.push('Additional Details: '+value('message'));
    lines.push('','I would appreciate information about the programme and next steps. Thank you.');
-   const url='https://wa.me/917842138739?text='+encodeURIComponent(lines.join('\n'));
-   const opened=window.open(url,'_blank');
-   if(opened)opened.opener=null;
-   if(!opened){
-     status.textContent='Your enquiry message is ready. If WhatsApp did not open, use the WhatsApp link in this section and try again.';
-     return;
-   }
-   status.textContent='WhatsApp opened with your enquiry draft. Please review the details and tap Send to contact TASVIA Academy.';
+   const url='https://api.whatsapp.com/send?phone=917842138739&text='+encodeURIComponent(lines.join('\n'));
+   status.textContent='Opening WhatsApp with your enquiry. Please review the message and tap Send.';
+   window.location.href=url;
  });
  phone?.addEventListener('input',()=>{phone.value=phone.value.replace(/[^0-9]/g,'').slice(0,10)});
 })();
