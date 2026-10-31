@@ -628,6 +628,66 @@ button,a,.cta,.navcta{ -webkit-tap-highlight-color:transparent }
  else initParentReviewCarousel();
 })();
 </script>
+<style id="TASVIA_PARENT_REVIEWS_PREMIUM_REDESIGN">
+/* Premium navy-and-gold parent review experience */
+.parentReviews{
+  position:relative;isolation:isolate;overflow:hidden;
+  padding:clamp(64px,8vw,104px) 0;
+  background:radial-gradient(ellipse at 12% 18%,rgba(218,177,75,.16),transparent 34%),radial-gradient(ellipse at 90% 82%,rgba(91,129,180,.18),transparent 36%),linear-gradient(135deg,#071a35 0%,#0b2b53 55%,#102f59 100%);
+}
+.parentReviews:before,.parentReviews:after{content:"";position:absolute;z-index:-1;border:1px solid rgba(232,198,90,.16);border-radius:50%;pointer-events:none}
+.parentReviews:before{width:440px;height:440px;top:-270px;right:-120px}
+.parentReviews:after{width:330px;height:330px;bottom:-235px;left:-95px}
+.parentReviews .eyebrow{color:#e8c65a;letter-spacing:.2em}
+.parentReviewsHeading{max-width:800px;margin:0 auto 38px}
+.parentReviewsHeading .sectionTitle{color:#fff;font-size:clamp(2rem,4.4vw,3.25rem);line-height:1.12}
+.parentReviewsHeading .sectionTitle span{color:#e8c65a}
+.parentReviewsHeading>p{max-width:660px;color:#d3deec;font-size:.98rem;line-height:1.75}
+.parentReviewViewer{
+  position:relative;max-width:900px;margin:0 auto;padding:clamp(22px,4.5vw,44px);
+  background:linear-gradient(145deg,#fff 0%,#fffdf7 100%);
+  border:1px solid rgba(232,198,90,.7);border-radius:26px;
+  box-shadow:0 28px 75px rgba(0,0,0,.28),inset 0 1px 0 #fff;
+}
+.parentReviewViewer:before{content:"";position:absolute;inset:9px;border:1px solid rgba(177,124,8,.15);border-radius:19px;pointer-events:none}
+.parentReviewTop{position:relative;z-index:1;display:flex;align-items:center;gap:13px;border-bottom:1px solid #eee7d7;padding:0 4px 20px}
+.googleReviewMark{width:46px;height:46px;flex:0 0 46px;border-radius:14px;background:#f2f6fc;color:#4285f4;font:800 1.7rem Arial,sans-serif;box-shadow:0 4px 14px rgba(66,133,244,.12)}
+.parentReviewSource{color:#102b50;font-size:.92rem;font-weight:800}
+.parentReviewStars{color:#d49a16;letter-spacing:.16em;font-size:1.15rem}
+.parentReviewSlides{min-height:230px;display:grid;align-items:center}
+.parentReviewSlide{padding:34px 12px 24px;text-align:center;animation:tasviaReviewIn .55s ease both}
+.parentReviewQuote{font:700 5rem/.55 Georgia,serif;color:#d6aa3b;opacity:.9}
+.parentReviewSlide blockquote{max-width:720px;margin:23px auto 22px;color:#102b50;font:600 clamp(1.35rem,3.2vw,2.05rem)/1.42 "Playfair Display",Georgia,serif}
+.parentReviewAuthor{display:inline-flex;align-items:center;gap:8px;margin:0;padding:8px 14px;border-radius:99px;background:#f5f7fa;color:#6c7889;font-size:.8rem;font-weight:700}
+.parentReviewControls{gap:20px;margin-top:8px}
+.parentReviewArrow{width:48px;height:48px;border:1px solid #d9e1eb;background:#fff;color:#102b50;box-shadow:0 5px 15px rgba(10,33,71,.07)}
+.parentReviewArrow:hover{background:#102b50;border-color:#102b50;color:#fff}
+.parentReviewPosition{min-width:60px;color:#102b50;font-size:.92rem}
+.parentReviewDots{gap:10px;margin:20px 0 24px}
+.parentReviewDots button{width:8px;height:8px;background:#cbd5e1}
+.parentReviewDots button.is-active{width:28px;background:#b17c08}
+.parentReviewFooter{position:relative;z-index:1;border-top:1px solid #eee7d7;padding:19px 4px 0;color:#6c7889}
+.parentReviewFooter a{color:#91670d}
+.parentReviewDisclaimer{max-width:800px;margin:18px auto 0;color:#c6d3e3;font-size:.77rem;line-height:1.6}
+@keyframes tasviaReviewIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){
+ .parentReviews{padding:58px 0}
+ .parentReviewsHeading{margin-bottom:26px;padding:0 8px}
+ .parentReviewViewer{padding:20px 16px;border-radius:20px}
+ .parentReviewViewer:before{inset:6px;border-radius:15px}
+ .parentReviewTop{gap:9px;padding-bottom:15px}
+ .googleReviewMark{width:39px;height:39px;flex-basis:39px;font-size:1.45rem}
+ .parentReviewSource{font-size:.78rem}
+ .parentReviewStars{font-size:.88rem;letter-spacing:.08em}
+ .parentReviewSlides{min-height:245px}
+ .parentReviewSlide{padding:29px 2px 18px}
+ .parentReviewQuote{font-size:4.2rem}
+ .parentReviewSlide blockquote{font-size:1.28rem;line-height:1.5;margin:19px auto}
+ .parentReviewFooter{gap:10px;font-size:.78rem}
+ .parentReviewDisclaimer{padding:0 12px}
+}
+@media(prefers-reduced-motion:reduce){.parentReviewSlide{animation:none}}
+</style>
 </head><body>
 <header class="topbar"><div class="wrap nav"><a class="brand" href="#home"><img alt="TASVIA Academy logo" decoding="async" loading="eager" src="/assets/logo.png"/><span><strong>TASVIA</strong><em>ACADEMY</em><small>Learn Today • Lead Tomorrow</small></span></a><nav aria-label="Primary navigation" class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#programs">Programs</a><a href="#why">Why TASVIA</a><a href="/blog/">Blog</a><a href="#parent-portal">Parent Portal</a><a href="#enquiry">Enquire</a><a href="#contact">Contact</a><a href="https://apk.tasviaacademy.com/index.html" class="staffNav" aria-label="Open TASVIA Staff Login">Staff Login</a></nav><a class="navcta" href="tel:+917842138739">☎  Call 78421 38739</a></div></header>
 <main id="main">
