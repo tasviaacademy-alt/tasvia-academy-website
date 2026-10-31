@@ -404,6 +404,7 @@ button,a,.cta,.navcta{ -webkit-tap-highlight-color:transparent }
 .hero h1 .hero-letter { display:inline-block; }
 </style>
 
+<style id="TASVIA_HERO_WORD_WRAP_FIX">.hero h1 .hero-word{display:inline-block;white-space:nowrap;word-break:keep-all;overflow-wrap:normal}</style>
 </head><body>
 <header class="topbar"><div class="wrap nav"><a class="brand" href="#home"><img alt="TASVIA Academy logo" decoding="async" loading="eager" src="/assets/logo.png"/><span><strong>TASVIA</strong><em>ACADEMY</em><small>Learn Today • Lead Tomorrow</small></span></a><nav aria-label="Primary navigation" class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#programs">Programs</a><a href="#why">Why TASVIA</a><a href="/blog/">Blog</a><a href="#parent-portal">Parent Portal</a><a href="#enquiry">Enquire</a><a href="#contact">Contact</a><a href="https://apk.tasviaacademy.com/index.html" class="staffNav" aria-label="Open TASVIA Staff Login">Staff Login</a></nav><a class="navcta" href="tel:+917842138739">☎  Call 78421 38739</a></div></header>
 <main id="main">
@@ -1029,13 +1030,20 @@ img{max-width:100%}
  if(h1&&!h1.dataset.letterVfx){
    const nodes=[...h1.childNodes];
    h1.innerHTML='';
+   const appendAnimatedText=(value,parent)=>{
+     value.split(/(\\s+)/).filter(Boolean).forEach(part=>{
+       if(/^\\s+$/.test(part)){parent.appendChild(document.createTextNode(part));return;}
+       const word=document.createElement('span');word.className='hero-word';
+       [...part].forEach(ch=>{const letter=document.createElement('span');letter.className='hero-letter';letter.textContent=ch;word.appendChild(letter)});
+       parent.appendChild(word);
+     });
+   };
    nodes.forEach(node=>{
-     if(node.nodeType===3){
-       [...node.textContent].forEach(ch=>{const s=document.createElement('span');s.className=ch===' '?'hero-space':'hero-letter';s.textContent=ch===' '?'\u00a0':ch;h1.appendChild(s)});
-     }else if(node.nodeType===1){
+     if(node.nodeType===3) appendAnimatedText(node.textContent,h1);
+     else if(node.nodeType===1&&node.tagName==='BR') h1.appendChild(document.createElement('br'));
+     else if(node.nodeType===1){
        const wrap=document.createElement('span');wrap.className=node.className;
-       [...node.textContent].forEach(ch=>{const s=document.createElement('span');s.className=ch===' '?'hero-space':'hero-letter';s.textContent=ch===' '?'\u00a0':ch;wrap.appendChild(s)});
-       h1.appendChild(wrap);
+       appendAnimatedText(node.textContent,wrap);h1.appendChild(wrap);
      }
    });
    h1.dataset.letterVfx='1';
