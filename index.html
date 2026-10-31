@@ -411,6 +411,36 @@ button,a,.cta,.navcta{ -webkit-tap-highlight-color:transparent }
 .hero::before,.hero::after,.heroVisual::before,.heroVisual::after{display:none!important}
 .hero h1{overflow:visible!important;word-break:normal!important;overflow-wrap:normal!important}
 </style>
+<style id="TASVIA_EFFECTIVE_MOTION_2026">
+/* Premium motion layer — restrained, purposeful, performance-conscious. */
+.hero{isolation:isolate}
+.heroShell{position:relative;z-index:2}
+.heroVisual{position:relative;transform-style:preserve-3d}
+.heroPhotoFrame{position:relative;transform:translateZ(0);transition:transform .65s cubic-bezier(.16,1,.3,1),box-shadow .65s}
+.heroPhotoFrame::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(239,181,43,.85),rgba(10,33,71,.08),rgba(239,181,43,.45));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:3}
+.heroPhotoFrame::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.32) 48%,transparent 60%);transform:translateX(-120%);animation:tasviaPhotoShine 7s ease-in-out infinite;pointer-events:none;z-index:2}
+@keyframes tasviaPhotoShine{0%,58%{transform:translateX(-120%)}78%,100%{transform:translateX(120%)}}
+.heroMiniCards>div{position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,border-color .35s}
+.heroMiniCards>div::after{content:"";position:absolute;inset:auto -25% -55% auto;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,rgba(239,181,43,.18),transparent 70%);transition:transform .4s}
+.heroMiniCards>div:hover{transform:translateY(-5px) rotateX(2deg);border-color:rgba(239,181,43,.55);box-shadow:0 16px 30px rgba(10,33,71,.12)}
+.heroMiniCards>div:hover::after{transform:scale(1.6)}
+.heroBtns .btn{position:relative;overflow:hidden}
+.heroBtns .btn::after{content:"";position:absolute;top:-60%;left:-35%;width:22%;height:220%;background:rgba(255,255,255,.24);transform:rotate(20deg) translateX(-180%);transition:transform .7s}
+.heroBtns .btn:hover::after{transform:rotate(20deg) translateX(650%)}
+.ticker{position:relative;overflow:hidden}
+.ticker span{transition:transform .25s}
+.ticker span:hover{transform:translateY(-2px);color:#fff}
+.tasvia-particle-layer{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;opacity:.55}
+.tasvia-orb{position:absolute;border-radius:50%;pointer-events:none;z-index:1;filter:blur(.2px);opacity:.7}
+.tasvia-orb.one{width:220px;height:220px;left:-120px;top:12%;background:radial-gradient(circle,rgba(239,181,43,.16),transparent 68%);animation:tasviaOrbOne 13s ease-in-out infinite alternate}
+.tasvia-orb.two{width:280px;height:280px;right:-150px;bottom:4%;background:radial-gradient(circle,rgba(64,125,190,.11),transparent 68%);animation:tasviaOrbTwo 16s ease-in-out infinite alternate}
+@keyframes tasviaOrbOne{to{transform:translate(55px,28px) scale(1.08)}}
+@keyframes tasviaOrbTwo{to{transform:translate(-45px,-25px) scale(.94)}}
+.tasvia-scroll-line{position:absolute;left:50%;bottom:58px;width:1px;height:42px;background:linear-gradient(to bottom,rgba(239,181,43,0),rgba(239,181,43,.8),rgba(239,181,43,0));z-index:2;animation:tasviaScrollPulse 2.4s ease-in-out infinite}
+@keyframes tasviaScrollPulse{50%{opacity:.35;transform:scaleY(.65)}}
+@media(max-width:650px){.tasvia-particle-layer{opacity:.35}.tasvia-orb{display:none}.tasvia-scroll-line{display:none}.heroPhotoFrame::after{animation:none}}
+@media(prefers-reduced-motion:reduce){.tasvia-particle-layer,.tasvia-orb,.tasvia-scroll-line,.heroPhotoFrame::after{animation:none!important}.heroMiniCards>div,.heroPhotoFrame{transition:none!important}}
+</style><style id="TASVIA_EFFECTIVE_SCROLL_STYLES">.tasvia-motion-item{opacity:.01;transform:translateY(18px);transition:opacity .65s cubic-bezier(.16,1,.3,1) var(--tasvia-delay),transform .65s cubic-bezier(.16,1,.3,1) var(--tasvia-delay)}.tasvia-motion-item.tasvia-in-view{opacity:1;transform:none}</style>
 </head><body>
 <header class="topbar"><div class="wrap nav"><a class="brand" href="#home"><img alt="TASVIA Academy logo" decoding="async" loading="eager" src="/assets/logo.png"/><span><strong>TASVIA</strong><em>ACADEMY</em><small>Learn Today • Lead Tomorrow</small></span></a><nav aria-label="Primary navigation" class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#programs">Programs</a><a href="#why">Why TASVIA</a><a href="/blog/">Blog</a><a href="#parent-portal">Parent Portal</a><a href="#enquiry">Enquire</a><a href="#contact">Contact</a><a href="https://apk.tasviaacademy.com/index.html" class="staffNav" aria-label="Open TASVIA Staff Login">Staff Login</a></nav><a class="navcta" href="tel:+917842138739">☎  Call 78421 38739</a></div></header>
 <main id="main">
@@ -1027,5 +1057,23 @@ img{max-width:100%}
 @media(max-width:650px){.heroParticleCanvas{opacity:.55}.heroCursorGlow{display:none}.program.vfx-card{transform:none!important}.cardVfx{transform:scale(.8);transform-origin:top right}.isoMap{min-height:300px}.isoBuilding{right:2%;transform:scale(.72) skewY(-8deg);transform-origin:bottom right}.mapPin{left:25%}.rocketTop{width:50px;height:50px;right:14px;bottom:78px}}
 @media(prefers-reduced-motion:reduce){.hero h1 .hero-letter{opacity:1;filter:none;transform:none;transition:none}.program.vfx-card,.cardVfx,.heroBadge,.radar,.mapPin,.rocketTop,.rocketSparks{animation:none!important}.pathLine path{stroke-dashoffset:0!important;transition:none}.tasviaPath .pathIcon{animation:none!important}.vfxStatRing{animation:none!important;transform:none!important;opacity:.9}}
 </style>
+<script id="TASVIA_EFFECTIVE_MOTION_2026">
+(function(){
+ const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const hero=document.querySelector('.hero');
+ if(!hero||reduce)return;
+ const canvas=document.createElement('canvas'); canvas.className='tasvia-particle-layer'; canvas.setAttribute('aria-hidden','true'); hero.prepend(canvas);
+ const ctx=canvas.getContext('2d'); let w=0,h=0,dpr=1,pts=[];
+ function resize(){const r=hero.getBoundingClientRect();w=r.width;h=r.height;dpr=Math.min(devicePixelRatio||1,1.6);canvas.width=w*dpr;canvas.height=h*dpr;canvas.style.width=w+'px';canvas.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0);pts=Array.from({length:Math.min(46,Math.max(24,Math.floor(w/28)))},()=>({x:Math.random()*w,y:Math.random()*h,r:.6+Math.random()*1.5,v:.08+Math.random()*.2,p:Math.random()*6.28,a:.12+Math.random()*.3}));}
+ function draw(){ctx.clearRect(0,0,w,h);for(const p of pts){p.y-=p.v;p.x+=Math.sin(p.y*.006+p.p)*.08;if(p.y<-5){p.y=h+5;p.x=Math.random()*w}ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(177,124,8,'+p.a+')';ctx.fill()}requestAnimationFrame(draw)}
+ resize(); addEventListener('resize',resize,{passive:true}); draw();
+ const visual=hero.querySelector('.heroVisual'), frame=hero.querySelector('.heroPhotoFrame');
+ if(visual&&frame){hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;frame.style.transform='perspective(1000px) rotateY('+(x*3)+'deg) rotateX('+(-y*2.5)+'deg) translateZ(4px)';},{passive:true});hero.addEventListener('pointerleave',()=>frame.style.transform='',{passive:true});}
+ hero.querySelectorAll('.heroMiniCards>div').forEach((card,i)=>{card.style.transitionDelay=(i*45)+'ms'});
+ const line=document.createElement('div');line.className='tasvia-scroll-line';line.setAttribute('aria-hidden','true');hero.appendChild(line);
+ const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('tasvia-in-view')}),{threshold:.12});
+ document.querySelectorAll('.program,.valueCard,.googleCard,.contactCard,.stat').forEach((el,i)=>{el.classList.add('tasvia-motion-item');el.style.setProperty('--tasvia-delay',(i%6)*55+'ms');obs.observe(el)});
+})();
+</script>
 </body>
 </html>
