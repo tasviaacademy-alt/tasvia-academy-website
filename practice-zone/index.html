@@ -333,6 +333,19 @@ const dailyPool=[...quizSets.gk.questions,...quizSets.evs.questions];
 const dayNumber=Math.floor(Date.now()/86400000);
 const dailyQuestions=Array.from({length:5},(_,i)=>dailyPool[(dayNumber*5+i)%dailyPool.length]);
 quizSets.daily={title:"Daily GK + EVS Challenge",description:"A fresh mixed set of five GK and EVS questions each day.",topic:"DAILY GK + EVS",questions:dailyQuestions};
+async function loadCurrentAffairsQuiz(){
+ try{
+  const response=await fetch("/current-affairs.json",{cache:"no-store"});
+  if(!response.ok)throw new Error("Current affairs feed unavailable");
+  const feed=await response.json();
+  if(!Array.isArray(feed.quiz)||feed.quiz.length<1)return;
+  const questions=feed.quiz.filter(q=>q&&typeof q.q==="string"&&Array.isArray(q.o)&&Number.isInteger(q.a)&&q.a>=0&&q.a<q.o.length).map(q=>({q:q.q,o:q.o,a:q.a,e:q.e||"Review the daily current-affairs update and its source."}));
+  if(!questions.length)return;
+  quizSets.daily={title:"Daily Current Affairs Challenge",description:"Date: "+feed.date+" · Read the verified updates, then test your knowledge.",topic:"DAILY CURRENT AFFAIRS",questions};
+  if(current==="daily"&&index===0&&!answered)restart();
+ }catch(error){console.warn("Using the built-in daily GK + EVS questions:",error);}
+}
+loadCurrentAffairsQuiz();
 quizSets.weekly={title:"TASVIA Weekly Mock Test",description:"A 20-question mixed practice test covering GK, EVS, Mental Ability and Mathematics.",topic:"WEEKLY MOCK · ALL SUBJECTS",questions:Object.keys(quizSets).filter(k=>["gk","evs","mat","maths"].includes(k)).flatMap(k=>quizSets[k].questions)};
 let current="gk",index=0,score=0,selected=null,answered=false,attempts=[],startedAt=0,timerHandle=null,timeLeft=1200,finished=false,activeQuestions=[],activeDifficulty="all";
 const timedModes={weekly:1200};
