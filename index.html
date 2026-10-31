@@ -688,6 +688,84 @@ button,a,.cta,.navcta{ -webkit-tap-highlight-color:transparent }
 }
 @media(prefers-reduced-motion:reduce){.parentReviewSlide{animation:none}}
 </style>
+<style id="TASVIA_PARENT_REVIEWS_EDITORIAL_REDESIGN_V2">
+/* Editorial split-layout review feature: warm ivory + midnight navy */
+.parentReviews{
+ position:relative;overflow:hidden;padding:clamp(68px,8vw,112px) 0;
+ background:#f7f4ec;
+}
+.parentReviews:before{
+ content:"";position:absolute;inset:0 auto 0 0;width:8px;
+ background:linear-gradient(180deg,#d8b24e,#98701b);
+}
+.parentReviews:after{
+ content:"TASVIA";position:absolute;right:-24px;bottom:-65px;
+ color:rgba(8,38,83,.035);font:900 clamp(8rem,19vw,18rem)/1 Georgia,serif;
+ letter-spacing:-.08em;pointer-events:none;
+}
+.parentReviews .wrap{
+ position:relative;z-index:1;display:grid;
+ grid-template-columns:minmax(250px,.78fr) minmax(0,1.22fr);
+ gap:clamp(28px,5vw,76px);align-items:center;
+}
+.parentReviewsHeading{text-align:left;max-width:430px;margin:0}
+.parentReviewsHeading .eyebrow{color:#a47717;letter-spacing:.22em;font-size:.76rem}
+.parentReviewsHeading .sectionTitle{
+ color:#09264b;font-size:clamp(2.25rem,4.5vw,3.8rem);
+ line-height:1.06;letter-spacing:-.035em;margin:16px 0 20px;
+}
+.parentReviewsHeading .sectionTitle span{color:#b18424}
+.parentReviewsHeading>p{color:#627087;font-size:.98rem;line-height:1.8;margin:0}
+.parentReviewViewer{
+ max-width:none;margin:0;padding:clamp(26px,4vw,46px);
+ background:linear-gradient(145deg,#0a2447 0%,#12365f 100%);
+ border:1px solid rgba(199,160,69,.8);border-radius:8px 28px 8px 28px;
+ box-shadow:0 24px 55px rgba(9,31,60,.18);
+ color:#fff;
+}
+.parentReviewViewer:before{inset:10px;border:1px solid rgba(232,198,90,.22);border-radius:4px 21px 4px 21px}
+.parentReviewTop{border-bottom:1px solid rgba(255,255,255,.15);padding:0 4px 19px}
+.googleReviewMark{background:#fff;border-radius:50%;width:42px;height:42px;flex-basis:42px;font-size:1.55rem}
+.parentReviewSource{color:#fff;font-size:.9rem}
+.parentReviewStars{color:#efc75d;font-size:1.08rem}
+.parentReviewSlides{min-height:245px}
+.parentReviewSlide{padding:38px 12px 26px}
+.parentReviewQuote{color:#efc75d;font-size:5.3rem}
+.parentReviewSlide blockquote{
+ color:#fff;max-width:650px;font-size:clamp(1.35rem,2.5vw,2rem);
+ line-height:1.48;font-weight:500;
+}
+.parentReviewAuthor{background:rgba(255,255,255,.1);color:#d8e2ef}
+.parentReviewControls{margin-top:8px}
+.parentReviewArrow{
+ background:transparent;border:1px solid rgba(255,255,255,.35);
+ color:#fff;width:46px;height:46px;
+}
+.parentReviewArrow:hover{background:#efc75d;border-color:#efc75d;color:#09264b}
+.parentReviewPosition{color:#fff}
+.parentReviewDots{margin:20px 0 24px}
+.parentReviewDots button{background:rgba(255,255,255,.35)}
+.parentReviewDots button.is-active{background:#efc75d}
+.parentReviewFooter{border-top:1px solid rgba(255,255,255,.16);color:#d0dbea}
+.parentReviewFooter a{color:#efc75d}
+.parentReviewDisclaimer{
+ grid-column:1/-1;max-width:none;margin:22px 0 0;text-align:center;
+ color:#7b8491;font-size:.76rem;
+}
+@media(max-width:760px){
+ .parentReviews{padding:58px 0}
+ .parentReviews .wrap{grid-template-columns:1fr;gap:25px}
+ .parentReviewsHeading{max-width:620px;text-align:center;margin:0 auto}
+ .parentReviewsHeading .sectionTitle{font-size:clamp(2rem,8vw,2.8rem)}
+ .parentReviewViewer{padding:23px 17px;border-radius:8px 22px 8px 22px}
+ .parentReviewSlides{min-height:235px}
+ .parentReviewSlide{padding:30px 3px 20px}
+ .parentReviewSlide blockquote{font-size:1.3rem;line-height:1.5}
+ .parentReviewFooter{flex-direction:column;text-align:center}
+ .parentReviewDisclaimer{margin-top:0;padding:0 10px}
+}
+@media(prefers-reduced-motion:reduce){.parentReviewSlide{animation:none}}
+</style>
 </head><body>
 <header class="topbar"><div class="wrap nav"><a class="brand" href="#home"><img alt="TASVIA Academy logo" decoding="async" loading="eager" src="/assets/logo.png"/><span><strong>TASVIA</strong><em>ACADEMY</em><small>Learn Today • Lead Tomorrow</small></span></a><nav aria-label="Primary navigation" class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#programs">Programs</a><a href="#why">Why TASVIA</a><a href="/blog/">Blog</a><a href="#parent-portal">Parent Portal</a><a href="#enquiry">Enquire</a><a href="#contact">Contact</a><a href="https://apk.tasviaacademy.com/index.html" class="staffNav" aria-label="Open TASVIA Staff Login">Staff Login</a></nav><a class="navcta" href="tel:+917842138739">☎  Call 78421 38739</a></div></header>
 <main id="main">
