@@ -691,7 +691,7 @@ button,a,.cta,.navcta{ -webkit-tap-highlight-color:transparent }
 }
 
 /* Accessibility and mobile conversion improvements */
-.whatsapp-float-cta{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:1000;display:inline-flex;align-items:center;gap:9px;min-height:50px;padding:13px 17px;border:2px solid #fff;border-radius:999px;background:#0b7a43;color:#fff;text-decoration:none;font:800 .9rem/1.2 "DM Sans",Arial,sans-serif;box-shadow:0 8px 24px rgba(10,33,71,.24);transition:transform .2s ease,box-shadow .2s ease}
+.whatsapp-float-cta{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:9999;pointer-events:auto;cursor:pointer;display:inline-flex;align-items:center;gap:9px;min-height:50px;padding:13px 17px;border:2px solid #fff;border-radius:999px;background:#0b7a43;color:#fff;text-decoration:none;font:800 .9rem/1.2 "DM Sans",Arial,sans-serif;box-shadow:0 8px 24px rgba(10,33,71,.24);transition:transform .2s ease,box-shadow .2s ease}
 .whatsapp-float-cta:hover,.whatsapp-float-cta:focus-visible{transform:translateY(-2px);box-shadow:0 12px 30px rgba(10,33,71,.3)}
 .whatsapp-float-cta:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .whatsapp-float-cta .wa-icon{font-size:1.25rem;line-height:1}
@@ -751,7 +751,7 @@ button,a,.cta,.navcta{ -webkit-tap-highlight-color:transparent }
   ]
 }
 </script><!-- TASVIA FINAL AUDIT: external government mandal data is loaded dynamically -->
-<a class="whatsapp-float-cta" href="https://wa.me/917842138739?text=Hello%20TASVIA%20Academy%2C%20I%20would%20like%20to%20enquire%20about%20admissions." target="_blank" rel="noopener noreferrer" aria-label="Enquire with TASVIA Academy on WhatsApp">
+<a class="whatsapp-float-cta" href="https://api.whatsapp.com/send?phone=917842138739&amp;text=Hello%20TASVIA%20Academy%2C%20I%20would%20like%20to%20enquire%20about%20admissions." target="_self" rel="noopener noreferrer" aria-label="Enquire with TASVIA Academy on WhatsApp">
   <span class="wa-icon" aria-hidden="true">◉</span><span>WhatsApp Enquiry</span>
 </a>
 
