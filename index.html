@@ -584,44 +584,48 @@ button,a,.cta,.navcta{ -webkit-tap-highlight-color:transparent }
 </style>
 <script id="TASVIA_PARENT_REVIEW_CAROUSEL_SCRIPT">
 (function(){
- const root=document.getElementById('parent-reviews-live');
- if(!root||root.dataset.carouselReady==='true')return;
- root.dataset.carouselReady='true';
- const slides=Array.from(root.querySelectorAll('.parentReviewSlide'));
- const dots=Array.from(root.querySelectorAll('[data-review-dot]'));
- const position=root.querySelector('#parentReviewPosition');
- if(!slides.length)return;
- let current=0,timer=null;
- const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- function show(index){
-  current=(index+slides.length)%slides.length;
-  slides.forEach((slide,i)=>{const active=i===current;slide.hidden=!active;slide.classList.toggle('is-active',active);});
-  dots.forEach((dot,i)=>{const active=i===current;dot.classList.toggle('is-active',active);if(active)dot.setAttribute('aria-current','true');else dot.removeAttribute('aria-current');});
-  if(position)position.textContent=(current+1)+' / '+slides.length;
+ function initParentReviewCarousel(){
+  const root=document.getElementById('parent-reviews-live');
+  if(!root||root.dataset.carouselReady==='true')return;
+  const slides=Array.from(root.querySelectorAll('.parentReviewSlide'));
+  const dots=Array.from(root.querySelectorAll('[data-review-dot]'));
+  const position=root.querySelector('#parentReviewPosition');
+  if(!slides.length)return;
+  root.dataset.carouselReady='true';
+  let current=0,timer=null;
+  const reducedMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(index){
+   current=(index+slides.length)%slides.length;
+   slides.forEach((slide,i)=>{const active=i===current;slide.hidden=!active;slide.classList.toggle('is-active',active);});
+   dots.forEach((dot,i)=>{const active=i===current;dot.classList.toggle('is-active',active);if(active)dot.setAttribute('aria-current','true');else dot.removeAttribute('aria-current');});
+   if(position)position.textContent=(current+1)+' / '+slides.length;
+  }
+  function stop(){if(timer){clearInterval(timer);timer=null;}}
+  function start(){
+   stop();
+   if(reducedMotion||document.hidden||root.matches(':hover')||root.contains(document.activeElement))return;
+   timer=setInterval(()=>show(current+1),5000);
+  }
+  root.querySelector('#parentReviewPrev')?.addEventListener('click',()=>{show(current-1);start();});
+  root.querySelector('#parentReviewNext')?.addEventListener('click',()=>{show(current+1);start();});
+  dots.forEach((dot,i)=>dot.addEventListener('click',()=>{show(i);start();}));
+  root.addEventListener('mouseenter',stop);
+  root.addEventListener('mouseleave',start);
+  root.addEventListener('focusin',stop);
+  root.addEventListener('focusout',event=>{if(!root.contains(event.relatedTarget))start();});
+  document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
+  let touchStartX=null;
+  root.addEventListener('touchstart',event=>{touchStartX=event.changedTouches[0]?.clientX??null;stop();},{passive:true});
+  root.addEventListener('touchend',event=>{
+   if(touchStartX===null)return;
+   const delta=(event.changedTouches[0]?.clientX??touchStartX)-touchStartX;
+   if(Math.abs(delta)>45)show(current+(delta<0?1:-1));
+   touchStartX=null;start();
+  },{passive:true});
+  show(0);start();
  }
- function stop(){if(timer){clearInterval(timer);timer=null;}}
- function start(){
-  stop();
-  if(reducedMotion||document.hidden||root.matches(':hover')||root.contains(document.activeElement))return;
-  timer=setInterval(()=>show(current+1),5000);
- }
- root.querySelector('#parentReviewPrev')?.addEventListener('click',()=>{show(current-1);start();});
- root.querySelector('#parentReviewNext')?.addEventListener('click',()=>{show(current+1);start();});
- dots.forEach((dot,i)=>dot.addEventListener('click',()=>{show(i);start();}));
- root.addEventListener('mouseenter',stop);
- root.addEventListener('mouseleave',start);
- root.addEventListener('focusin',stop);
- root.addEventListener('focusout',event=>{if(!root.contains(event.relatedTarget))start();});
- document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
- let touchStartX=null;
- root.addEventListener('touchstart',event=>{touchStartX=event.changedTouches[0]?.clientX??null;stop();},{passive:true});
- root.addEventListener('touchend',event=>{
-  if(touchStartX===null)return;
-  const delta=(event.changedTouches[0]?.clientX??touchStartX)-touchStartX;
-  if(Math.abs(delta)>45)show(current+(delta<0?1:-1));
-  touchStartX=null;start();
- },{passive:true});
- show(0);start();
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initParentReviewCarousel,{once:true});
+ else initParentReviewCarousel();
 })();
 </script>
 </head><body>
