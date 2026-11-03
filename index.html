@@ -1603,24 +1603,7 @@ img{max-width:100%}
 @media(max-width:650px){.heroParticleCanvas{opacity:.55}.heroCursorGlow{display:none}.program.vfx-card{transform:none!important}.cardVfx{transform:scale(.8);transform-origin:top right}.isoMap{min-height:300px}.isoBuilding{right:2%;transform:scale(.72) skewY(-8deg);transform-origin:bottom right}.mapPin{left:25%}.rocketTop{width:50px;height:50px;right:14px;bottom:78px}}
 @media(prefers-reduced-motion:reduce){.hero h1 .hero-letter{opacity:1;filter:none;transform:none;transition:none}.program.vfx-card,.cardVfx,.heroBadge,.radar,.mapPin,.rocketTop,.rocketSparks{animation:none!important}.pathLine path{stroke-dashoffset:0!important;transition:none}.tasviaPath .pathIcon{animation:none!important}.vfxStatRing{animation:none!important;transform:none!important;opacity:.9}}
 </style>
-<script id="TASVIA_EFFECTIVE_MOTION_2026">
-(function(){
- const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- const hero=document.querySelector('.hero');
- if(!hero||reduce)return;
- const canvas=document.createElement('canvas'); canvas.className='tasvia-particle-layer'; canvas.setAttribute('aria-hidden','true'); hero.prepend(canvas);
- const ctx=canvas.getContext('2d'); let w=0,h=0,dpr=1,pts=[];
- function resize(){const r=hero.getBoundingClientRect();w=r.width;h=r.height;dpr=Math.min(devicePixelRatio||1,1.6);canvas.width=w*dpr;canvas.height=h*dpr;canvas.style.width=w+'px';canvas.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0);pts=Array.from({length:Math.min(46,Math.max(24,Math.floor(w/28)))},()=>({x:Math.random()*w,y:Math.random()*h,r:.6+Math.random()*1.5,v:.08+Math.random()*.2,p:Math.random()*6.28,a:.12+Math.random()*.3}));}
- function draw(){ctx.clearRect(0,0,w,h);for(const p of pts){p.y-=p.v;p.x+=Math.sin(p.y*.006+p.p)*.08;if(p.y<-5){p.y=h+5;p.x=Math.random()*w}ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(177,124,8,'+p.a+')';ctx.fill()}requestAnimationFrame(draw)}
- resize(); addEventListener('resize',resize,{passive:true}); draw();
- const visual=hero.querySelector('.heroVisual'), frame=hero.querySelector('.heroPhotoFrame');
- if(visual&&frame){hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;frame.style.transform='perspective(1000px) rotateY('+(x*3)+'deg) rotateX('+(-y*2.5)+'deg) translateZ(4px)';},{passive:true});hero.addEventListener('pointerleave',()=>frame.style.transform='',{passive:true});}
- hero.querySelectorAll('.heroMiniCards>div').forEach((card,i)=>{card.style.transitionDelay=(i*45)+'ms'});
- const line=document.createElement('div');line.className='tasvia-scroll-line';line.setAttribute('aria-hidden','true');hero.appendChild(line);
- const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('tasvia-in-view')}),{threshold:.12});
- document.querySelectorAll('.program,.valueCard,.googleCard,.contactCard,.stat').forEach((el,i)=>{el.classList.add('tasvia-motion-item');el.style.setProperty('--tasvia-delay',(i%6)*55+'ms');obs.observe(el)});
-})();
-</script>
+<!-- Decorative particle animation removed to reduce continuous CPU/GPU work, especially on mobile. -->
 <style id="TASVIA_FOOTER_ORGANIZED_OCT2026">
 .footerMain{width:min(1240px,calc(100% - 48px));max-width:1240px;grid-template-columns:1.12fr 1fr 1.08fr 1.2fr;gap:0;padding:48px 0 34px;align-items:start}
 .footerCol{padding:0 24px}.footerCol:first-child{padding-left:0}.footerCol:last-child{padding-right:0}
