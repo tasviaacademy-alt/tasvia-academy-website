@@ -1669,5 +1669,37 @@ body:after{
  *,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
 </style>
+<style id="tasvia-desktop-nav-overlap-fix">
+/* Desktop/laptop navigation: prevent brand, links and call button collisions */
+@media (min-width:951px) and (max-width:1200px){
+  .topbar{position:sticky;top:0;z-index:500;background:rgba(255,255,255,.98)}
+  .nav{
+    height:auto!important;min-height:76px!important;
+    display:flex!important;flex-wrap:wrap!important;
+    justify-content:space-between!important;align-items:center!important;
+    column-gap:18px!important;row-gap:8px!important;
+    padding:10px 0 9px!important;
+  }
+  .brand{order:1;min-width:0!important;flex:1 1 250px!important}
+  .brand img{width:46px!important;height:46px!important}
+  .navcta{order:2;flex:0 0 auto!important;padding:10px 14px!important;font-size:.82rem!important}
+  .links{
+    order:3;flex:1 0 100%!important;width:100%!important;min-width:0!important;
+    display:flex!important;justify-content:flex-start!important;align-items:center!important;
+    flex-wrap:nowrap!important;gap:clamp(13px,2vw,22px)!important;
+    overflow-x:auto!important;overflow-y:hidden!important;
+    white-space:nowrap!important;padding:8px 2px 9px!important;
+    scrollbar-width:thin;scrollbar-color:#d9b45a transparent;
+    -webkit-overflow-scrolling:touch;
+  }
+  .links a{flex:0 0 auto!important;white-space:nowrap!important;font-size:.8rem!important}
+  .links::-webkit-scrollbar{height:3px}
+  .links::-webkit-scrollbar-thumb{background:#d9b45a;border-radius:10px}
+}
+@media (min-width:1201px){
+  .nav{min-width:0}
+  .links{min-width:0}
+}
+</style>
 </body>
 </html>
