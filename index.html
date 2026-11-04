@@ -1612,16 +1612,62 @@ img{max-width:100%}
 @media(max-width:650px){.footerMain{width:calc(100% - 36px);display:grid;grid-template-columns:1fr;gap:0;padding:34px 0 18px}.footerCol,.footerCol:first-child,.footerCol:last-child{padding:0 0 24px;margin:0 0 24px;border-left:0;border-bottom:1px solid rgba(255,255,255,.18)}.footerCol:last-child{border-bottom:0;margin-bottom:0}.footerReviewCompact{margin-top:16px}}
 </style>
 <style id="tasvia-diwali-2026">
-
-/* Diwali 2026 — stronger visible festive treatment */
-:root{--cream:#FFF4DF!important;--gold:#F4B942!important;--gold2:#FFD77C!important;--line:#EED5A8!important;--shadow:0 18px 45px rgba(10,33,71,.12)!important;}
-body{background-color:#FFF8EA!important;background-image:radial-gradient(ellipse at 5% 0%,rgba(255,184,74,.2),transparent 36%),radial-gradient(ellipse at 95% 90%,rgba(222,145,38,.12),transparent 34%)!important;}
-header,nav{border-bottom:4px solid #F4B942!important;}
-.card,.course-card,.feature-card{border-color:#EED5A8!important;}
-.btn,.cta,.button{box-shadow:0 5px 16px rgba(173,111,25,.14);}
-body:before{content:"";position:fixed;top:0;left:0;right:0;height:7px;z-index:9999;pointer-events:none;background:linear-gradient(90deg,#9E3D22,#F4B942,#FFF0C5,#F4B942,#9E3D22);}
-body:after{content:"🪔  ✨";position:fixed;right:18px;bottom:16px;z-index:20;pointer-events:none;font-size:30px;opacity:.7;filter:drop-shadow(0 3px 7px rgba(150,80,12,.28));}
-
+/* TASVIA • Diwali 2026 — premium festive website edition */
+:root{
+ --cream:#fff5e5!important;--gold:#e8a92e!important;--gold2:#ffd982!important;
+ --line:#ecd6ad!important;--shadow:0 18px 45px rgba(10,33,71,.10)!important;
+}
+html{scroll-behavior:smooth}
+body{
+ background-color:#fff8ed!important;
+ background-image:
+ radial-gradient(ellipse at 4% 2%,rgba(255,190,92,.24),transparent 34%),
+ radial-gradient(ellipse at 96% 16%,rgba(190,67,42,.07),transparent 27%),
+ radial-gradient(ellipse at 90% 92%,rgba(240,184,77,.15),transparent 32%)!important;
+}
+body:before{
+ content:"";position:fixed;inset:0 0 auto;height:7px;z-index:9999;pointer-events:none;
+ background:linear-gradient(90deg,#8e3028 0%,#d58b28 18%,#ffe3a0 34%,#f4bd4e 50%,#ffe3a0 66%,#d58b28 82%,#8e3028 100%);
+ box-shadow:0 2px 12px rgba(135,74,22,.2);
+}
+header,nav{
+ border-bottom:1px solid rgba(224,169,77,.7)!important;
+ box-shadow:0 8px 26px rgba(99,62,22,.07);
+}
+.card,.course-card,.feature-card,.program-card,.testimonial-card{
+ border-color:rgba(222,176,103,.5)!important;
+ box-shadow:0 9px 26px rgba(88,61,27,.055);
+ transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+}
+.card:hover,.course-card:hover,.feature-card:hover,.program-card:hover{
+ transform:translateY(-3px);border-color:#e5b34e!important;
+ box-shadow:0 16px 34px rgba(111,74,25,.12);
+}
+.btn,.cta,.button,a.button{
+ box-shadow:0 6px 17px rgba(173,111,25,.15);
+ transition:transform .18s ease,box-shadow .18s ease,filter .18s ease;
+}
+.btn:hover,.cta:hover,.button:hover,a.button:hover{
+ transform:translateY(-2px);filter:brightness(1.03);
+ box-shadow:0 10px 23px rgba(126,82,25,.2);
+}
+h1,h2,h3{letter-spacing:-.025em}
+input,select,textarea{border-color:#e7d4b3!important}
+:focus-visible{outline:3px solid rgba(226,164,49,.5)!important;outline-offset:3px}
+body:after{
+ content:"🪔  शुभ दीपावली";position:fixed;right:18px;bottom:16px;z-index:999;
+ pointer-events:none;padding:10px 16px;border-radius:999px;
+ color:#fff6df;font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.04em;
+ background:linear-gradient(115deg,#7d2d27,#a94b2c 52%,#c8892c);
+ border:1px solid rgba(255,220,151,.65);
+ box-shadow:0 5px 18px rgba(85,43,20,.22),inset 0 1px rgba(255,255,255,.18);
+}
+@media(max-width:650px){
+ body:after{right:10px;bottom:10px;font-size:11px;padding:8px 12px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
 </style>
 </body>
 </html>
