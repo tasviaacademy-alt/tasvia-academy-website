@@ -1611,5 +1611,17 @@ img{max-width:100%}
 @media(max-width:950px){.footerMain{grid-template-columns:1fr 1fr;gap:28px;padding:40px 0 28px}.footerCol{padding:0 18px}.footerCol:nth-child(odd){padding-left:0}.footerCol:nth-child(even){padding-right:0}.footerCol:nth-child(3){border-left:0}}
 @media(max-width:650px){.footerMain{width:calc(100% - 36px);display:grid;grid-template-columns:1fr;gap:0;padding:34px 0 18px}.footerCol,.footerCol:first-child,.footerCol:last-child{padding:0 0 24px;margin:0 0 24px;border-left:0;border-bottom:1px solid rgba(255,255,255,.18)}.footerCol:last-child{border-bottom:0;margin-bottom:0}.footerReviewCompact{margin-top:16px}}
 </style>
+<style id="tasvia-diwali-2026">
+
+/* TASVIA Diwali 2026 festive theme — seasonal visual layer */
+:root{--cream:#FFF7E8!important;--gold:#F2B544!important;--gold2:#FFD16A!important;--line:#F0D9B5!important;--shadow:0 18px 45px rgba(10,33,71,.12)!important;}
+body{background-image:radial-gradient(ellipse at 0 0,rgba(255,177,66,.12),transparent 32%),radial-gradient(ellipse at 100% 90%,rgba(215,135,37,.09),transparent 30%);}
+button,.btn,a.button,.cta{transition:box-shadow .22s ease,filter .22s ease;}
+button:hover,.btn:hover,a.button:hover,.cta:hover{filter:saturate(1.07);box-shadow:0 8px 22px rgba(190,112,24,.16);}
+body:after{content:"🪔";position:fixed;right:18px;bottom:16px;z-index:20;pointer-events:none;font-size:30px;opacity:.24;filter:drop-shadow(0 2px 6px rgba(170,94,20,.22));animation:tasviaDiwaliGlow 3.8s ease-in-out infinite alternate;}
+@keyframes tasviaDiwaliGlow{from{opacity:.16;transform:translateY(0) scale(.96)}to{opacity:.36;transform:translateY(-3px) scale(1.04)}}
+@media(prefers-reduced-motion:reduce){body:after{animation:none}button,.btn,a.button,.cta{transition:none}}
+
+</style>
 </body>
 </html>
