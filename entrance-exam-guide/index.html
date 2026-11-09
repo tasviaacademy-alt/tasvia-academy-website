@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Navodaya & Sainik School Parent Guide | TASVIA Academy</title>
-<meta name="description" content="A parent guide to JNVST Navodaya and AISSEE Sainik School admissions, covering eligibility, exam patterns, syllabus, applications and preparation."s parent guide for Navodaya JNVST and Sainik School AISSEE entrance exams: eligibility, exam pattern, syllabus, application, documents, preparation, admit card, results, counselling and FAQs.">
+<meta name="description" content="A parent guide to JNVST Navodaya and AISSEE Sainik School admissions, covering eligibility, exam patterns, syllabus, applications, documents and preparation in Nizamabad.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://www.tasviaacademy.com/entrance-exam-guide">
 <meta property="og:title" content="Navodaya & Sainik School Parent Guide | TASVIA Academy">
@@ -227,6 +227,7 @@ function sendEligibilityWhatsApp(){
 const TS_TGRAC_MANDAL_API='https://tgrac.telangana.gov.in/arcgis/rest/services/Master_Administrative_Folder/Master_Administrative_Boundary/MapServer/4/query';
 async function loadMandals(district, selectId){
  const select=document.getElementById(selectId);
+ if(!select) return;
  select.innerHTML='<option value="">Loading mandals…</option>';
  select.disabled=true;
  if(!district){select.innerHTML='<option value="">Select district first</option>';return;}
@@ -245,6 +246,10 @@ async function loadMandals(district, selectId){
    select.disabled=false;
  }
 }
-document.getElementById('schoolDistrict').addEventListener('change',e=>loadMandals(e.target.value,'schoolMandal'));
-document.getElementById('residenceDistrict').addEventListener('change',e=>loadMandals(e.target.value,'residenceMandal'));
+const schoolDistrictField=document.getElementById('schoolDistrict');
+const schoolMandalField=document.getElementById('schoolMandal');
+const residenceDistrictField=document.getElementById('residenceDistrict');
+const residenceMandalField=document.getElementById('residenceMandal');
+if(schoolDistrictField && schoolMandalField) schoolDistrictField.addEventListener('change',e=>loadMandals(e.target.value,'schoolMandal'));
+if(residenceDistrictField && residenceMandalField) residenceDistrictField.addEventListener('change',e=>loadMandals(e.target.value,'residenceMandal'));
 </script></body></html>
