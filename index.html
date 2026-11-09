@@ -951,7 +951,7 @@ body.tasvia-festival-active header,body.tasvia-festival-active .topbar,body.tasv
 body.tasvia-festival-active .card,body.tasvia-festival-active .stat-card,body.tasvia-festival-active .dashboard-card{border-color:color-mix(in srgb,var(--tf-accent,#D4AF37) 28%,transparent)}
 </style>
 <script id="tasvia-festival-theme-engine">
-(function(){
+document.addEventListener("DOMContentLoaded",function(){
  try{
   var today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
   var fixed=[
@@ -997,10 +997,10 @@ body.tasvia-festival-active .card,body.tasvia-festival-active .stat-card,body.ta
   document.documentElement.style.setProperty('--tf-glow',chosen.accent+'22');
   var badge=document.createElement('div');badge.id='tasvia-festival-badge';badge.setAttribute('role','status');
   badge.innerHTML='<span class="tf-icon" aria-hidden="true">'+chosen.icon+'</span><span>TASVIA celebrates '+chosen.name+'</span><button class="tf-close" aria-label="Close festival theme">×</button>';
-  document.body.appendChild(badge);badge.classList.add('show');
+  var siteHeader=document.querySelector('.topbar,header');if(siteHeader)document.body.insertBefore(badge,siteHeader);else document.body.insertBefore(badge,document.body.firstChild);badge.classList.add('show');
   badge.querySelector('button').addEventListener('click',function(){badge.remove();});
  }catch(e){console.warn('TASVIA festival theme skipped:',e);}
-})();
+});
 </script>
 <!-- /TASVIA FESTIVAL THEME ENGINE -->
 
@@ -2082,6 +2082,13 @@ img{max-width:100%}
  .brand strong{font-size:1.08rem!important}
  .brand em{font-size:.68rem!important;letter-spacing:.16em!important}
 }
+
+/* Public website festival announcement placement */
+#tasvia-festival-badge{position:relative!important;inset:auto!important;z-index:30!important;display:none;align-items:center;justify-content:center;gap:8px;width:max-content;max-width:calc(100% - 28px);margin:10px auto 12px;padding:8px 14px;border:1px solid var(--tf-accent,#D4AF37);border-radius:999px;background:#fff;color:var(--tf-ink,#0B2455);box-shadow:0 5px 18px rgba(11,36,85,.10);font:700 12px/1.3 system-ui,sans-serif;text-align:center}
+#tasvia-festival-badge.show{display:flex}
+#tasvia-festival-badge .tf-icon{font-size:17px}
+#tasvia-festival-badge .tf-close{border:0;background:transparent;color:inherit;font-size:16px;cursor:pointer}
+body.tasvia-festival-active .topbar,body.tasvia-festival-active header{border-bottom:2px solid var(--tf-accent,#D4AF37)}
 </style>
 
 <script id="TASVIA_MOBILE_NAVIGATION">
