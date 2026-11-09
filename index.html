@@ -1968,7 +1968,6 @@ img{max-width:100%}
    button.setAttribute('aria-label',opening?'Close navigation menu':'Open navigation menu');
   };
   button.addEventListener('click',toggle);
-  button.addEventListener('touchend',event=>{if(panel.hidden)toggle(event)},{passive:false});
   panel.addEventListener('click',event=>event.stopPropagation());
   panel.querySelectorAll('a').forEach(link=>link.addEventListener('click',close));
   document.addEventListener('click',event=>{if(!menu.contains(event.target)&&!panel.contains(event.target))close()});
