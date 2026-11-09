@@ -1747,6 +1747,31 @@ img{max-width:100%}
 @media(max-width:380px){
   .hero h1 .heroHeadlineSecond{font-size:clamp(1.85rem,8.2vw,2.25rem)!important}
 }
+
+/* Keep all three programme cards in one row on mobile */
+@media(max-width:650px){
+  .heroMiniCards{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:7px!important;
+    width:100%!important;
+    max-width:100%!important;
+    align-items:stretch;
+  }
+  .heroMiniCards>div{
+    min-width:0;
+    padding:10px 7px!important;
+    border-radius:10px!important;
+  }
+  .heroMiniCards strong{
+    font-size:clamp(.58rem,2.6vw,.72rem)!important;
+    line-height:1.18;
+    overflow-wrap:anywhere;
+  }
+  .heroMiniCards span{
+    font-size:clamp(.52rem,2.25vw,.62rem)!important;
+    line-height:1.2;
+  }
+}
 </style>
 
 </body>
