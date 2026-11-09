@@ -1991,6 +1991,47 @@ img{max-width:100%}
 @media(max-width:650px){
  #home,#about,#programs,#why,#parent-portal,#enquiry,#contact{scroll-margin-top:96px!important}
 }
+
+/* Premium rounded brand lockup for responsive header */
+.brand{
+ display:flex;align-items:center;gap:11px;min-width:0;
+ padding:7px 13px 7px 8px;
+ border:1px solid rgba(10,33,71,.09);
+ border-radius:18px;
+ background:linear-gradient(135deg,#fff 0%,#fffdf7 100%);
+ box-shadow:0 5px 16px rgba(10,33,71,.055);
+ text-decoration:none;
+}
+.brand img{
+ width:52px;height:52px;flex:0 0 52px;
+ border-radius:50%;object-fit:contain;
+ background:#fff;border:1px solid rgba(168,121,19,.22);
+ padding:2px;box-sizing:border-box;
+}
+.brand>span{display:flex;flex-direction:column;min-width:0;line-height:1.02}
+.brand strong{font-size:1.18rem;letter-spacing:.015em}
+.brand em{font-size:.7rem;letter-spacing:.2em}
+.brand small{
+ display:block;margin-top:5px;font-size:.55rem;letter-spacing:.055em;
+ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;
+}
+@media(max-width:650px){
+ .nav{gap:8px}
+ .brand{gap:8px;padding:6px 9px 6px 6px;border-radius:15px;flex:1}
+ .brand img{width:45px;height:45px;flex-basis:45px}
+ .brand strong{font-size:1.03rem}
+ .brand em{font-size:.64rem;letter-spacing:.18em}
+ .brand small{font-size:.49rem;letter-spacing:.025em;margin-top:4px}
+ .navcta{padding:10px 11px;font-size:.68rem}
+ .mobileNavToggle{width:42px;height:42px;border-radius:13px}
+}
+@media(max-width:390px){
+ .brand small{display:none}
+ .brand{padding-right:7px}
+ .brand strong{font-size:.96rem}
+ .brand em{font-size:.59rem}
+ .navcta{font-size:.64rem;padding:9px 9px}
+}
 </style>
 
 <script id="TASVIA_MOBILE_NAVIGATION">
