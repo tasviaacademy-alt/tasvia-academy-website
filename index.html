@@ -2600,5 +2600,25 @@ body.tasvia-festival-active .topbar,body.tasvia-festival-active header{border-bo
 
 
 
+
+<script id="tasvia-official-mobile-emblem-v9">
+(function(){
+ const query=window.matchMedia('(max-width:650px)');
+ function apply(){
+  const logo=document.querySelector('.topbar a.brand img');
+  if(!logo)return;
+  const next=query.matches?'/assets/tasvia-mobile-emblem.jpg':'/assets/logo.png';
+  if(!logo.getAttribute('src')?.endsWith(next))logo.src=next;
+  if(query.matches){
+   logo.style.cssText='display:block!important;width:52px!important;height:52px!important;min-width:52px!important;max-width:52px!important;flex:0 0 52px!important;aspect-ratio:1/1!important;object-fit:contain!important;object-position:center!important;border-radius:50%!important;clip-path:circle(50% at 50% 50%)!important;';
+  }else{
+   logo.removeAttribute('style');
+  }
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply();
+ query.addEventListener?.('change',apply);
+})();
+</script>
+
 </body>
 </html>
