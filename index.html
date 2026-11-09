@@ -1288,9 +1288,10 @@ h1,h2,h3,h4,h5,h6,.sectionTitle{font-weight:700;letter-spacing:-.025em;line-heig
 @media(max-width:650px){
   .heroVisual{min-height:clamp(300px,95vw,390px)!important}
   .heroMain{height:100%!important;width:100%!important;right:auto!important;inset:0!important;object-fit:cover;object-position:center 25%}
-  .heroMiniCards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px}
-  .heroMiniCards>div{padding:10px!important;min-width:0}
-  .heroMiniCards>div:nth-child(3){grid-column:1/-1}
+  .heroMiniCards{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px!important;width:100%;max-width:100%}
+  .heroMiniCards>div{padding:9px 6px!important;min-width:0;grid-column:auto!important}
+  .heroMiniCards strong{font-size:clamp(.58rem,2.7vw,.76rem)!important;line-height:1.18}
+  .heroMiniCards span{font-size:clamp(.5rem,2.3vw,.64rem)!important;line-height:1.2}
   .programImg{aspect-ratio:16/10!important;height:auto!important;max-height:190px;object-fit:cover}
   .program p,.intro p,.checks li,.valueCard p,.contactItem,.portalIntro p,.portalFeature,.parentCommercialLead,.footerCol p,.footerLinks a{font-size:15px}
   .program p,.intro p,.checks li,.contactItem,.portalIntro p,.parentCommercialLead,.footerCol p{line-height:1.65}
