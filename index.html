@@ -1029,7 +1029,7 @@ h1,h2,h3,h4,h5,h6,.sectionTitle{font-weight:700;letter-spacing:-.025em;line-heig
 @media(max-width:650px){body{font-size:15px}.sectionTitle{line-height:1.22}}
 </style>
 </head><body>
-<header class="topbar"><div class="wrap nav"><a class="brand" href="#home"><img alt="TASVIA Academy logo" decoding="async" loading="eager" src="/assets/logo.png"/><span><strong>TASVIA</strong><em>ACADEMY</em><small>Learn Today • Lead Tomorrow</small></span></a><nav aria-label="Primary navigation" class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#programs">Programmes</a><a href="#why">Why TASVIA</a><a href="/blog/">Blog</a><a href="#parent-portal">Parent Portal</a><a href="#enquiry">Enquire</a><a href="#contact">Contact</a><a href="https://apk.tasviaacademy.com/index.html" class="staffNav" aria-label="Open TASVIA Staff Login">Staff Login</a></nav><a class="navcta" href="tel:+917842138739">☎  Call 78421 38739</a></div></header>
+<header class="topbar"><div class="wrap nav"><a class="brand" href="#home" aria-label="TASVIA Academy home"><img alt="TASVIA Academy logo" decoding="async" loading="eager" src="/assets/logo.png"/><span><strong>TASVIA</strong><em>ACADEMY</em><small>Learn Today • Lead Tomorrow</small></span></a><nav aria-label="Primary navigation" class="links"><a href="#home">Home</a><a href="#about">About</a><details class="navDropdown"><summary>Programmes <span aria-hidden="true">⌄</span></summary><div class="navDropdownMenu"><a href="#programs">All Programmes</a><a href="/tuition-classes-nizamabad">Tuition Classes</a><a href="/abacus-classes-nizamabad">Abacus Training</a><a href="/navodaya-coaching-nizamabad">Navodaya Coaching</a><a href="/sainik-school-coaching-nizamabad">Sainik School Coaching</a></div></details><a href="#why">Why TASVIA</a><a href="/blog/">Blog</a><a href="#parent-portal">Parent Portal</a><a href="#contact">Contact</a><a href="https://apk.tasviaacademy.com/index.html" class="staffNav" aria-label="Open TASVIA Staff Login">Staff Login</a></nav><a class="navcta" href="#enquiry">Enquire Now <span aria-hidden="true">→</span></a><details class="mobileNav"><summary aria-label="Open navigation menu"><span></span><span></span><span></span></summary><nav aria-label="Mobile navigation" class="mobileNavPanel"><a href="#home">Home</a><a href="#about">About</a><details class="mobileNavGroup"><summary>Programmes</summary><a href="#programs">All Programmes</a><a href="/tuition-classes-nizamabad">Tuition Classes</a><a href="/abacus-classes-nizamabad">Abacus Training</a><a href="/navodaya-coaching-nizamabad">Navodaya Coaching</a><a href="/sainik-school-coaching-nizamabad">Sainik School Coaching</a></details><a href="#why">Why TASVIA</a><a href="/blog/">Blog</a><a href="#parent-portal">Parent Portal</a><a href="#contact">Contact</a><a href="https://apk.tasviaacademy.com/index.html">Staff Login</a></nav></details></div></header>
 <main id="main">
 <section class="hero" id="home"><div class="heroShell"><div class="heroCopy"><div class="admissionPill">● ADMISSIONS OPEN · 2026–27</div><div class="eyebrow heroReveal">TASVIA ACADEMY · NIZAMABAD</div><h1 class="heroReveal d1">Learn Today.<br/><span class="heroHeadlineSecond">Lead Tomorrow.</span></h1><h2 class="heroSub heroReveal d2">Focused coaching. Strong foundations. Confident students.</h2><p class="heroLead heroReveal d2">Entrance coaching for <b>Navodaya and Sainik School entrance examinations</b>, along with regular tuition from <b>LKG to Intermediate</b>.</p><div class="heroMiniCards heroReveal d2"><div><strong>Navodaya</strong><span>Entrance Coaching</span></div><div><strong>Sainik School</strong><span>Entrance Coaching</span></div><div><strong>LKG–Intermediate</strong><span>Regular Tuition</span></div></div><div class="heroBtns heroReveal d3"><a class="btn btnGold" href="#enquiry">Enquire Now →</a><a class="btn btnNavy" href="https://api.whatsapp.com/send?phone=917842138739&amp;text=Hello%20TASVIA%20Academy%2C%20I%20would%20like%20to%20enquire." target="_self" rel="noopener noreferrer" aria-label="Open WhatsApp to enquire with TASVIA Academy">◉ WhatsApp TASVIA</a></div><div class="heroTrust heroReveal d3">✓ Regular tests &nbsp; ✓ Individual attention &nbsp; ✓ Parent updates</div></div><div class="heroVisual heroReveal d2"><div class="heroPhotoFrame"><img alt="Students preparing for admission at TASVIA Academy" class="heroMain" decoding="async" fetchpriority="high" loading="eager" src="assets/hero.jpg"/></div></div></div><div class="ticker"><span>ADMISSIONS OPEN <i>★</i></span><span>NAVODAYA COACHING <i>★</i><small>Entrance</small></span><span>SAINIK SCHOOL COACHING <i>★</i><small>Entrance</small></span><span>TUITION <small>LKG – Intermediate</small></span></div></section>
 <div class="mobileActionBar"><a class="wa" href="https://wa.me/917842138739?text=Hello%20TASVIA%20Academy%2C%20I%20would%20like%20to%20enquire." target="_blank" rel="noopener">WhatsApp</a><a class="call" href="tel:+917842138739">Call TASVIA</a></div>
@@ -1896,6 +1896,46 @@ img{max-width:100%}
 }
 @media(max-width:380px){.admissionJourneyStep b{font-size:.82rem}.admissionJourneyStep small{font-size:.7rem}}
 
+
+/* Premium TASVIA navigation refresh */
+.topbar{background:rgba(255,255,255,.97);box-shadow:0 5px 22px rgba(10,33,71,.055)}
+.nav{height:82px;gap:18px}
+.brand{min-width:190px;gap:10px}
+.brand img{width:50px;height:50px}
+.brand em{display:block;font:800 .72rem/1.1 Inter,Arial,sans-serif;letter-spacing:.23em;color:#a87913;font-style:normal;margin-top:2px}
+.brand small{font-size:.58rem;letter-spacing:.09em}
+.links{gap:clamp(10px,1.25vw,18px);flex:1;justify-content:center}
+.links a,.navDropdown>summary{font-size:.82rem;font-weight:700;color:#243651;white-space:nowrap;text-decoration:none;cursor:pointer}
+.links a:hover,.navDropdown>summary:hover{color:#a87913}
+.navDropdown{position:relative}
+.navDropdown>summary{list-style:none;display:flex;align-items:center;gap:5px;padding:12px 0}
+.navDropdown>summary::-webkit-details-marker{display:none}
+.navDropdown[open]>summary span{transform:rotate(180deg)}
+.navDropdownMenu{position:absolute;top:calc(100% + 8px);left:-18px;min-width:225px;padding:9px;background:#fff;border:1px solid #e8edf4;border-radius:13px;box-shadow:0 16px 38px rgba(10,33,71,.16);display:grid;gap:2px;z-index:80}
+.navDropdownMenu a{padding:11px 12px;border-radius:8px;font-size:.83rem}
+.navDropdownMenu a:hover{background:#fff8e7}
+.links a.staffNav{font-size:.76rem;color:#8a650d}
+.links a.staffNav:after{display:none}
+.navcta{padding:12px 17px;font-size:.82rem;letter-spacing:.01em}
+.mobileNav{display:none}
+@media(max-width:1100px) and (min-width:651px){.nav{gap:12px}.brand{min-width:165px}.brand img{width:44px;height:44px}.brand small{display:none}.links{gap:10px}.links a,.navDropdown>summary{font-size:.76rem}.navcta{padding:10px 12px;font-size:.76rem}}
+@media(max-width:650px){
+ .nav{height:auto;min-height:72px;flex-wrap:nowrap;padding:9px 0;gap:10px}
+ .brand{min-width:0;flex:1}.brand img{width:43px;height:43px}.brand small{display:block}
+ .links{display:none}
+ .navcta{font-size:.72rem;padding:10px 12px;white-space:nowrap}
+ .mobileNav{display:block;position:relative;order:4}
+ .mobileNav>summary{width:40px;height:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;list-style:none;border:1px solid #e7ebf1;border-radius:11px;background:#fff;cursor:pointer}
+ .mobileNav>summary::-webkit-details-marker{display:none}
+ .mobileNav>summary span{display:block;width:17px;height:2px;border-radius:2px;background:#10264d}
+ .mobileNavPanel{position:absolute;right:0;top:calc(100% + 13px);width:min(300px,calc(100vw - 32px));padding:10px;background:#fff;border:1px solid #e8edf4;border-radius:15px;box-shadow:0 18px 42px rgba(10,33,71,.18);display:grid;gap:2px;z-index:90}
+ .mobileNavPanel>a,.mobileNavGroup>summary{padding:12px 13px;border-radius:9px;color:#243651;text-decoration:none;font-size:.9rem;font-weight:700;list-style:none}
+ .mobileNavPanel>a:hover,.mobileNavGroup>summary:hover{background:#fff8e7;color:#8a650d}
+ .mobileNavGroup>summary::-webkit-details-marker{display:none}
+ .mobileNavGroup>summary:after{content:"＋";float:right;color:#a87913}
+ .mobileNavGroup[open]>summary:after{content:"−"}
+ .mobileNavGroup>a{display:block;padding:9px 13px 9px 25px;color:#52627a;text-decoration:none;font-size:.84rem}
+}
 </style>
 
 </body>
