@@ -941,6 +941,73 @@ html{scroll-padding-top:82px}
 @media(prefers-reduced-motion:reduce){.section{scroll-behavior:auto}}
 </style>
 
+
+<!-- TASVIA FESTIVAL THEME ENGINE v1 -->
+<style id="tasvia-festival-theme-css">
+body.tasvia-festival-active{background-image:radial-gradient(ellipse at 8% 0%,var(--tf-glow,rgba(212,175,55,.13)),transparent 34%),radial-gradient(ellipse at 96% 12%,rgba(11,36,85,.07),transparent 30%)}
+body.tasvia-festival-active header,body.tasvia-festival-active .topbar,body.tasvia-festival-active .app-header{border-bottom:2px solid var(--tf-accent,#D4AF37)}
+#tasvia-festival-badge{position:fixed;right:12px;top:10px;z-index:99999;display:none;align-items:center;gap:8px;max-width:min(88vw,390px);padding:8px 13px;border:1px solid var(--tf-accent,#D4AF37);border-radius:999px;background:var(--tf-card,#fff);color:var(--tf-ink,#0B2455);box-shadow:0 5px 20px rgba(11,36,85,.16);font:600 12px/1.25 system-ui,sans-serif;backdrop-filter:blur(10px)}
+#tasvia-festival-badge.show{display:flex}#tasvia-festival-badge .tf-icon{font-size:17px}#tasvia-festival-badge .tf-close{border:0;background:transparent;color:inherit;font-size:16px;line-height:1;padding:0 0 0 4px;cursor:pointer}
+body.tasvia-festival-active .card,body.tasvia-festival-active .stat-card,body.tasvia-festival-active .dashboard-card{border-color:color-mix(in srgb,var(--tf-accent,#D4AF37) 28%,transparent)}
+</style>
+<script id="tasvia-festival-theme-engine">
+(function(){
+ try{
+  var today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  var fixed=[
+   ['01-01','New Year','🎉',' #D4AF37','#0B2455'],['01-26','Republic Day','🇮🇳','#FF9933','#0B2455'],
+   ['03-08','International Women’s Day','🌸','#C65B91','#542044'],['04-14','Dr. B. R. Ambedkar Jayanti','📘','#2877B8','#12365B'],
+   ['05-01','May Day','🤝','#E0A12B','#543B12'],['06-05','World Environment Day','🌱','#3B9B65','#174A32'],
+   ['08-15','Independence Day','🇮🇳','#138A55','#12365B'],['09-05','Teachers’ Day','📚','#D4AF37','#0B2455'],
+   ['10-02','Gandhi Jayanti','🕊️','#D4AF37','#0B2455'],['11-14','Children’s Day','🎈','#E78B38','#713D18'],
+   ['12-25','Christmas','🎄','#27865B','#174A32']
+  ];
+  var movable={
+   '2026-11-08':['Diwali','🪔','#D4AF37','#0B2455'],
+   '2026-11-09':['Govardhan Puja','🌼','#D4AF37','#0B2455'],
+   '2026-11-11':['Bhai Dooj','💛','#D4AF37','#0B2455'],
+   '2026-11-15':['Chhath Puja','☀️','#E58B25','#713D18'],
+   '2026-11-24':['Guru Nanak Jayanti','🙏','#D4AF37','#0B2455'],
+   '2027-01-15':['Makar Sankranti & Pongal','🪁','#E58B25','#713D18'],
+   '2027-02-11':['Vasant Panchami','🌼','#E4B72C','#59440B'],
+   '2027-03-06':['Maha Shivaratri','🔱','#7255A5','#30204F'],
+   '2027-03-10':['Eid al-Fitr (tentative)','🌙','#26966C','#124C3A'],
+   '2027-03-22':['Holi','🎨','#D95A9B','#64234C'],
+   '2027-04-07':['Ugadi','🌿','#4D9A54','#194A2B'],
+   '2027-04-15':['Ram Navami','🏹','#D98A35','#623A12'],
+   '2027-05-17':['Eid al-Adha (tentative)','🌙','#26966C','#124C3A'],
+   '2027-08-13':['Varalakshmi Vratam','🪷','#C65B91','#542044'],
+   '2027-08-17':['Raksha Bandhan','🧵','#D4AF37','#0B2455'],
+   '2027-08-25':['Krishna Janmashtami','🦚','#4775B8','#142D5C'],
+   '2027-09-04':['Ganesh Chaturthi','🐘','#E58B25','#713D18'],
+   '2027-10-09':['Dussehra / Vijayadashami','🏹','#D4AF37','#0B2455'],
+   '2027-10-29':['Diwali','🪔','#D4AF37','#0B2455'],
+   '2027-12-25':['Christmas','🎄','#27865B','#174A32']
+  };
+  var parts=today.split('-'),md=parts[1]+'-'+parts[2],year=parts[0];
+  var chosen=null,entry=movable[today];
+  if(entry) chosen={name:entry[0],icon:entry[1],accent:entry[2],ink:entry[3]};
+  if(!chosen){
+   for(var i=0;i<fixed.length;i++) if(fixed[i][0]===md){chosen={name:fixed[i][1],icon:fixed[i][2],accent:fixed[i][3],ink:fixed[i][4]};break;}
+  }
+  if(!chosen){
+   var next=Object.keys(movable).sort().filter(function(d){return d>today && d.slice(0,4)===year;})[0];
+   if(next){var days=(new Date(next+'T00:00:00+05:30')-new Date(today+'T00:00:00+05:30'))/86400000;if(days<=2){var e=movable[next];chosen={name:e[0]+' is coming',icon:e[1],accent:e[2],ink:e[3]};}}
+  }
+  if(!chosen)return;
+  document.body.classList.add('tasvia-festival-active');
+  document.documentElement.style.setProperty('--tf-accent',chosen.accent);
+  document.documentElement.style.setProperty('--tf-ink',chosen.ink);
+  document.documentElement.style.setProperty('--tf-glow',chosen.accent+'22');
+  var badge=document.createElement('div');badge.id='tasvia-festival-badge';badge.setAttribute('role','status');
+  badge.innerHTML='<span class="tf-icon" aria-hidden="true">'+chosen.icon+'</span><span>TASVIA celebrates '+chosen.name+'</span><button class="tf-close" aria-label="Close festival theme">×</button>';
+  document.body.appendChild(badge);badge.classList.add('show');
+  badge.querySelector('button').addEventListener('click',function(){badge.remove();});
+ }catch(e){console.warn('TASVIA festival theme skipped:',e);}
+})();
+</script>
+<!-- /TASVIA FESTIVAL THEME ENGINE -->
+
 </head><body>
 <header class="topbar"><div class="wrap nav"><a class="brand" href="#home"><img alt="TASVIA Academy logo" decoding="async" loading="eager" src="/assets/logo.png"/><span><strong>TASVIA</strong><em>ACADEMY</em><small>Learn Today • Lead Tomorrow</small></span></a><nav aria-label="Primary navigation" class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#programs">Programmes</a><a href="#why">Why TASVIA</a><a href="/blog/">Blog</a><a href="#parent-portal">Parent Portal</a><a href="#enquiry">Enquire</a><a href="#contact">Contact</a><a href="https://apk.tasviaacademy.com/index.html" class="staffNav" aria-label="Open TASVIA Staff Login">Staff Login</a></nav><a class="navcta" href="tel:+917842138739">☎  Call 78421 38739</a></div></header>
 <main id="main">
