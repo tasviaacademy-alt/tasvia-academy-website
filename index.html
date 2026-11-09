@@ -1948,6 +1948,44 @@ img{max-width:100%}
  .mobileNavPanel:not([hidden]){display:grid!important}
  .mobileNavPanel>a,.mobileNavGroup>summary{display:block!important;color:#243651!important;min-height:44px}
 }
+
+/* Refined mobile navigation layout and anchor landing */
+@media(max-width:650px){
+ .mobileNavPanel{
+  top:calc(82px + env(safe-area-inset-top))!important;
+  width:min(300px,calc(100vw - 28px))!important;
+  padding:9px!important;
+  gap:2px!important;
+  border-radius:16px!important;
+  max-height:calc(100dvh - 105px)!important;
+  align-content:start!important;
+ }
+ .mobileNavPanel>a,.mobileNavGroup>summary{
+  box-sizing:border-box!important;
+  min-height:43px!important;
+  height:auto!important;
+  padding:10px 13px!important;
+  margin:0!important;
+  display:flex!important;
+  align-items:center!important;
+  line-height:1.25!important;
+  font-size:.88rem!important;
+  border-radius:9px!important;
+ }
+ .mobileNavGroup{display:block!important;margin:0!important;padding:0!important}
+ .mobileNavGroup>a{
+  box-sizing:border-box!important;
+  min-height:38px!important;
+  padding:9px 12px 9px 25px!important;
+  margin:0!important;
+  line-height:1.25!important;
+  font-size:.82rem!important;
+ }
+ .mobileNavGroup[open]{background:#fffaf0;border-radius:10px}
+ .mobileNavPanel a:active,.mobileNavGroup>summary:active{background:#fff3d4}
+ html{scroll-behavior:smooth}
+ main section[id],footer[id]{scroll-margin-top:100px}
+}
 </style>
 
 <script id="TASVIA_MOBILE_NAVIGATION">
@@ -1969,7 +2007,14 @@ img{max-width:100%}
   };
   button.addEventListener('click',toggle);
   panel.addEventListener('click',event=>event.stopPropagation());
-  panel.querySelectorAll('a').forEach(link=>link.addEventListener('click',close));
+  panel.querySelectorAll('a').forEach(link=>link.addEventListener('click',event=>{
+   const href=link.getAttribute('href')||'';
+   if(href.startsWith('#')){
+    const target=document.getElementById(href.slice(1));
+    if(target){event.preventDefault();close();history.replaceState(null,'',href);setTimeout(()=>target.scrollIntoView({behavior:'smooth',block:'start'}),40);return;}
+   }
+   close();
+  }));
   document.addEventListener('click',event=>{if(!menu.contains(event.target)&&!panel.contains(event.target))close()});
   document.addEventListener('keydown',event=>{if(event.key==='Escape'){close();button.focus()}});
  }
