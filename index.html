@@ -1986,6 +1986,11 @@ img{max-width:100%}
  html{scroll-behavior:smooth}
  main section[id],footer[id]{scroll-margin-top:100px}
 }
+
+/* Accurate mobile menu section landing */
+@media(max-width:650px){
+ #home,#about,#programs,#why,#parent-portal,#enquiry,#contact{scroll-margin-top:96px!important}
+}
 </style>
 
 <script id="TASVIA_MOBILE_NAVIGATION">
@@ -2011,7 +2016,18 @@ img{max-width:100%}
    const href=link.getAttribute('href')||'';
    if(href.startsWith('#')){
     const target=document.getElementById(href.slice(1));
-    if(target){event.preventDefault();close();history.replaceState(null,'',href);setTimeout(()=>target.scrollIntoView({behavior:'smooth',block:'start'}),40);return;}
+    if(target){
+      event.preventDefault();
+      close();
+      history.replaceState(null,'',href);
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{
+       const header=document.querySelector('.topbar');
+       const headerHeight=header?header.getBoundingClientRect().height:0;
+       const top=target.getBoundingClientRect().top+window.scrollY-headerHeight-12;
+       window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
+      }));
+      return;
+     }
    }
    close();
   }));
