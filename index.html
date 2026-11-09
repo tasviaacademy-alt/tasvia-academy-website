@@ -990,10 +990,6 @@ body.tasvia-festival-active .card,body.tasvia-festival-active .stat-card,body.ta
   if(!chosen){
    for(var i=0;i<fixed.length;i++) if(fixed[i][0]===md){chosen={name:fixed[i][1],icon:fixed[i][2],accent:fixed[i][3],ink:fixed[i][4]};break;}
   }
-  if(!chosen){
-   var next=Object.keys(movable).sort().filter(function(d){return d>today && d.slice(0,4)===year;})[0];
-   if(next){var days=(new Date(next+'T00:00:00+05:30')-new Date(today+'T00:00:00+05:30'))/86400000;if(days<=2){var e=movable[next];chosen={name:e[0]+' is coming',icon:e[1],accent:e[2],ink:e[3]};}}
-  }
   if(!chosen)return;
   document.body.classList.add('tasvia-festival-active');
   document.documentElement.style.setProperty('--tf-accent',chosen.accent);
