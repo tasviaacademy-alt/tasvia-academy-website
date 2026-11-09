@@ -1224,6 +1224,33 @@ h1,h2,h3,h4,h5,h6,.sectionTitle{font-weight:700;letter-spacing:-.025em;line-heig
 </style>
 
 
+
+<style id="tasvia-logo-orbiting-dotted-ring-v1">
+/* A fine gold dotted orbit around the circular logo, outside its edge. */
+.topbar .brand{position:relative!important;isolation:isolate}
+.topbar .brand>span{position:relative;z-index:1}
+.topbar .brand img{position:relative;z-index:2}
+.topbar .brand::before{
+ content:"";position:absolute;z-index:1;pointer-events:none;
+ left:calc((var(--tasvia-logo-size,58px) - 72px)/2);
+ top:50%;width:72px;height:72px;box-sizing:border-box;
+ border:2px dotted #D4A52D;border-radius:50%;
+ transform:translateY(-50%);transform-origin:50% 50%;
+ animation:tasviaDottedOrbit 9s linear infinite;
+}
+@keyframes tasviaDottedOrbit{to{transform:translateY(-50%) rotate(360deg)}}
+@media(max-width:650px){
+ .topbar .brand{--tasvia-logo-size:42px}
+ .topbar .brand::before{width:56px;height:56px;left:-7px}
+}
+@media(min-width:651px){
+ .topbar .brand{--tasvia-logo-size:58px}
+}
+@media(prefers-reduced-motion:reduce){
+ .topbar .brand::before{animation:none!important}
+}
+</style>
+
 </head><body>
 <header class="topbar"><div class="wrap nav"><a class="brand" href="#home" aria-label="TASVIA Academy home"><img alt="TASVIA Academy logo" decoding="async" loading="eager" src="/assets/logo.png"/><span><strong>TASVIA</strong><em>ACADEMY</em><small>Learn Today • Lead Tomorrow</small></span></a><nav aria-label="Primary navigation" class="links"><a href="#home">Home</a><a href="#about">About</a><details class="navDropdown"><summary>Programmes <span aria-hidden="true">⌄</span></summary><div class="navDropdownMenu"><a href="#programs">All Programmes</a><a href="/tuition-classes-nizamabad">Tuition Classes</a><a href="/abacus-classes-nizamabad">Abacus Training</a><a href="/navodaya-coaching-nizamabad">Navodaya Coaching</a><a href="/sainik-school-coaching-nizamabad">Sainik School Coaching</a></div></details><a href="#why">Why TASVIA</a><a href="/blog/">Blog</a><a href="#parent-portal">Parent Portal</a><a href="#contact">Contact</a><a href="https://apk.tasviaacademy.com/index.html" class="staffNav" aria-label="Open TASVIA Staff Login">Staff Login</a></nav><a class="navcta" href="#enquiry">Enquire Now <span aria-hidden="true">→</span></a><div class="mobileNav"><button class="mobileNavToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNavPanel"><span></span><span></span><span></span></button><nav id="mobileNavPanel" aria-label="Mobile navigation" class="mobileNavPanel" hidden><a href="#home">Home</a><a href="#about">About</a><details class="mobileNavGroup"><summary>Programmes</summary><a href="#programs">All Programmes</a><a href="/tuition-classes-nizamabad">Tuition Classes</a><a href="/abacus-classes-nizamabad">Abacus Training</a><a href="/navodaya-coaching-nizamabad">Navodaya Coaching</a><a href="/sainik-school-coaching-nizamabad">Sainik School Coaching</a></details><a href="#why">Why TASVIA</a><a href="/blog/">Blog</a><a href="#parent-portal">Parent Portal</a><a href="#contact">Contact</a><a href="https://apk.tasviaacademy.com/index.html">Staff Login</a></nav></div></div></header>
 <main id="main">
