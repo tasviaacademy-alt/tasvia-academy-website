@@ -2576,5 +2576,30 @@ body.tasvia-festival-active .topbar,body.tasvia-festival-active header{border-bo
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
 </script>
+
+<script id="tasvia-mobile-circular-emblem-v7">
+/* The full logo artwork has an oval badge. Use the academy's true circular emblem on narrow screens. */
+(function(){
+ const mq=window.matchMedia('(max-width: 650px)');
+ function setMobileEmblem(){
+  const img=document.querySelector('.topbar a.brand img');
+  if(!img)return;
+  const mobile='/assets/favicon.svg';
+  const desktop='/assets/logo.png';
+  const target=mq.matches?mobile:desktop;
+  if(!img.getAttribute('src')?.endsWith(target)) img.setAttribute('src',target);
+  img.style.width=mq.matches?'48px':'';
+  img.style.height=mq.matches?'48px':'';
+  img.style.aspectRatio='1 / 1';
+  img.style.objectFit='contain';
+  img.style.borderRadius='50%';
+  img.style.clipPath='circle(50% at 50% 50%)';
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setMobileEmblem);
+ else setMobileEmblem();
+ mq.addEventListener?.('change',setMobileEmblem);
+})();
+</script>
+
 </body>
 </html>
