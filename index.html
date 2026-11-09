@@ -1840,7 +1840,40 @@ img{max-width:100%}
 }
 
 
-/* Keep the learning caption below the photo so it never covers text inside the admission artwork. */
+/* Mobile: stack the photo and learning caption vertically at full width. */
+.heroVisual .heroImageCaption{
+  position:relative!important;
+  left:auto!important;
+  right:auto!important;
+  bottom:auto!important;
+  display:flex!important;
+  width:fit-content!important;
+  max-width:100%!important;
+  margin:14px auto 0!important;
+}
+@media(max-width:650px){
+  .heroVisual{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    justify-content:flex-start!important;
+    min-height:0!important;
+    height:auto!important;
+    padding:18px 0 24px!important;
+    gap:0!important;
+  }
+  .heroVisual .heroPhotoFrame{
+    width:100%!important;
+    max-width:100%!important;
+    margin:0!important;
+    aspect-ratio:1/1.08!important;
+  }
+  .heroVisual .heroImageCaption{
+    align-self:center!important;
+    margin:14px auto 0!important;
+    padding:9px 12px!important;
+  }
+}
 .heroVisual .heroImageCaption{
   position:relative!important;
   left:auto!important;
