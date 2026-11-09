@@ -2032,6 +2032,42 @@ img{max-width:100%}
  .brand em{font-size:.59rem}
  .navcta{font-size:.64rem;padding:9px 9px}
 }
+
+/* Final mobile header balance: brand, enquiry CTA and menu */
+@media(max-width:650px){
+ .nav{
+  display:flex!important;align-items:center!important;flex-wrap:nowrap!important;
+  gap:9px!important;min-width:0!important;
+ }
+ .brand{
+  flex:1 1 auto!important;min-width:0!important;max-width:none!important;
+  gap:7px!important;padding:5px 7px 5px 5px!important;
+ }
+ .brand img{width:40px!important;height:40px!important;flex:0 0 40px!important}
+ .brand>span{min-width:0!important;overflow:hidden!important}
+ .brand strong{font-size:.98rem!important;white-space:nowrap!important}
+ .brand em{font-size:.59rem!important;letter-spacing:.16em!important;white-space:nowrap!important}
+ .brand small{display:none!important}
+ .navcta{
+  flex:0 0 auto!important;white-space:nowrap!important;
+  padding:10px 11px!important;font-size:.69rem!important;
+  min-height:40px!important;display:inline-flex!important;
+  align-items:center!important;justify-content:center!important;gap:3px!important;
+  border-radius:999px!important;
+ }
+ .navcta span{display:none!important}
+ .mobileNav{flex:0 0 42px!important;width:42px!important}
+ .mobileNavToggle{width:42px!important;height:42px!important}
+}
+@media(max-width:380px){
+ .nav{gap:6px!important}
+ .brand{gap:5px!important}
+ .brand img{width:36px!important;height:36px!important;flex-basis:36px!important}
+ .brand strong{font-size:.9rem!important}
+ .brand em{font-size:.54rem!important}
+ .navcta{padding:9px 8px!important;font-size:.64rem!important}
+ .mobileNav,.mobileNavToggle{width:39px!important;flex-basis:39px!important}
+}
 </style>
 
 <script id="TASVIA_MOBILE_NAVIGATION">
