@@ -1644,11 +1644,11 @@ h1,h2,h3,h4,h5,h6,.sectionTitle{font-weight:700;letter-spacing:-.025em;line-heig
 <style id="tasvia-admission-alignment-v18">
 /* Admission section: consistent spacing, four distinct process cards and aligned form. */
 #admissionIntro{max-width:820px}
-#admissionJourney{
+.admissionJourney{
  display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
  gap:14px!important;width:100%!important;margin:26px 0 30px!important;align-items:stretch!important
 }
-#admissionJourneyStep{}
+.admissionJourneyStep{}
 .admissionJourneyStep{
  display:grid!important;grid-template-columns:38px minmax(0,1fr)!important;
  grid-template-rows:auto auto!important;align-content:start!important;align-items:center!important;
@@ -1682,12 +1682,12 @@ h1,h2,h3,h4,h5,h6,.sectionTitle{font-weight:700;letter-spacing:-.025em;line-heig
 .admissionForm .formField textarea{min-height:100px!important}
 .admissionAside{position:sticky!important;top:112px!important;align-self:start!important}
 @media(max-width:900px){
- #admissionJourney{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .admissionJourney{grid-template-columns:repeat(2,minmax(0,1fr))!important}
  .admissionGrid{grid-template-columns:1fr!important}
  .admissionAside{position:static!important}
 }
 @media(max-width:560px){
- #admissionJourney{grid-template-columns:1fr!important;gap:10px!important;margin:20px 0 22px!important}
+ .admissionJourney{grid-template-columns:1fr!important;gap:10px!important;margin:20px 0 22px!important}
  .admissionJourneyStep{min-height:76px!important;padding:13px!important}
  .admissionForm .formFields{grid-template-columns:1fr!important;gap:14px!important}
  .admissionForm .formFieldFull{grid-column:auto!important}
