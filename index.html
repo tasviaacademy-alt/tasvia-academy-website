@@ -1544,25 +1544,13 @@ h1,h2,h3,h4,h5,h6,.sectionTitle{font-weight:700;letter-spacing:-.025em;line-heig
 </style>
 
 
-<style id="tasvia-mobile-orbit-animation-fix-v13">
-/* iOS-safe mobile orbit: use a real dashed border instead of a masked gradient. */
+<style id="tasvia-mobile-remove-logo-orbit-v14">
+/* Remove the decorative dotted orbit on mobile only; retain desktop styling. */
 @media(max-width:650px){
- .topbar a.brand{position:relative!important;overflow:visible!important}
  .topbar a.brand::before{
-  content:""!important;display:block!important;visibility:visible!important;opacity:1!important;
-  position:absolute!important;z-index:5!important;pointer-events:none!important;
-  left:26px!important;top:50%!important;width:60px!important;height:60px!important;
-  box-sizing:border-box!important;border:1.5px dashed #C89B2C!important;border-top:2.5px solid #D4A52D!important;
-  border-radius:50%!important;background:transparent!important;
-  -webkit-mask:none!important;mask:none!important;
-  transform:translate(-50%,-50%) rotate(0deg)!important;
-  transform-origin:50% 50%!important;
-  animation:tasviaVisibleOrbitV10 8s linear infinite!important;
-  will-change:transform!important;
+  content:none!important;display:none!important;visibility:hidden!important;
+  animation:none!important;background:none!important;border:0!important;
  }
-}
-@media(max-width:380px){
- .topbar a.brand::before{left:24px!important;width:56px!important;height:56px!important}
 }
 </style>
 
