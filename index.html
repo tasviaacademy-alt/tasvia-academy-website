@@ -1531,9 +1531,16 @@ h1,h2,h3,h4,h5,h6,.sectionTitle{font-weight:700;letter-spacing:-.025em;line-heig
 }
 </style>
 
-<style id="tasvia-remove-dotted-logo-orbit-v10">
-/* Remove the decorative dotted orbit around the official TASVIA logo. */
-.topbar a.brand::before,.topbar a.brand::after{content:none!important;display:none!important;border:0!important;animation:none!important;box-shadow:none!important}
+<style id="tasvia-restore-visible-rotating-logo-orbit-v11">
+/* Keep the gold dotted orbit visible and rotate it around the circular logo. */
+.topbar a.brand{position:relative!important;overflow:visible!important}
+.topbar a.brand::before{
+ content:""!important;display:block!important;visibility:visible!important;opacity:1!important;
+ animation:tasviaVisibleOrbitV10 8s linear infinite!important;
+}
+@media(prefers-reduced-motion:reduce){
+ .topbar a.brand::before{animation:none!important}
+}
 </style>
 
 <style id="TASVIA_WHY_SECTION_MOBILE_ALIGNMENT_V2">
