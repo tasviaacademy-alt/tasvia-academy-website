@@ -2014,3 +2014,37 @@ h1,h2,h3,h4,h5,h6,.sectionTitle{font-weight:700;letter-spacing:-.025em;line-heig
      'Current / Joining Class: '+value('studentClass'),
      'Programme: '+value('program'),
      'Subject / Learning Need: '+(value('subject')||'Not specified'),
+})(); 
+</script>
+<script id="tasvia-mobile-navigation-functional-v16">
+(function(){
+ function setup(){
+  const button=document.querySelector('.topbar .mobileNavToggle');
+  const panel=document.querySelector('.topbar #mobileNavPanel');
+  const wrapper=document.querySelector('.topbar .mobileNav');
+  if(!button||!panel||!wrapper||button.dataset.menuReady==='yes')return;
+  button.dataset.menuReady='yes';
+  function setOpen(open){
+   panel.hidden=!open;
+   button.setAttribute('aria-expanded',open?'true':'false');
+   button.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');
+   if(open){
+    panel.style.setProperty('display','grid','important');
+    panel.style.setProperty('visibility','visible','important');
+    panel.style.setProperty('pointer-events','auto','important');
+   }else{
+    panel.style.removeProperty('display');
+    panel.style.removeProperty('visibility');
+    panel.style.removeProperty('pointer-events');
+   }
+  }
+  button.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();setOpen(panel.hidden);},{passive:false});
+  panel.addEventListener('click',e=>e.stopPropagation());
+  panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
+  document.addEventListener('click',e=>{if(!wrapper.contains(e.target))setOpen(false);});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){setOpen(false);button.focus();}});
+  setOpen(false);
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup,{once:true});else setup();
+})();
+</script>
