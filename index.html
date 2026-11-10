@@ -2161,3 +2161,25 @@ h1,h2,h3,h4,h5,h6,.sectionTitle{font-weight:700;letter-spacing:-.025em;line-heig
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup,{once:true});else setup();
 })();
 </script>
+
+<style id="tasvia-admission-final-alignment-v20">
+/* Final override: align the admission form and help card to the same row height. */
+@media(min-width:851px){
+ #enquiry>.wrap{width:min(1240px,calc(100% - 56px))!important;max-width:1240px!important;margin-left:auto!important;margin-right:auto!important}
+ #enquiry .admissionGrid{display:grid!important;grid-template-columns:minmax(0,2fr) minmax(300px,1fr)!important;gap:24px!important;align-items:stretch!important;width:100%!important}
+ #enquiry .admissionGrid>.admissionForm,#enquiry .admissionGrid>.admissionAside{box-sizing:border-box!important;width:100%!important;min-width:0!important;height:auto!important;min-height:100%!important;margin:0!important;align-self:stretch!important;position:static!important}
+ #enquiry .admissionForm{padding:28px!important}
+ #enquiry .admissionAside{display:flex!important;flex-direction:column!important;justify-content:flex-start!important;padding:30px 28px!important}
+ #enquiry .admissionAside ol{margin:22px 0 28px!important}
+ #enquiry .admissionAside .asideContact{margin-top:auto!important}
+}
+@media(min-width:561px) and (max-width:850px){
+ #enquiry>.wrap{width:calc(100% - 40px)!important}
+ #enquiry .admissionGrid{grid-template-columns:minmax(0,1fr)!important;gap:18px!important;align-items:stretch!important}
+ #enquiry .admissionAside{position:static!important;width:100%!important}
+}
+@media(max-width:560px){
+ #enquiry>.wrap{width:calc(100% - 28px)!important}
+ #enquiry .admissionGrid{grid-template-columns:minmax(0,1fr)!important;gap:16px!important}
+}
+</style>
