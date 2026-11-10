@@ -1543,6 +1543,22 @@ h1,h2,h3,h4,h5,h6,.sectionTitle{font-weight:700;letter-spacing:-.025em;line-heig
 }
 </style>
 
+
+<style id="tasvia-mobile-orbit-animation-fix-v12">
+/* Explicit mobile animation override: rotate the orbit, never the logo image. */
+@media(max-width:650px){
+ .topbar a.brand{position:relative!important;overflow:visible!important}
+ .topbar a.brand::before{
+  content:""!important;display:block!important;visibility:visible!important;opacity:1!important;
+  animation-name:tasviaVisibleOrbitV10!important;
+  animation-duration:8s!important;animation-timing-function:linear!important;
+  animation-iteration-count:infinite!important;animation-direction:normal!important;
+  animation-fill-mode:both!important;transform-origin:50% 50%!important;
+  will-change:transform!important;
+ }
+}
+</style>
+
 <style id="TASVIA_WHY_SECTION_MOBILE_ALIGNMENT_V2">
 /* Mobile alignment refinement for The TASVIA Difference section. */
 @media(max-width:650px){
