@@ -1981,13 +1981,17 @@ h1,h2,h3,h4,h5,h6,.sectionTitle{font-weight:700;letter-spacing:-.025em;line-heig
 @media(max-width:650px){.whatsapp-float-cta{display:none!important}} /* The mobileActionBar already provides WhatsApp and Call buttons; hide the duplicate floating CTA to prevent overlap. */
 @media(prefers-reduced-motion:reduce){.whatsapp-float-cta{transition:none}}
 /* Footer layout refinement: wider link columns and balanced spacing */
-footer .footerMain{max-width:1280px;padding-left:28px;padding-right:28px;grid-template-columns:1fr 1.12fr 1.34fr .94fr;column-gap:0;align-items:start}
+footer .footerMain{max-width:1280px;padding-left:28px;padding-right:28px;grid-template-columns:.98fr .9fr 1.15fr 1.28fr;column-gap:0;align-items:start}
 footer .footerCol{padding-left:18px;padding-right:18px}
 footer .footerCol:first-child{padding-left:0}
 footer .footerCol:last-child{padding-right:0}
 footer .footerCol h4{min-height:2.4em;line-height:1.35;margin-bottom:15px}
 footer .footerLinks li{margin:8px 0}
 footer .footerLinks a{display:inline-block;line-height:1.5;overflow-wrap:normal;word-break:normal}
+footer .footerContact{min-width:0}
+footer .footerContact a[href^="mailto"] span:last-child{font-size:.78rem;overflow-wrap:normal;word-break:keep-all;white-space:normal}
+footer .footerContact a{min-width:0}
+
 @media(min-width:951px) and (max-width:1100px){
  footer .footerMain{grid-template-columns:1fr 1fr;row-gap:28px}
  footer .footerCol:nth-child(3){border-left:0;padding-left:0}
