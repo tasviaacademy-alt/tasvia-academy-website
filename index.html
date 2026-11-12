@@ -2184,7 +2184,6 @@ h1,h2,h3,h4,h5,h6,.sectionTitle{font-weight:700;letter-spacing:-.025em;line-heig
  if(!form||form.dataset.ready==='true')return;
  form.dataset.ready='true';
  const status=document.getElementById('enquiryFormStatus');
- const phone=document.getElementById('enquiryPhone');
  const fields=[...form.querySelectorAll('input[required],select[required]')];
  const validateField=field=>{
    const valid=field.checkValidity();
@@ -2216,7 +2215,16 @@ h1,h2,h3,h4,h5,h6,.sectionTitle{font-weight:700;letter-spacing:-.025em;line-heig
      'Current / Joining Class: '+value('studentClass'),
      'Programme: '+value('program'),
      'Subject / Learning Need: '+(value('subject')||'Not specified'),
-})(); 
+     'Demo / Trial: '+value('trial'),
+     'Preferred Contact Time: '+value('contactTime'),
+     'Additional Information: '+(value('message')||'Not provided')
+   ];
+   const url='https://wa.me/917842138739?text='+encodeURIComponent(lines.join('\n'));
+   const opened=window.open(url,'_blank','noopener,noreferrer');
+   if(!opened){window.location.href=url;return;}
+   status.textContent='WhatsApp opened with your enquiry. Please review the message and tap Send.';
+ });
+})();
 </script>
 <script id="tasvia-mobile-navigation-functional-v16">
 (function(){
