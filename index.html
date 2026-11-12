@@ -1980,21 +1980,21 @@ h1,h2,h3,h4,h5,h6,.sectionTitle{font-weight:700;letter-spacing:-.025em;line-heig
 .whatsapp-float-cta .wa-icon{font-size:1.25rem;line-height:1}
 @media(max-width:650px){.whatsapp-float-cta{display:none!important}} /* The mobileActionBar already provides WhatsApp and Call buttons; hide the duplicate floating CTA to prevent overlap. */
 @media(prefers-reduced-motion:reduce){.whatsapp-float-cta{transition:none}}
-/* Footer layout refinement: balanced columns and clear link groups */
-footer .footerMain{grid-template-columns:1.05fr 1fr 1.12fr 1.02fr;column-gap:0;align-items:start}
-footer .footerCol{padding-left:clamp(16px,2vw,28px);padding-right:clamp(16px,2vw,28px)}
+/* Footer layout refinement: wider link columns and balanced spacing */
+footer .footerMain{max-width:1280px;padding-left:28px;padding-right:28px;grid-template-columns:1fr 1.12fr 1.34fr .94fr;column-gap:0;align-items:start}
+footer .footerCol{padding-left:18px;padding-right:18px}
 footer .footerCol:first-child{padding-left:0}
 footer .footerCol:last-child{padding-right:0}
 footer .footerCol h4{min-height:2.4em;line-height:1.35;margin-bottom:15px}
 footer .footerLinks li{margin:8px 0}
-footer .footerLinks a{display:inline-block;line-height:1.5;overflow-wrap:anywhere}
+footer .footerLinks a{display:inline-block;line-height:1.5;overflow-wrap:normal;word-break:normal}
 @media(min-width:951px) and (max-width:1100px){
  footer .footerMain{grid-template-columns:1fr 1fr;row-gap:28px}
  footer .footerCol:nth-child(3){border-left:0;padding-left:0}
  footer .footerCol:nth-child(2){border-left:1px solid rgba(255,255,255,.2)}
 }
 @media(max-width:950px){
- footer .footerMain{grid-template-columns:1fr;row-gap:0}
+ footer .footerMain{grid-template-columns:1fr;row-gap:0;padding-left:22px;padding-right:22px}
  footer .footerCol,footer .footerCol:first-child,footer .footerCol:last-child{padding:0 0 22px;margin:0 0 22px;border-left:0;border-bottom:1px solid rgba(255,255,255,.18)}
  footer .footerCol:last-child{border-bottom:0;margin-bottom:0}
  footer .footerCol h4{min-height:0;margin-bottom:12px}
