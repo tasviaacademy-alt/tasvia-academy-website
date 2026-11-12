@@ -1737,6 +1737,41 @@ h1,h2,h3,h4,h5,h6,.sectionTitle{font-weight:700;letter-spacing:-.025em;line-heig
 }
 </style>
 
+
+<style id="tasvia-programmes-dropdown-fix-v21">
+/* Desktop Safari/Chrome: render Programmes as a real anchored dropdown,
+   not as inline text inside the navigation flex row. */
+.topbar .links{overflow:visible!important}
+.topbar .navDropdown{position:relative!important;display:block!important;flex:0 0 auto!important;align-self:center!important}
+.topbar .navDropdown>summary{
+  display:flex!important;align-items:center!important;gap:5px!important;
+  list-style:none!important;white-space:nowrap!important;cursor:pointer!important;
+  font-size:.88rem!important;font-weight:600!important;color:#35445d!important;
+  padding:10px 0!important;user-select:none!important
+}
+.topbar .navDropdown>summary::-webkit-details-marker{display:none!important}
+.topbar .navDropdown>summary::marker{content:""!important}
+.topbar .navDropdownMenu{
+  display:none!important;position:absolute!important;top:calc(100% + 5px)!important;left:0!important;
+  z-index:1000!important;min-width:235px!important;padding:8px!important;
+  background:#fff!important;border:1px solid #e6eaf0!important;border-radius:12px!important;
+  box-shadow:0 16px 36px rgba(10,33,71,.18)!important;
+  flex-direction:column!important;gap:2px!important;white-space:normal!important
+}
+.topbar .navDropdown[open]>.navDropdownMenu{display:flex!important}
+.topbar .navDropdownMenu>a{
+  display:block!important;padding:10px 12px!important;border-radius:8px!important;
+  color:#172b4d!important;text-decoration:none!important;font-size:.86rem!important;
+  font-weight:600!important;line-height:1.35!important;white-space:normal!important
+}
+.topbar .navDropdownMenu>a:hover,.topbar .navDropdownMenu>a:focus-visible{
+  background:#fff4cf!important;color:#0a2147!important
+}
+@media(max-width:1100px){
+ .topbar .links .navDropdown{display:none!important}
+}
+</style>
+
 </head><body>
 <header class="topbar"><div class="wrap nav"><a class="brand" href="#home" aria-label="TASVIA Academy home"><img alt="TASVIA Academy logo" decoding="async" loading="eager" src="/assets/logo.png"/><span><strong>TASVIA</strong><em>ACADEMY</em><small>Learn Today • Lead Tomorrow</small></span></a><nav aria-label="Primary navigation" class="links"><a href="#home">Home</a><a href="#about">About</a><details class="navDropdown"><summary>Programmes <span aria-hidden="true">⌄</span></summary><div class="navDropdownMenu"><a href="#programs">All Programmes</a><a href="/tuition-classes-nizamabad">Tuition Classes</a><a href="/abacus-classes-nizamabad">Abacus Training</a><a href="/navodaya-coaching-nizamabad">Navodaya Coaching</a><a href="/sainik-school-coaching-nizamabad">Sainik School Coaching</a></div></details><a href="#why">Why TASVIA</a><a href="/blog/">Blog</a><a href="#parent-portal">Parent Portal</a><a href="#contact">Contact</a><a href="https://apk.tasviaacademy.com/index.html" class="staffNav" aria-label="Open TASVIA Staff Login">Staff Login</a></nav><a class="navcta" href="#enquiry">Enquire Now <span aria-hidden="true">→</span></a><div class="mobileNav"><button class="mobileNavToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNavPanel"><span></span><span></span><span></span></button><nav id="mobileNavPanel" aria-label="Mobile navigation" class="mobileNavPanel" hidden><a href="#home">Home</a><a href="#about">About</a><details class="mobileNavGroup"><summary>Programmes</summary><a href="#programs">All Programmes</a><a href="/tuition-classes-nizamabad">Tuition Classes</a><a href="/abacus-classes-nizamabad">Abacus Training</a><a href="/navodaya-coaching-nizamabad">Navodaya Coaching</a><a href="/sainik-school-coaching-nizamabad">Sainik School Coaching</a></details><a href="#why">Why TASVIA</a><a href="/blog/">Blog</a><a href="#parent-portal">Parent Portal</a><a href="#contact">Contact</a><a href="https://apk.tasviaacademy.com/index.html">Staff Login</a></nav></div></div></header>
 <main id="main">
