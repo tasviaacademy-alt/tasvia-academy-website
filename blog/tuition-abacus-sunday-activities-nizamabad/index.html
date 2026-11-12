@@ -8,14 +8,82 @@
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0A2147;--gold:#EFB52B;--gold2:#FFC94A;--ink:#172B4D;--muted:#63728A;--line:#E6EAF0;--soft:#F6F8FB}*{box-sizing:border-box}body{margin:0;color:var(--ink);font:16px/1.75 "DM Sans",Arial,sans-serif}a{color:inherit}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}.top{border-bottom:1px solid var(--line)}.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none}.brand img{width:50px;height:50px;object-fit:contain}.brand strong{display:block;color:var(--navy);font:800 1.12rem "Playfair Display",Georgia,serif}.brand small{display:block;color:#A57608;font-size:.66rem;font-weight:800;letter-spacing:.1em}.navlinks{display:flex;gap:20px}.navlinks a{text-decoration:none;font-size:.88rem;font-weight:700}.pillbtn{display:inline-block;padding:11px 18px;border-radius:999px;background:var(--gold2);color:var(--navy);text-decoration:none;font-weight:800}.hero{background:linear-gradient(130deg,#F8FAFD,#fff 62%,#FFF8E8);padding:48px 0 42px}.crumb,.byline{font-size:.83rem;color:#78859A}.crumb{margin-bottom:18px}.crumb a{color:var(--navy);font-weight:700;text-decoration:none}.eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.16em;color:#A57608}.hero h1{max-width:900px;margin:12px 0 16px;font:800 clamp(2.2rem,4.7vw,3.8rem)/1.12 "Playfair Display",Georgia,serif;color:var(--navy)}.hero p{max-width:780px;color:var(--muted);font-size:1.06rem}.byline{margin-top:22px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 285px;gap:44px;padding:48px 0 80px}.article h2{font:700 1.75rem/1.25 "Playfair Display",Georgia,serif;color:var(--navy);margin:42px 0 12px}.article h3{font:700 1.18rem "Playfair Display",Georgia,serif;color:var(--navy)}.article p{color:#485A73}.article li{margin:8px 0;color:#485A73}.article ul,.article ol{padding-left:23px}.callout{padding:20px 22px;margin:25px 0;border-left:4px solid var(--gold);background:#FFF9EC;border-radius:0 12px 12px 0;color:#4D5D72}.callout strong{color:var(--navy)}.toc,.sidebox{padding:22px;border:1px solid var(--line);border-radius:15px;box-shadow:0 10px 28px rgba(10,33,71,.05)}.toc h2,.sidebox h2{font:700 1.12rem "Playfair Display",Georgia,serif;color:var(--navy);margin:0 0 12px}.toc li{font-size:.88rem;margin:7px 0}.toc a{text-decoration:none}.side{display:grid;gap:18px;align-content:start;position:sticky;top:20px;height:max-content}.sidebox p{font-size:.9rem;color:var(--muted)}.sidebox .pillbtn{width:100%;text-align:center}.sidebox ul{padding-left:19px;font-size:.88rem}.faq{border-top:1px solid var(--line);padding:15px 0}.faq h3{margin:0 0 7px;font-size:1.04rem}.endcta{margin-top:34px;padding:28px;border-radius:18px;background:var(--navy);color:#fff}.endcta h2{color:#fff;margin:0 0 8px}.endcta p{color:#D8E2F0}.related{margin-top:36px;padding:24px;border-radius:16px;background:var(--soft)}.related a{color:var(--navy);font-weight:800;text-decoration:none}.footer{background:#071A38;color:#EAF0F8;padding:28px 0}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.82rem}.foot a{color:#FFD66A;text-decoration:none}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;padding:16px;border:1px solid var(--line);border-radius:14px;background:#F8FAFD}.actions a{padding:10px 15px;border-radius:999px;text-decoration:none;font-size:.84rem;font-weight:800}.wa{background:var(--gold2);color:var(--navy)}.call{background:var(--navy);color:#fff}@media(max-width:900px){.layout{grid-template-columns:1fr}.side{position:static;grid-template-columns:1fr 1fr}}@media(max-width:650px){.nav{padding:12px 0;flex-wrap:wrap}.navlinks{order:3;width:100%;justify-content:space-between;gap:8px}.navlinks a{font-size:.76rem}.layout{padding:30px 0 58px}.side{grid-template-columns:1fr}.wrap{width:calc(100% - 30px)}.article h2{font-size:1.5rem}}
+
+/* Editorial polish: accessible, responsive TASVIA article */
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{background:#fff}
+.skip-link{position:absolute;left:-9999px;top:8px;z-index:1000;background:#fff;color:var(--navy);padding:10px 14px;border-radius:8px}
+.skip-link:focus{left:12px}
+.reading-progress{position:fixed;inset:0 0 auto;height:4px;background:transparent;z-index:1000}
+.reading-progress span{display:block;height:100%;width:0;background:var(--gold);transition:width .1s linear}
+.top{position:relative;background:rgba(255,255,255,.96)}
+.navlinks a:hover,.crumb a:hover,.related a:hover,.toc a:hover{color:#A57608}
+a:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:5px}
+.pillbtn,.actions a{transition:transform .18s ease,box-shadow .18s ease}
+.pillbtn:hover,.actions a:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(10,33,71,.13)}
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 88% 18%,rgba(255,201,74,.24),transparent 28%),linear-gradient(125deg,#071A38 0%,#0A2147 58%,#1D4272 100%);padding:58px 0 54px}
+.hero:after{content:"";position:absolute;width:340px;height:340px;border:1px solid rgba(255,255,255,.12);border-radius:50%;right:-95px;bottom:-230px;box-shadow:0 0 0 32px rgba(255,255,255,.035),0 0 0 68px rgba(255,255,255,.025)}
+.hero .wrap{position:relative;z-index:1}
+.hero .crumb,.hero .crumb a,.hero .byline{color:#D5DFEF}
+.hero .eyebrow{color:#FFD66A}
+.hero h1{color:#fff;max-width:850px}
+.hero p{color:#E2EAF5}
+.layout{gap:38px;padding-top:42px}
+.article{min-width:0}
+.article>p{font-size:1.015rem}
+.article h2{scroll-margin-top:24px;padding-top:5px}
+.article h2:after{content:"";display:block;width:48px;height:3px;background:var(--gold);border-radius:3px;margin-top:12px}
+.article a:not(.pillbtn){text-underline-offset:3px;text-decoration-thickness:1px}
+.actions{box-shadow:0 8px 24px rgba(10,33,71,.045)}
+.callout{box-shadow:0 5px 18px rgba(10,33,71,.035)}
+.toc{background:linear-gradient(145deg,#fff,#F7F9FC);margin:26px 0 34px}
+.toc ol{columns:2;column-gap:28px;margin:0;padding-left:22px}
+.toc li{break-inside:avoid;padding:2px 0}
+.toc a{color:#42536C}
+.programme-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:24px 0 34px}
+.programme-tile{border:1px solid var(--line);border-radius:15px;padding:17px 14px;background:#fff;box-shadow:0 8px 24px rgba(10,33,71,.045)}
+.programme-tile .symbol{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#FFF4D5;color:#8A6100;font-size:1.15rem;margin-bottom:10px}
+.programme-tile strong{display:block;color:var(--navy);font-size:.95rem;line-height:1.35}
+.programme-tile small{display:block;color:var(--muted);font-size:.78rem;line-height:1.45;margin-top:5px}
+.article ul{margin:12px 0 20px}
+.article li::marker{color:#B98512}
+.faq{padding:17px 0}
+.faq h3{font-family:"DM Sans",Arial,sans-serif;font-weight:800}
+.faq p{margin:6px 0 0}
+.side{top:24px}
+.sidebox{background:linear-gradient(145deg,#fff,#F8FAFD)}
+.sidebox:first-child{border-color:#E9D79F;background:linear-gradient(145deg,#FFF9E9,#fff)}
+.endcta{position:relative;overflow:hidden;box-shadow:0 16px 35px rgba(7,26,56,.16)}
+.endcta:after{content:"";position:absolute;width:190px;height:190px;border:1px solid rgba(255,255,255,.16);border-radius:50%;right:-55px;top:-105px;box-shadow:0 0 0 22px rgba(255,255,255,.04)}
+.endcta>*{position:relative;z-index:1}
+.related{border:1px solid var(--line);line-height:2}
+.footer{margin-top:10px}
+@media(max-width:900px){.side{position:static}.layout{gap:25px}}
+@media(max-width:650px){
+ .hero{padding:38px 0 34px}.hero h1{font-size:clamp(2rem,9vw,2.8rem)}
+ .layout{padding:26px 0 48px}.toc ol{columns:1}
+ .programme-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .programme-tile{padding:14px 12px}
+ .actions{padding:12px}.actions a{flex:1 1 auto;text-align:center}
+ .article h2{margin-top:34px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Tuition, German Language and Parent Portal at TASVIA Academy, Nizamabad","description":"An overview of tuition from LKG to Intermediate, Abacus, entrance coaching, Sunday enrichment and the TASVIA Parent Portal for attendance, homework, fees, notices, tests and learning resources.","image":"https://www.tasviaacademy.com/assets/hero.jpg","datePublished":"2026-11-03","dateModified":"2026-11-12","author":{"@type":"Organization","name":"TASVIA Academy"},"publisher":{"@type":"EducationalOrganization","name":"TASVIA Academy","url":"https://www.tasviaacademy.com/","logo":{"@type":"ImageObject","url":"https://www.tasviaacademy.com/assets/logo.png"}},"mainEntityOfPage":"https://www.tasviaacademy.com/blog/tuition-abacus-sunday-activities-nizamabad/"}</script>
 </head><body>
+<a class="skip-link" href="#main-content">Skip to article</a><div class="reading-progress" aria-hidden="true"><span id="readingProgressBar"></span></div>
 <header class="top"><div class="wrap nav"><a class="brand" href="/"><img src="/assets/logo.png" alt="TASVIA Academy logo"><span><strong>TASVIA ACADEMY</strong><small>INSPIRE • LEARN • GROW • SUCCEED</small></span></a><nav class="navlinks" aria-label="Main navigation"><a href="/">Home</a><a href="/tuition-classes-nizamabad">Tuition</a><a href="/navodaya-coaching-nizamabad">Navodaya</a><a href="/sainik-school-coaching-nizamabad">Sainik School</a><a href="/blog/">Learning Blog</a></nav><a class="pillbtn" href="https://wa.me/917842138739?text=Hello%20TASVIA%20Academy%2C%20I%20would%20like%20to%20know%20about%20tuition%20and%20activities." target="_blank" rel="noopener">Enquire Now</a></div></header>
 <section class="hero"><div class="wrap"><div class="crumb"><a href="/">Home</a> › <a href="/blog/">Blog</a> › Tuition &amp; Activities</div><div class="eyebrow">TUITION · GERMAN LANGUAGE · PARENT PORTAL · NIZAMABAD</div><h1>Tuition, German Language &amp; Parent Portal at TASVIA Academy</h1><p>A practical guide for parents to explore tuition, beginner German learning, Abacus, entrance coaching, Sunday activities and the digital tools available through TASVIA Academy.</p><div class="byline">By TASVIA Academy · Updated 12 November 2026 · 6 min read</div></div></section>
-<main class="wrap layout"><article class="article">
+<main class="wrap layout" id="main-content"><article class="article">
 <div class="actions"><a class="pillbtn" href="https://apk.tasviaacademy.com/parent.html" target="_blank" rel="noopener">Open Parent Portal →</a><a class="wa" href="https://wa.me/917842138739?text=Hello%20TASVIA%20Academy%2C%20please%20share%20tuition%20and%20Sunday%20activity%20details." target="_blank" rel="noopener">WhatsApp for Details</a><a class="call" href="tel:+917842138739">Call 78421 38739</a><a href="/tuition-classes-nizamabad">Tuition Programme →</a></div>
 <div class="callout"><strong>At a glance:</strong> Tuition from LKG to Intermediate, all subjects; Abacus training; Navodaya and Sainik School entrance coaching; and Sunday activities including yoga, indoor games and communication skills.</div>
+<div class="programme-strip" aria-label="TASVIA learning programmes">
+<div class="programme-tile"><span class="symbol" aria-hidden="true">📚</span><strong>Regular Tuition</strong><small>LKG to Intermediate · All subjects</small></div>
+<div class="programme-tile"><span class="symbol" aria-hidden="true">🇩🇪</span><strong>German Language</strong><small>Beginner-friendly learning</small></div>
+<div class="programme-tile"><span class="symbol" aria-hidden="true">🧮</span><strong>Abacus Training</strong><small>Number sense and calculation practice</small></div>
+<div class="programme-tile"><span class="symbol" aria-hidden="true">🎯</span><strong>Entrance Coaching</strong><small>Navodaya and Sainik School</small></div>
+</div>
 <nav class="toc" aria-label="Table of contents"><h2>In this guide</h2><ol><li><a href="#tuition">Tuition for LKG to Intermediate</a></li><li><a href="#german">Introduction to German Language</a></li><li><a href="#timings">Daily tuition timings</a></li><li><a href="#abacus">Abacus and entrance coaching</a></li><li><a href="#sunday">Sunday activities</a></li><li><a href="#portal">Parent Portal updates</a></li><li><a href="#faculty">Faculty team and campus</a></li><li><a href="#faq">Frequently asked questions</a></li></ol></nav>
 <h2 id="tuition">1. Tuition for LKG to Intermediate</h2>
 <p>TASVIA Academy offers tuition support for learners from <strong>LKG to Intermediate</strong>, covering <strong>all subjects</strong>. Students can strengthen concepts, practise school lessons, complete homework with guidance and prepare for academic assessments.</p>
@@ -68,4 +136,7 @@
 </article>
 <aside class="side"><div class="sidebox"><h2>Parent Portal</h2><p>Already enrolled? Open the parent portal to check notices, attendance, homework, fees and learning updates.</p><a class="pillbtn" href="https://apk.tasviaacademy.com/parent.html" target="_blank" rel="noopener">Open Parent Portal →</a></div><div class="sidebox"><h2>Talk to TASVIA</h2><p>Ask about your child’s class, tuition subjects, Sunday activities and available timings.</p><a class="pillbtn" href="tel:+917842138739">Call 78421 38739</a><p><a href="https://wa.me/917842138739?text=Hello%20TASVIA%20Academy" style="color:#0A2147;font-weight:800">WhatsApp us →</a></p></div><div class="sidebox"><h2>Explore programmes</h2><ul><li><a href="/tuition-classes-nizamabad">Regular Tuition</a></li><li><a href="/abacus-classes-nizamabad">Abacus Training</a></li><li><a href="/german-language-classes-nizamabad">German Language</a></li><li><a href="/navodaya-coaching-nizamabad">Navodaya Coaching</a></li><li><a href="/sainik-school-coaching-nizamabad">Sainik School Coaching</a></li></ul></div><div class="sidebox"><h2>Plan your visit</h2><p>2nd Floor, Srinivasa Nilayam, Road No. 1, Gangasthan Phase 2, Nizamabad, Telangana.</p><p>Confirm current batch and activity availability before visiting.</p></div></aside>
 </main><footer class="footer"><div class="wrap foot"><span>© 2026 TASVIA Academy · Nizamabad, Telangana</span><span><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="tel:+917842138739">+91 78421 38739</a></span></div></footer>
+<script>
+(function(){var bar=document.getElementById("readingProgressBar");if(!bar)return;function update(){var d=document.documentElement;var max=d.scrollHeight-d.clientHeight;var pct=max>0?(d.scrollTop/max)*100:0;bar.style.width=Math.min(100,Math.max(0,pct))+"%"}window.addEventListener("scroll",update,{passive:true});window.addEventListener("resize",update);update()})();
+</script>
 </body></html>
