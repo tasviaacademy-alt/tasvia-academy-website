@@ -1865,6 +1865,30 @@ h1,h2,h3,h4,h5,h6,.sectionTitle{font-weight:700;letter-spacing:-.025em;line-heig
   #programs .programs { grid-template-columns:1fr !important; }
 }
 </style>
+
+<style id="TASVIA_HEADER_ENQUIRE_OVERLAP_FIX">
+/* Prevent the desktop Enquire Now button from colliding with Staff Login/navigation. */
+@media (min-width:951px) and (max-width:1350px){
+  .topbar .nav{gap:8px!important;width:calc(100% - 36px)!important}
+  .topbar .brand{min-width:0!important;flex:0 0 190px!important;gap:8px!important}
+  .topbar .brand img{width:46px!important;height:46px!important;flex:0 0 46px!important}
+  .topbar .brand strong{font-size:1.18rem!important}
+  .topbar .brand em{font-size:.82rem!important;letter-spacing:.1em!important}
+  .topbar .brand small{font-size:.48rem!important}
+  .topbar .links{flex:1 1 auto!important;min-width:0!important;gap:clamp(6px,.7vw,10px)!important;justify-content:flex-end!important}
+  .topbar .links a,.topbar .links summary{font-size:clamp(.64rem,.67vw,.74rem)!important}
+  .topbar .navcta{flex:0 0 auto!important;margin:0!important;padding:8px 10px!important;font-size:.68rem!important}
+}
+@media (min-width:951px) and (max-width:1080px){
+  .topbar .brand{flex-basis:165px!important}
+  .topbar .brand strong{font-size:1.05rem!important}
+  .topbar .brand em{font-size:.74rem!important}
+  .topbar .links{gap:5px!important}
+  .topbar .links a,.topbar .links summary{font-size:.62rem!important}
+  .topbar .navcta{padding:7px 8px!important;font-size:.62rem!important}
+}
+</style>
+
 </head><body>
 <header class="topbar"><div class="wrap nav"><a class="brand" href="#home" aria-label="TASVIA Academy home"><img alt="TASVIA Academy logo" decoding="async" loading="eager" src="/assets/logo.png"/><span><strong>TASVIA</strong><em>ACADEMY</em><small>Learn Today • Lead Tomorrow</small></span></a><nav aria-label="Primary navigation" class="links"><a href="#home">Home</a><a href="#about">About</a><details class="navDropdown"><summary>Programmes <span aria-hidden="true">⌄</span></summary><div class="navDropdownMenu"><a href="#programs">All Programmes</a><a href="/tuition-classes-nizamabad">Tuition Classes</a><a href="/abacus-classes-nizamabad">Foundation &amp; Abacus</a><a href="/navodaya-coaching-nizamabad">Navodaya Coaching</a><a href="/sainik-school-coaching-nizamabad">Sainik School Coaching</a><a href="/german-language-classes-nizamabad">German Language</a></div></details><a href="#why">Why TASVIA</a><a href="/blog/">Blog</a><a href="#parent-portal">Parent Portal</a><a href="/jnvst-admit-card/">JNVST Admit Card</a><a href="#contact">Contact</a><a href="https://apk.tasviaacademy.com/index.html" class="staffNav" aria-label="Open TASVIA Staff Login">Staff Login</a></nav><a class="navcta" href="#enquiry">Enquire Now <span aria-hidden="true">→</span></a><div class="mobileNav"><button class="mobileNavToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNavPanel"><span></span><span></span><span></span></button><nav id="mobileNavPanel" aria-label="Mobile navigation" class="mobileNavPanel" hidden><a href="#home">Home</a><a href="#about">About</a><details class="mobileNavGroup"><summary>Explore TASVIA</summary><a href="/about/">About TASVIA</a><a href="/admissions/">Admissions</a><a href="/faq/">FAQs</a><a href="#programs">All Programmes</a><a href="/tuition-classes-nizamabad">Tuition Classes</a><a href="/abacus-classes-nizamabad">Foundation &amp; Abacus</a><a href="/navodaya-coaching-nizamabad">Navodaya Coaching</a><a href="/sainik-school-coaching-nizamabad">Sainik School Coaching</a><a href="/german-language-classes-nizamabad">German Language</a></details><a href="#why">Why TASVIA</a><a href="/blog/">Blog</a><a href="#parent-portal">Parent Portal</a><a href="#jnvst-admit-card">JNVST Admit Card</a><a href="#contact">Contact</a><a href="https://apk.tasviaacademy.com/index.html">Staff Login</a></nav></div></div></header>
 <main id="main">
